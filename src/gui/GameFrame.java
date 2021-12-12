@@ -1,3 +1,4 @@
+package gui;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
@@ -13,10 +14,6 @@ public class GameFrame extends JFrame {
         this.pack();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
-    }
-
-        public static void main(String[] args)  {
-        new GameFrame();
     }
 
 }

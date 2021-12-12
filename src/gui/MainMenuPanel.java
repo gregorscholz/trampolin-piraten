@@ -1,3 +1,4 @@
+package gui;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontFormatException;
