@@ -21,7 +21,7 @@ public class LevelChoosingPanel extends JPanel {
     private ArrayList<JPanel> rowspanel;
     private ArrayList<FlowLayout> rowslayout;
     private JLabel levels, einfach, mittel, schwer;
-    private JButton zurück;
+    private JButton zurueck;
     private ImageIcon levelicon;
     private Font pirate_font;
 
@@ -71,11 +71,11 @@ public class LevelChoosingPanel extends JPanel {
         schwer.setFont(pirate_font);
         rowspanel.get(5).add(schwer);
 
-        zurück = new JButton("Zurück");
-        zurück.setPreferredSize(new Dimension(100, 50));
-        zurück.addActionListener(e -> GamePanel.switchToMain());
+        zurueck = new JButton("Zurueck");
+        zurueck.setPreferredSize(new Dimension(100, 50));
+        zurueck.addActionListener(e -> GamePanel.switchToMain());
         rowspanel.get(7).add(Box.createRigidArea(new Dimension(1400, 60)));
-        rowspanel.get(7).add(zurück);
+        rowspanel.get(7).add(zurueck);
     }
 
     public void createLevelButtons() {
