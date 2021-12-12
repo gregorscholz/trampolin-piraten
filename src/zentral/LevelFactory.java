@@ -1,5 +1,7 @@
 package zentral;
 
+import spielelemente.IFSpielelement;
+
 /**
  * Factory-Klasse, welche einzelne Spielelemente nach den Vorgaben in Textform erstellt.
  * 

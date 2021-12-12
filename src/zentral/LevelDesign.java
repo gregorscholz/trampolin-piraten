@@ -1,5 +1,10 @@
 package zentral;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import spielelemente.IFSpielelement;
+
 /**
  * Klasse, welche die fuer das Level notwenigen Spielelemente erstellt.
  * Die Level sind vorgefertit in Textform vorhanden.
@@ -7,7 +12,7 @@ package zentral;
  * @author iveev
  */
 public class LevelDesign {
-	private Set<IFSpielemlement> alleElemente = new Hashset<IFSpielelement>();
+	private Set<IFSpielelement> alleElemente = new HashSet<IFSpielelement>();
 	
 	/**
 	 * Konstruktor fuer ein Leveldesign, welches je nach gewaehltem Level und Schwierigkeit das gewuenschte Level erstellt.
