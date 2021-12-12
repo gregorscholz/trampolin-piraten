@@ -7,5 +7,6 @@ package zentral;
  */
 public class Steuerung {
 	private char bewegungRechts = 'a'; 
-	private char bewegunglinks = 'd'; 
+	private char bewegunglinks = 'd';
+	//vielleicht
 }
