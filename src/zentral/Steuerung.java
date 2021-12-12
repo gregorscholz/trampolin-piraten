@@ -6,5 +6,6 @@ package zentral;
  * @author iveev
  */
 public class Steuerung {
-
+	private char bewegungRechts = 'a'; 
+	private char bewegunglinks = 'd'; 
 }
