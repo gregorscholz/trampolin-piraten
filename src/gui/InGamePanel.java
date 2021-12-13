@@ -2,6 +2,8 @@ package gui;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import zentral.Controller;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -30,7 +32,7 @@ public class InGamePanel extends JPanel {
     }
 
     public void setup() {
-        this.addKeyListener(new GameKeyListener());
+        this.addKeyListener(new Controller.getSteuerung());
         timer = new Timer(tick, new GameActionListener());
     }
 
@@ -63,7 +65,8 @@ public class InGamePanel extends JPanel {
 
     }
 
-    public class GameKeyListener implements KeyListener {
+    //eigentlich abgeloesst
+    /*public class GameKeyListener implements KeyListener { 
 
         @Override
         public void keyTyped(KeyEvent e) {
@@ -83,5 +86,5 @@ public class InGamePanel extends JPanel {
             
         }
 
-    }
+    }*/
 }
