@@ -15,4 +15,8 @@ public class Controller implements IFZentral {
 		return new Steuerung();
 	}
 
+	@Override
+	public void erstelleLevel(byte design, byte schwierigkeit) {
+		new LevelDesign(design, schwierigkeit);
+	}
 }

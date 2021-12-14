@@ -15,4 +15,11 @@ public interface IFZentral {
 	 * @author iveev
 	 */
 	public Steuerung getSteuerung();
+	
+	/**
+	 * Erstellt die Levelelemente zu dem ausgesuchten Aufbau und Schwierigkeit.
+	 * 
+	 * @author iveev
+	 */
+	public void erstelleLevel(byte a, byte b);
 }
