@@ -14,12 +14,16 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * Klasse für das Hauptmenu
+ * 
+ * @author Gregor Scholz
+ */
 public class MainMenuPanel extends JPanel {
 
-    private JLabel nameLabel, levelLabel, settingsLabel, exitLabel;
-    private JButton levelButton, settingsButton, exitButton;
+    private JLabel nameLabel;
     private ImageIcon icon;
-    private Font pirate_font_label, pirate_font_button;
+    private Font pirate_font;
 
     public MainMenuPanel() {
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
@@ -29,67 +33,73 @@ public class MainMenuPanel extends JPanel {
         setup();
     }
 
+    /**
+     * Erstellt das Overlay mit den Buttons und dem Label
+     * 
+     * @author Gregor Scholz
+     */
     public void setup() {
         nameLabel = new JLabel("Trampolin-Piraten");
         nameLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
-        nameLabel.setFont(pirate_font_label);
-        // TODO Hintergrund transparent oder eigene Textur
-
-    
-
-        levelButton = new JButton(icon);
-        levelButton.setAlignmentX(JButton.CENTER_ALIGNMENT);
-        levelButton.setMaximumSize(new Dimension(250, 50));
-        levelButton.addActionListener(e -> GamePanel.switchToLevel());
-        levelButton.setLayout(new GridBagLayout());
-        levelLabel = new JLabel("Levelauswahl");
-        levelLabel.setFont(pirate_font_button);
-        levelButton.add(levelLabel);
-        levelButton.setBorderPainted(false);
-        levelButton.setContentAreaFilled(false);
-
-        settingsButton = new JButton(icon);
-        settingsButton.setAlignmentX(JButton.CENTER_ALIGNMENT);
-        settingsButton.setMaximumSize(new Dimension(250, 50));
-        settingsButton.addActionListener(e -> GamePanel.switchToSettings());
-        settingsButton.setLayout(new GridBagLayout());
-        settingsLabel = new JLabel("Einstellungen");
-        settingsLabel.setFont(pirate_font_button);
-        settingsButton.add(settingsLabel);
-        settingsButton.setBorderPainted(false);
-        settingsButton.setContentAreaFilled(false);
-
-        exitButton = new JButton(icon);
-        exitButton.setAlignmentX(JButton.CENTER_ALIGNMENT);
-        exitButton.setMaximumSize(new Dimension(250, 50));
-        exitButton.setLayout(new GridBagLayout());
-        exitButton.addActionListener(e -> System.exit(0));
-        exitLabel = new JLabel("Beenden");
-        exitLabel.setFont(pirate_font_button);
-        exitButton.add(exitLabel);
-        exitButton.setBorderPainted(false);
-        exitButton.setContentAreaFilled(false);
-
+        nameLabel.setFont(pirate_font.deriveFont(60f));    
+        
         Box box = Box.createVerticalBox();
         box.setPreferredSize(new Dimension(1400, 1000));
         this.add(Box.createRigidArea(new Dimension(0, GamePanel.SCREEN_HEIGHT / 4)));
         this.add(nameLabel);
         this.add(Box.createRigidArea(new Dimension(0, 200)));
-        this.add(levelButton);
+        createButton("Levelauswahl");
         this.add(Box.createRigidArea(new Dimension(0, 50)));
-        this.add(settingsButton);
+        createButton("Einstellungen");
         this.add(Box.createRigidArea(new Dimension(0, 50)));
-        this.add(exitButton);
+        createButton("Beenden");
     }
 
+    /**
+     * Erzeugt die Buttons zum wechseln der Panel
+     * 
+     * @param msg - der Name der Panel und welcher auf den Buttons steht
+     * @author Gregor Scholz
+     */
+    public void createButton(String msg) {
+        JButton button = new JButton(icon);
+        button.setAlignmentX(JButton.CENTER_ALIGNMENT);
+        button.setMaximumSize(new Dimension(250, 50));
+        button.addActionListener(e -> switchPanel(msg));
+        button.setLayout(new GridBagLayout());
+        JLabel label = new JLabel(msg);
+        label.setFont(pirate_font.deriveFont(24f));
+        button.add(label);
+        button.setBorderPainted(false);
+        button.setContentAreaFilled(false);
+        this.add(button);
+    }
+
+    /**
+     * Wechselt bei Betätigigung eines der Buttons zu dem entsprechenden Panel
+     * 
+     * @param msg - der Name der Panel und welcher auf den Buttons steht
+     * @author Gregor Scholz
+     */
+    public void switchPanel(String msg) {
+        if(msg == "Beenden") {
+            System.exit(0);
+        } else {
+            GamePanel.cl.show(WindowPanel.gp, msg);
+        }
+    }
+
+    /**
+     * Methode welche die benötigten Schriftarten und Bilder in das Programm lädt
+     * 
+     * @author Gregor Scholz
+     */
     public void loadRessources() {
         icon = new ImageIcon("resources/buttons.png");
-
         try {
-            pirate_font_label = Font.createFont(Font.TRUETYPE_FONT, new File("resources/pirate_font.ttf")).deriveFont(60f);
-            pirate_font_button = Font.createFont(Font.TRUETYPE_FONT, new File("resources/pirate_font.ttf")).deriveFont(24f);
+            pirate_font = Font.createFont(Font.TRUETYPE_FONT, new File("resources/pirate_font.ttf"));
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            ge.registerFont(pirate_font_label);
+            ge.registerFont(pirate_font);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (FontFormatException e) {

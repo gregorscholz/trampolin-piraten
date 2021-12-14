@@ -4,6 +4,11 @@ import java.awt.Dimension;
 
 import javax.swing.JPanel;
 
+/**
+ * Klasse für das eigentliche Spielfenster mit den festgelegten Größen
+ * 
+ * @author Gregor Scholz
+ */
 public class GamePanel extends JPanel {
 
     static final int SCREEN_HEIGHT = 1000;
@@ -19,40 +24,32 @@ public class GamePanel extends JPanel {
     public GamePanel() {
         setup();
         this.setOpaque(false);
-        this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
+        Dimension dim = new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT);
+        this.setMinimumSize(dim);
+        this.setPreferredSize(dim);
+        this.setMaximumSize(dim);
         this.setLayout(cl);
 
         this.add(mainmenupanel, "Main Menu");
-        this.add(settingspanel, "Settings");
-        this.add(levelpanel, "Level");
+        this.add(settingspanel, "Einstellungen");
+        this.add(levelpanel, "Levelauswahl");
         this.add(ingamepanel, "In Game");
 
         this.setVisible(true);
         this.setFocusable(true);
     }
 
+    /**
+     * Intitialisiert die einzelenen Panels und das Layout
+     * 
+     * @author Gregor Scholz
+     */
     public void setup() {
         cl = new CardLayout();
         mainmenupanel = new MainMenuPanel();
         settingspanel = new SettingsPanel();
         levelpanel = new LevelChoosingPanel();
         ingamepanel = new InGamePanel();
-    }
-
-    public static void switchToMain() {
-        cl.show(WindowPanel.gp, "Main Menu");
-    }
-
-    public static void switchToSettings() {
-        cl.show(WindowPanel.gp, "Settings");
-    }
-
-    public static void switchToLevel() {
-        cl.show(WindowPanel.gp, "Level");
-    }
-
-    public static void switchToInGame() {
-        cl.show(WindowPanel.gp, "In Game");
     }
     
 }

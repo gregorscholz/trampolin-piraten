@@ -16,18 +16,21 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * Klasse für das Menu zur Levelauswahl
+ * 
+ * @author Gregor Scholz
+ */
 public class LevelChoosingPanel extends JPanel {
 
     private ArrayList<JPanel> rowspanel;
     private ArrayList<FlowLayout> rowslayout;
-    private JLabel levels, einfach, mittel, schwer;
     private JButton zurueck;
-    private ImageIcon levelicon;
+    private ImageIcon levelicon, zurueckicon;
     private Font pirate_font;
 
     public LevelChoosingPanel() {
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-        this.setOpaque(false);
         loadFont();
         loadPanels();        
         for (int i = 0; i < rowspanel.size(); i++) {
@@ -35,10 +38,16 @@ public class LevelChoosingPanel extends JPanel {
         }
     }
 
+    /**
+     * Erstellt die einzelnen Reihen und fügt die Komponenten hinzu
+     * 
+     * @author Gregor Scholz
+     */
     public void loadPanels() {
         rowspanel = new ArrayList<JPanel>();
         rowslayout = new ArrayList<FlowLayout>();
         levelicon = new ImageIcon("resources/level_knopf.png");
+        zurueckicon = new ImageIcon("resources/zurueck_knopf.png");
         for (int i = 0; i < 8; i++) {
             rowspanel.add(new JPanel());
             rowslayout.add(new FlowLayout());
@@ -53,31 +62,41 @@ public class LevelChoosingPanel extends JPanel {
             rowspanel.get(i).setMaximumSize(new Dimension(1400, 125));
         }
 
+        createLevelLabel("Levels", 0);
+        createLevelLabel("Anfaenger", 1);
+        createLevelLabel("Fortgeschritten", 3);
+        createLevelLabel("Schwer", 5);
         createLevelButtons();
 
-        levels = new JLabel("Levels");
-        levels.setFont(pirate_font);
-        rowspanel.get(0).add(levels); 
-        
-        einfach = new JLabel("Anfaenger");
-        einfach.setFont(pirate_font);
-        rowspanel.get(1).add(einfach);
-
-        mittel = new JLabel("Fortgeschritten");
-        mittel.setFont(pirate_font);
-        rowspanel.get(3).add(mittel);
-
-        schwer = new JLabel("Schwer");
-        schwer.setFont(pirate_font);
-        rowspanel.get(5).add(schwer);
-
-        zurueck = new JButton("Zurueck");
-        zurueck.setPreferredSize(new Dimension(100, 50));
-        zurueck.addActionListener(e -> GamePanel.switchToMain());
+        zurueck = new JButton();
+        zurueck.setLayout(new GridBagLayout());
+        zurueck.setIcon(zurueckicon);
+        zurueck.setBorderPainted(false);
+        zurueck.setContentAreaFilled(false);
+        zurueck.setPreferredSize(new Dimension(70, 50));
+        zurueck.addActionListener(e -> GamePanel.cl.show(WindowPanel.gp, "Main Menu"));
         rowspanel.get(7).add(Box.createRigidArea(new Dimension(1400, 60)));
         rowspanel.get(7).add(zurueck);
     }
 
+    /**
+     * Erstellt die einzelnen Label für die Schwierigkeiten für die Level
+     * 
+     * @param schwierigkeit - der Name des Labels, also die Schwierigkeit
+     * @param row - die Reihe in welchen die Label hinzugefügt werden
+     * @author Gregor Scholz
+     */
+    public void createLevelLabel(String schwierigkeit, int row) {
+        JLabel label = new JLabel(schwierigkeit);
+        label.setFont(pirate_font.deriveFont(30f));
+        rowspanel.get(row).add(label);
+    }
+
+    /**
+     * Erstellt die einzelnen Knöpfe für die Level
+     * 
+     * @author Gregor Scholz
+     */
     public void createLevelButtons() {
         for(int row = 2; row <= 6; row += 2) {
             for(int column = 1; column <= 5; column++) {
@@ -97,9 +116,14 @@ public class LevelChoosingPanel extends JPanel {
         }
     }
 
+    /**
+     * lädt die Schriftarten in das Programm
+     * 
+     * @author Gregor Scholz
+     */
     public void loadFont() {
         try {
-            pirate_font = Font.createFont(Font.TRUETYPE_FONT, new File("resources/pirate_font.ttf")).deriveFont(30f);
+            pirate_font = Font.createFont(Font.TRUETYPE_FONT, new File("resources/pirate_font.ttf"));
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont(pirate_font);
         } catch (IOException e) {
