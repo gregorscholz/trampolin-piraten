@@ -1,4 +1,5 @@
 package gui;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
@@ -22,7 +23,12 @@ public class LevelChoosingPanel extends JPanel {
     private JButton zurueck;
 
     public LevelChoosingPanel() {
+        Dimension dim = new Dimension(GamePanel.SCREEN_WIDTH, GamePanel.SCREEN_HEIGHT);
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+        this.setMinimumSize(dim);
+        this.setPreferredSize(dim);
+        this.setMaximumSize(dim);
+        this.setOpaque(false);
         loadPanels();        
         for (int i = 0; i < rowspanel.size(); i++) {
             this.add(rowspanel.get(i));
@@ -40,12 +46,13 @@ public class LevelChoosingPanel extends JPanel {
         for (int i = 0; i < 8; i++) {
             rowspanel.add(new JPanel());
             rowslayout.add(new FlowLayout());
-            if (i == 0) {
+            if (i == 0 || i == 7) { 
                 rowslayout.get(i).setAlignment(FlowLayout.CENTER);
             } else {
                 rowslayout.get(i).setAlignment(FlowLayout.LEFT);
             }
             rowspanel.get(i).setLayout(rowslayout.get(i));
+            rowspanel.get(i).setOpaque(false);
             rowspanel.get(i).setMinimumSize(new Dimension(1400, 125));
             rowspanel.get(i).setPreferredSize(new Dimension(1400, 125));
             rowspanel.get(i).setMaximumSize(new Dimension(1400, 125));
@@ -64,7 +71,7 @@ public class LevelChoosingPanel extends JPanel {
         zurueck.setContentAreaFilled(false);
         zurueck.setPreferredSize(new Dimension(70, 50));
         zurueck.addActionListener(e -> GamePanel.cl.show(WindowPanel.gp, "Main Menu"));
-        rowspanel.get(7).add(Box.createRigidArea(new Dimension(1400, 60)));
+        rowspanel.get(7).add(Box.createRigidArea(new Dimension(GamePanel.SCREEN_WIDTH, 60)));
         rowspanel.get(7).add(zurueck);
     }
 
@@ -78,6 +85,7 @@ public class LevelChoosingPanel extends JPanel {
     public void createLevelLabel(String schwierigkeit, int row) {
         JLabel label = new JLabel(schwierigkeit);
         label.setFont(ResourceLoader.getFont(30f));
+        label.setForeground(Color.white); 
         rowspanel.get(row).add(label);
     }
 
