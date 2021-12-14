@@ -10,13 +10,15 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 
+/**
+ * Klasse für das Anzeigen des eigentlichen Spiels
+ * 
+ * @author Gregor Scholz
+ */
 public class InGamePanel extends JPanel {
 
     static final int tick = 0;
-    
-    private int level, difficulty;
 
     Timer timer;
     boolean running;
@@ -28,7 +30,6 @@ public class InGamePanel extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Graphics2D g2d = (Graphics2D) g;
     }
 
     public void setup() {
@@ -40,20 +41,10 @@ public class InGamePanel extends JPanel {
         running = true;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    public void setDifficulty(int difficulty) {
-        this.difficulty = difficulty;
-    }
-
-
     public class GameActionListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            // TODO action
             if(running) {
                 /**
                  * checkBallCollisions();
@@ -62,7 +53,7 @@ public class InGamePanel extends JPanel {
                 repaint();
             }  
         }
-
+        
     }
 
     //eigentlich abgeloesst

@@ -1,37 +1,31 @@
 package gui;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+/**
+ * Klasse für das JPanel welches den kompletten Bildschirm abdeckt
+ * 
+ * @author Gregor Scholz
+ */
 public class WindowPanel extends JPanel {
 
     static GamePanel gp;
-    private BufferedImage bi;
 
     public WindowPanel() {
         gp = new GamePanel();
-        getBackgroundImage();
         this.add(gp);
     }
 
-    public void getBackgroundImage() {
-        try {
-            // TODO besseres Randbild raussuchen
-            bi = ImageIO.read(new File("resources/1434.png"));
-        } catch (IOException e) {
-            // TODO exception handeling
-            e.printStackTrace();
-        }
-    }
-
+    /**
+     * Zeichnet das Hintergrundbild auf das Panel
+     * 
+     * @author Gregor Scholz
+     */
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);           
-        g.drawImage(bi, 0, 0, null);
+        g.drawImage(ResourceLoader.getBackground(), 0, 0, null);
     }
     
 }
