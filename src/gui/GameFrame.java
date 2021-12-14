@@ -3,6 +3,11 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
+/**
+ * Klasse zur Erstellung des Fensters
+ * 
+ * @author Gregor Scholz
+ */
 public class GameFrame extends JFrame {
 
     public GameFrame() {
