@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 public class GameFrame extends JFrame {
 
     public GameFrame() {
+        new ResourceLoader();
         this.add(new WindowPanel());
         this.setTitle("Trampolin-Piraten");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

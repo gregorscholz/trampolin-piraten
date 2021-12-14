@@ -3,15 +3,9 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.util.ArrayList;
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.GraphicsEnvironment;
-import java.io.File;
-import java.io.IOException;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -26,12 +20,9 @@ public class LevelChoosingPanel extends JPanel {
     private ArrayList<JPanel> rowspanel;
     private ArrayList<FlowLayout> rowslayout;
     private JButton zurueck;
-    private ImageIcon levelicon, zurueckicon;
-    private Font pirate_font;
 
     public LevelChoosingPanel() {
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-        loadFont();
         loadPanels();        
         for (int i = 0; i < rowspanel.size(); i++) {
             this.add(rowspanel.get(i));
@@ -46,8 +37,6 @@ public class LevelChoosingPanel extends JPanel {
     public void loadPanels() {
         rowspanel = new ArrayList<JPanel>();
         rowslayout = new ArrayList<FlowLayout>();
-        levelicon = new ImageIcon("resources/level_knopf.png");
-        zurueckicon = new ImageIcon("resources/zurueck_knopf.png");
         for (int i = 0; i < 8; i++) {
             rowspanel.add(new JPanel());
             rowslayout.add(new FlowLayout());
@@ -70,7 +59,7 @@ public class LevelChoosingPanel extends JPanel {
 
         zurueck = new JButton();
         zurueck.setLayout(new GridBagLayout());
-        zurueck.setIcon(zurueckicon);
+        zurueck.setIcon(ResourceLoader.getBackIcon());
         zurueck.setBorderPainted(false);
         zurueck.setContentAreaFilled(false);
         zurueck.setPreferredSize(new Dimension(70, 50));
@@ -88,7 +77,7 @@ public class LevelChoosingPanel extends JPanel {
      */
     public void createLevelLabel(String schwierigkeit, int row) {
         JLabel label = new JLabel(schwierigkeit);
-        label.setFont(pirate_font.deriveFont(30f));
+        label.setFont(ResourceLoader.getFont(30f));
         rowspanel.get(row).add(label);
     }
 
@@ -102,9 +91,9 @@ public class LevelChoosingPanel extends JPanel {
             for(int column = 1; column <= 5; column++) {
                 JButton button = new JButton();
                 button.setLayout(new GridBagLayout());
-                button.setIcon(levelicon);
+                button.setIcon(ResourceLoader.getLevelIcon());
                 JLabel label = new JLabel(String.valueOf(column));
-                label.setFont(pirate_font);
+                label.setFont(ResourceLoader.getFont(30f));
                 button.add(label);
                 button.setBorderPainted(false);
                 button.setContentAreaFilled(false);
@@ -113,23 +102,6 @@ public class LevelChoosingPanel extends JPanel {
                 rowspanel.get(row).add(Box.createRigidArea(new Dimension(100, 0)));
                 rowspanel.get(row).add(button);
             }
-        }
-    }
-
-    /**
-     * lädt die Schriftarten in das Programm
-     * 
-     * @author Gregor Scholz
-     */
-    public void loadFont() {
-        try {
-            pirate_font = Font.createFont(Font.TRUETYPE_FONT, new File("resources/pirate_font.ttf"));
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            ge.registerFont(pirate_font);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (FontFormatException e) {
-            e.printStackTrace();
         }
     }
 
