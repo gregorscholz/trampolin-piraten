@@ -29,17 +29,21 @@ public class Steuerung implements KeyListener {
     public void keyPressed(KeyEvent e) {
         if(e.getKeyCode()==bewegungRechts) {
         	if(Controller.getSpielerPositionX() >=1400) {
-        		Controller.getSpielerPositionX() = 1400;///ob das die richtigen werte sind noch einmal überprüfn
+        		//Controller.getSpielerPositionX() = 1400;///ob das die richtigen werte sind noch einmal überprüfn
+        		//muss dann überhaupt etwas gemacht werden?
         	} else {
         		Controller.bewegenNachRechts();
         	}
+        	//eventuell auch bei der plattform überprfüfen ob die plattform noch drin ist
         }
         if(e.getKeyCode()==bewegungLinks) {
         	if(Controller.getSpielerPositionX() <=0) {
-        		Controller.getSpielerPositionX() = 0; ////ob das die richtigen werte sind noch einmal überprüfne
+        		//Controller.getSpielerPositionX() = 0; ////ob das die richtigen werte sind noch einmal überprüfne
+        		//muss dann überhaupt etwas gemacht werden?
         	} else {
         		Controller.bewegenNachLinks();
         	}
+        	//eventuell auch bei der plattform überprfüfen ob die plattform noch drin ist
         }
 
         
