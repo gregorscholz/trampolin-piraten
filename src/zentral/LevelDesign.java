@@ -18,11 +18,11 @@ public class LevelDesign {
 	 * Konstruktor fuer ein Leveldesign, welches je nach gewaehltem Level und Schwierigkeit das gewuenschte Level erstellt.
 	 * 
 	 * 
-	 * @param level, Fassanrichtung
+	 * @param design, Fassanrichtung
 	 * @param schwierigkeit, Fassnummern und Eventfaesser
 	 * @author iveev
 	 */
-	public LevelDesign(byte level, byte schwierigkeit) {		
+	public LevelDesign(byte design, byte schwierigkeit) {		
 	}
 	
 	/**
@@ -41,5 +41,6 @@ public class LevelDesign {
 	 * @author iveev
 	 */
 	public Set<IFSpielelement> getElemente() {
+		return alleElemente;
 	}
 }

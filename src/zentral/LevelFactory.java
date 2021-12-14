@@ -16,5 +16,7 @@ public abstract class LevelFactory {
 	 * @author iveev
 	 */
 	public IFSpielelement erstelleElement(String s) {
+		IFSpielelement e = null;
+		return e;
 	}
 }
