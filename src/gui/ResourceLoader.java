@@ -102,7 +102,7 @@ public class ResourceLoader {
      */
     public void loadBackground() {
         try {
-            background = ImageIO.read(new File("resources/background.png"));
+            background = ImageIO.read(new File("resources/wooden-background.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }

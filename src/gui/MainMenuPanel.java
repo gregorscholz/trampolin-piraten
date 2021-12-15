@@ -1,4 +1,5 @@
 package gui;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagLayout;
 
@@ -32,7 +33,8 @@ public class MainMenuPanel extends JPanel {
     public void setup() {
         nameLabel = new JLabel("Trampolin-Piraten");
         nameLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
-        nameLabel.setFont(ResourceLoader.getFont(60f));    
+        nameLabel.setFont(ResourceLoader.getFont(60f));   
+        nameLabel.setForeground(Color.white); 
         
         Box box = Box.createVerticalBox();
         box.setPreferredSize(new Dimension(1400, 1000));
