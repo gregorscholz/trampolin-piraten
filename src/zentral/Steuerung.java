@@ -4,18 +4,40 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
- * Klasse zur Einstellung der Steuerung per Tastatur und... .
+ * Klasse zur Einstellung der Steuerung per Tastatur und Implementation des KeyListeners.
  * 
- * @author iveev
+ * @author Ines Rohrbach
  */
 public class Steuerung implements KeyListener {
+	private static Steuerung angelegt = null;
 	private char bewegungRechts = KeyEvent.VK_RIGHT; //VK_RIGHT oder VK_D
 	private char bewegungLinks = KeyEvent.VK_LEFT; //VK_LEFT oder VK_A
 	
 	/**
+	 * Privater Konstruktor, da es sich um ein Singleton handelt.
+	 * 
+	 * @author Ines Rohrbach
+	 */
+	private Steuerung() {}
+	
+	/**
+	 * Gibt die Steuerungsklasse zurueck.
+	 * 
+	 * @return die einzige Steuerungsklasse (Singleton) zurueck.
+	 * @author Ines Rohrbach
+	 */
+	public static Steuerung getSteuerung() {
+		if(angelegt == null) {
+			return (angelegt = new Steuerung());
+		} else {
+			return angelegt;
+		}
+	}
+	
+	/**
 	 * Legt fest ob mit Pfeiltasten oder mit 'a' und 'd' gesteuert werden soll.
 	 * 
-	 * @author iveev
+	 * @author Ines Rohrbach
 	 */
 	public void setTasten(int setting) {		
 	}
@@ -23,7 +45,7 @@ public class Steuerung implements KeyListener {
 	/**
 	 * Lauscht auf die Tastenansteuerung der ausgewaehlten Steuerungstasten
 	 * 
-	 * @author iveev
+	 * @author Ines Rohrbach
 	 */
 	@Override
     public void keyPressed(KeyEvent e) {

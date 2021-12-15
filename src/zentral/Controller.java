@@ -8,7 +8,7 @@ import spielelemente.IFSpielelement;
 /**
  * Zentrale Verwaltungsklasse - Controller.
  * 
- * @author iveev
+ * @author Ines Rohrbach
  */
 public abstract class Controller {
 	private static GameObjects aktuelleElemente;
@@ -20,7 +20,7 @@ public abstract class Controller {
 	 * wenn bei der plattform überprüft wird, ob die plattform noch im spielfeld ist, dann wird diese methode wegfallen
 	 * 
 	 * @return Spielerposition horizontal als Integer
-	 * @author iveev
+	 * @author Ines Rohrbach
 	 */
 	public static int getSpielerPositionX() {
 		return woauchimmer.getSpielerPositionX();
@@ -29,7 +29,7 @@ public abstract class Controller {
 	/**
 	 * anweisung die Plattform nach rechts zu schieben.
 	 * 
-	 * @author iveev
+	 * @author Ines Rohrbach
 	 */
 	public static void bewegenNachRechts() {
 		woauchimmer.bewegenNachRechts();
@@ -38,49 +38,37 @@ public abstract class Controller {
 	/**
 	 * anweisung die Plattform nach links zu schieben.
 	 * 
-	 * @author iveev
+	 * @author Ines Rohrbach
 	 */
 	public static void bewegenNachLinks() {
 		woauchimmer.bewegenNachRechts();
 	}
 	
 	/**
-	 * Erstellt/Gibt die Steuerung(Singleton).
-	 * muss mir aber noch mal angucken wie genau das geht
+	 * Gibt die Steuerung(Singleton) zureuck.
 	 * 
-	 * @author iveev
+	 * @author Ines Rohrbach
 	 */
 	public static Steuerung getSteuerung() {
-		return new Steuerung();
+		return Steuerung.getSteuerung();
 	}
 
 	/**
-	 * Erstellt die Levelelemente zu dem ausgesuchten Aufbau und Schwierigkeit.
+	 * Erstellt die Levelelemente zu dem ausgesuchten Aufbau und Schwierigkeit und speichert die aktuellen Spielelemente in der GameObjects Klasse.
 	 * 
-	 * @author iveev
+	 * @author Ines Rohrbach
 	 */
 	public static void erstelleLevel(byte design, byte schwierigkeit) {
-		new LevelDesign(design, schwierigkeit);
-	}
-	
-	/**
-	 * Speichert alle Spielelemente in der GameObjects Klasse.
-	 * 
-	 * @param elemente, alle aktuellen Spielelemente in einem Set
-	 * @author iveev
-	 */
-	public static void aktuelleSpielelemente(Set<IFSpielelement> elemente) {
-		aktuelleElemente = new GameObjects(elemente);
+		LevelDesign l = new LevelDesign(design, schwierigkeit);
+		aktuelleElemente = new GameObjects(l.getElemente());
 	}
 	
 	/**
 	 * Übergibt die Tasteneinstellung an die Steuerungsklasse.
 	 * 
-	 * @author iveev
+	 * @author Ines Rohrbach
 	 */
 	public static void setTasten(int setting) {
-		//eventuell anders
-		Steuerung s = new Steuerung();
-		s.setTasten(setting);
+		Steuerung.getSteuerung().setTasten(setting);
 	}
 }
