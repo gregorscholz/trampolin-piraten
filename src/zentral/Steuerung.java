@@ -17,7 +17,7 @@ public class Steuerung implements KeyListener {
 	 * 
 	 * @author iveev
 	 */
-	public void setPfeilTasten(boolean b) {		
+	public void setTasten(int setting) {		
 	}
 	
 	/**

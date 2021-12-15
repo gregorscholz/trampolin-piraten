@@ -72,4 +72,15 @@ public abstract class Controller {
 	public static void aktuelleSpielelemente(Set<IFSpielelement> elemente) {
 		aktuelleElemente = new GameObjects(elemente);
 	}
+	
+	/**
+	 * Übergibt die Tasteneinstellung an die Steuerungsklasse.
+	 * 
+	 * @author iveev
+	 */
+	public static void setTasten(int setting) {
+		//eventuell anders
+		Steuerung s = new Steuerung();
+		s.setTasten(setting);
+	}
 }

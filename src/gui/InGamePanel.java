@@ -33,7 +33,7 @@ public class InGamePanel extends JPanel {
     }
 
     public void setup() {
-        this.addKeyListener(new Controller.getSteuerung()); //ich weiﬂ nicht warum er nicht erkennt, dass Steuerung KeyListener implementiert
+        this.addKeyListener(Controller.getSteuerung());
         timer = new Timer(tick, new GameActionListener());
     }
 
