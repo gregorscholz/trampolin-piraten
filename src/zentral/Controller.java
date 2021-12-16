@@ -1,6 +1,9 @@
 package zentral;
 
+import java.util.Set;
+
 import spielelemente.GameObjects;
+import spielelemente.IFSpielelement;
 
 /**
  * Zentrale Verwaltungsklasse - Controller.
@@ -14,7 +17,7 @@ public abstract class Controller {
 	/**
 	 * damit bei tastendruck ueberprueft werden kann, ob der spieler noch im panel ist
 	 * 
-	 * wenn bei der plattform ï¿½berprï¿½ft wird, ob die plattform noch im spielfeld ist, dann wird diese methode wegfallen
+	 * wenn bei der plattform überprüft wird, ob die plattform noch im spielfeld ist, dann wird diese methode wegfallen
 	 * 
 	 * @return Spielerposition horizontal als Integer
 	 * @author Ines Rohrbach
@@ -61,7 +64,7 @@ public abstract class Controller {
 	}
 	
 	/**
-	 * ï¿½bergibt die Tasteneinstellung an die Steuerungsklasse.
+	 * Übergibt die Tasteneinstellung an die Steuerungsklasse.
 	 * 
 	 * @author Ines Rohrbach
 	 */
