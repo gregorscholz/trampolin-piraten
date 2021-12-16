@@ -3,9 +3,9 @@ package spielelemente;
 import gui.InGamePanel;
 
 /**
- * Klasse zum Verwalten der Fässer
+ * Klasse zum Verwalten der Fï¿½sser
  * @param verbleibend, Anzahl der verbleibenden treffer bis zum verschwinden eines Fasses
- * @param Fassposition, Array zum verwalten der Fässer
+ * @param Fassposition, Array zum verwalten der Fï¿½sser
  * @param KoordinateX, x position eines Fasses (oben links)
  * @param KoordinateY, y position eines Fasses (oben links)
  * @author ischramm
@@ -26,13 +26,13 @@ public class Fass {
 			leben = leben-1;
 			verbleibend = leben;
 			if (eventnummer != 0) {
-				EventFass auslöser = new EventFass(fassNummer, eventnummer);
+				EventFass ausloeser = new EventFass(fassNummer, eventnummer);
 			}
 			
 	}
 	
 	   /**
-     *Konstruktor zum erstellen der Fässer (positionsbehandlung)
+     *Konstruktor zum erstellen der Fï¿½sser (positionsbehandlung)
      *@author ischramm
      */
 	public Fass(int fassNummer) {
