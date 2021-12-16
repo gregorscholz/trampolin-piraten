@@ -35,7 +35,7 @@ public class Steuerung implements KeyListener {
 	}
 	
 	/**
-	 * Legt fest ob mit Pfeiltasten oder mit 'a' und 'd' gesteuert werden soll.
+	 * Stellt ein ob mit Pfeiltasten oder mit 'a' und 'd' gesteuert werden soll.
 	 * 
 	 * @author Ines Rohrbach
 	 */
@@ -43,7 +43,7 @@ public class Steuerung implements KeyListener {
 	}
 	
 	/**
-	 * Lauscht auf die Tastenansteuerung der ausgewaehlten Steuerungstasten
+	 * Lauscht auf die Tastenansteuerung der ausgewaehlten Steuerungstasten.
 	 * 
 	 * @author Ines Rohrbach
 	 */
@@ -66,9 +66,7 @@ public class Steuerung implements KeyListener {
         		Controller.bewegenNachLinks();
         	}
         	//eventuell auch bei der plattform überprfüfen ob die plattform noch drin ist
-        }
-
-        
+        }        
     }
 	
 	@Override
