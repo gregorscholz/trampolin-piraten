@@ -5,7 +5,7 @@ import java.awt.Rectangle;
 
 public class Kugel extends Rectangle {
 
-	static final int BALL_DIAMETER;
+	static final int BALL_DIAMETER = 9; //!!!!!! einfach damit die fehlermeldung weg ist
 	int xVelocity;
 	int yVelocity;
 	int xKoordinate, yKoordinate;

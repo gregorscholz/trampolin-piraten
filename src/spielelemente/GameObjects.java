@@ -10,8 +10,18 @@ import java.util.Set;
 public class GameObjects {
 	private Kugel kugel;
 	private Plattform plattform;
-	private Fass fass;
+	private Fass[] faesser = new Fass[100]; //zahl steht noch nicht fest
 	
+	/**
+	 * Gibt die aktuellen Faesser zurueck.
+	 * 
+	 * @return aktuellen Faesser in einem Array
+	 * @author Ines Rohrbach
+	 */
+	public Fass[] getFaesser() {
+		return faesser;
+	}
+
 	/**
 	 * Gibt die aktuelle Kugel zurueck.
 	 * 

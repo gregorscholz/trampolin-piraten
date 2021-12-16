@@ -23,7 +23,7 @@ public abstract class Controller {
 	 * @author Ines Rohrbach
 	 */
 	public static int getSpielerPositionX() {
-		return woauchimmer.getSpielerPositionX();
+		return aktuelleElemente.getPlattform().getxKoordinate();
 	}
 	
 	/**
@@ -32,7 +32,7 @@ public abstract class Controller {
 	 * @author Ines Rohrbach
 	 */
 	public static void bewegenNachRechts() {
-		woauchimmer.bewegenNachRechts();
+		aktuelleElemente.getPlattform().move();//rechts
 	}
 	
 	/**
@@ -41,7 +41,7 @@ public abstract class Controller {
 	 * @author Ines Rohrbach
 	 */
 	public static void bewegenNachLinks() {
-		woauchimmer.bewegenNachRechts();
+		aktuelleElemente.getPlattform().move();//links
 	}
 	
 	/**
