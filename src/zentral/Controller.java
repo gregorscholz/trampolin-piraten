@@ -71,4 +71,14 @@ public abstract class Controller {
 	public static void setTasten(int setting) {
 		Steuerung.getSteuerung().setTasten(setting);
 	}
+	
+	/**
+	 * Gibt die aktuellen Spielelemente als GameObjects zurueck.
+	 * 
+	 * @return die Klasse GameObjects.
+	 * @author Ines Rohrbach
+	 */
+	public static GameObjects getObjekte() {
+		return aktuelleElemente;
+	}
 }
