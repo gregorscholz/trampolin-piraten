@@ -3,9 +3,9 @@ package spielelemente;
 import gui.InGamePanel;
 
 /**
- * Klasse zum Verwalten der F�sser
+ * Klasse zum Verwalten der Faesser
  * @param verbleibend, Anzahl der verbleibenden treffer bis zum verschwinden eines Fasses
- * @param Fassposition, Array zum verwalten der F�sser
+ * @param Fassposition, Array zum verwalten der Faesser
  * @param KoordinateX, x position eines Fasses (oben links)
  * @param KoordinateY, y position eines Fasses (oben links)
  * @author ischramm
@@ -32,7 +32,7 @@ public class Fass {
 	}
 	
 	   /**
-     *Konstruktor zum erstellen der F�sser (positionsbehandlung)
+     *Konstruktor zum erstellen der Faesser (positionsbehandlung)
      *@author ischramm
      */
 	public Fass(int fassNummer) {
