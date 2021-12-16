@@ -10,6 +10,7 @@ import java.util.Set;
 public class GameObjects {
 	private Kugel kugel;
 	private Plattform plattform;
+	private Fass fass;
 	
 	/**
 	 * Gibt die aktuelle Kugel zurueck.
