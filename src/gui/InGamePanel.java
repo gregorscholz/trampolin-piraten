@@ -2,6 +2,7 @@ package gui;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Dimension;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -27,6 +28,10 @@ public class InGamePanel extends JPanel {
     private CollisionDetection cd;
 
     public InGamePanel() {
+        Dimension dim = new Dimension(GamePanel.SCREEN_WIDTH, GamePanel.SCREEN_HEIGHT);
+        this.setMinimumSize(dim);
+        this.setPreferredSize(dim);
+        this.setMaximumSize(dim);
         this.addKeyListener(Controller.getSteuerung());
         timer = new Timer(tick, new GameActionListener());
         cd = new CollisionDetection(Controller.getObjekte());
