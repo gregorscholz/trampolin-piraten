@@ -1,5 +1,6 @@
 package spielelemente;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Set;
 public class GameObjects {
 	private Kugel kugel;
 	private Plattform plattform;
-	private Fass[] faesser = new Fass[100]; //zahl steht noch nicht fest
+	private ArrayList<Fass> faesser = new ArrayList<Fass>();
 	
 	/**
 	 * Gibt die aktuellen Faesser zurueck.
@@ -18,7 +19,7 @@ public class GameObjects {
 	 * @return aktuellen Faesser in einem Array
 	 * @author Ines Rohrbach
 	 */
-	public Fass[] getFaesser() {
+	public ArrayList<Fass> getFaesser() {
 		return faesser;
 	}
 

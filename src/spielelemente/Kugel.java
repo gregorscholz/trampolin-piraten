@@ -14,7 +14,7 @@ public class Kugel extends Rectangle {
 	Kugel(){
         //Initialkoordinaten als Parameter, damit Ballmultiplikatorevent am Block Baelle erstellen kann
         //Initialgeschwindigkeit
-        //Größe (Durchmesser)
+        //Grï¿½ï¿½e (Durchmesser)
 	}
 	
 	//Getter und Setter
