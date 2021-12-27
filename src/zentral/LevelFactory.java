@@ -15,8 +15,18 @@ public abstract class LevelFactory {
 	 * @return Das erstellte Element
 	 * @author Ines Rohrbach
 	 */
-	public IFSpielelement erstelleElement(String s) {
+	public static IFSpielelement erstelleElement(String s) {
 		IFSpielelement e = null;
+		
+		switch(s) {
+		case "F"://fass
+		case "E"://eventfass
+		case "P"://plattform
+		case "K"://kugel
+		default:
+			break;
+		}
+		
 		return e;
 	}
 }
