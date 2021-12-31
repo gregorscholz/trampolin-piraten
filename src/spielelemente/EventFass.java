@@ -1,6 +1,6 @@
 package spielelemente;
 
-public class EventFass extends Fass {
+public class EventFass extends Fass implements IFSpielelement {
 
 	/**
 	 * Verwalten und Auslösen der Events

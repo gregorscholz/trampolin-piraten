@@ -3,7 +3,7 @@ package spielelemente;
 import java.awt.event.*;
 import java.awt.*;
 
-public class Plattform extends Rectangle {
+public class Plattform extends Rectangle implements IFSpielelement {
 
 	int PlattformBreite;
 	int PlattformGroesse;

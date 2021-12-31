@@ -11,7 +11,7 @@ import gui.InGamePanel;
  * @author ischramm
  */
 
-public class Fass {
+public class Fass implements IFSpielelement {
 
 	int verbleibend;
 	int KoordinateX;

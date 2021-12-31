@@ -3,7 +3,7 @@ package spielelemente;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-public class Kugel extends Rectangle {
+public class Kugel extends Rectangle implements IFSpielelement {
 
 	static final int BALL_DIAMETER = 9; //!!!!!! einfach damit die fehlermeldung weg ist
 	int xVelocity;
