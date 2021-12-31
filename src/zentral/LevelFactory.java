@@ -22,22 +22,20 @@ public abstract class LevelFactory {
 	public static IFSpielelement erstelleElement(String s) {
 		IFSpielelement e = null;
 		
-		switch(s) {
-		case "F"://fass
-				//aufteilen
-				e = new Fass(a,b,c);
+		String[] block = s.split(",",4);
+		String typ = block[0];
+		int nummer = Integer.parseInt(block[1]);
+		int leben = Integer.parseInt(block[2]);
+		int eNummer = Integer.parseInt(block[3]);
+		
+		switch(typ) {
+		case "F": e = new Fass(nummer, leben, eNummer);
 				break;
-		case "E"://eventfass
-				//aufteilen
-				e = new EventFass(a,b,c,d);
+//		case "E": e = new EventFass(a,b,c,d);	wir soweit ich weiﬂ beim fass selbst erstellt
+//				break;
+		case "P": e = new Plattform();
 				break;
-		case "P"://plattform
-				//aufteilen
-				e = new Plattform();
-				break;
-		case "K"://kugel
-				//aufteilen
-				e = new Kugel();
+		case "K": e = new Kugel();
 				break;
 		default:
 			break;

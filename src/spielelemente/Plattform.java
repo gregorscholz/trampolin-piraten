@@ -11,7 +11,7 @@ public class Plattform extends Rectangle implements IFSpielelement {
 	int xKoordinate, yKoordinate;
 	
 	
-	Plattform(){
+	public Plattform(){
 		//Initialkoordinaten
 		//Groesse
 		//Geschwindigkeit in x-richtung (0), aendert sich wenn Plattform bewegt wird

@@ -11,7 +11,7 @@ public class Kugel extends Rectangle implements IFSpielelement {
 	int xKoordinate, yKoordinate;
 
 
-	Kugel(){
+	public Kugel(){
         //Initialkoordinaten als Parameter, damit Ballmultiplikatorevent am Block Baelle erstellen kann
         //Initialgeschwindigkeit
         //Gr��e (Durchmesser)

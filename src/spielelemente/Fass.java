@@ -31,6 +31,12 @@ public class Fass implements IFSpielelement {
 			
 	}
 	
+	/*kommentar ines: gehoeren die beiden konstruktren nicht zusammen? 
+	weil man kann ja nicht ein fass erstellen mit nur der position und auch nicht ohne die position
+	obwohl, die nummer ist doch eigentlich gleichzusetzen mit der position wenn ich es richtig verstehe.... 
+	trotzdem sind da zwei konstruktoren denke ich nicht richtig
+	*/
+	
 	   /**
      *Konstruktor zum erstellen der Faesser (positionsbehandlung)
      *@author ischramm
