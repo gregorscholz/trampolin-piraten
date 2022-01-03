@@ -49,7 +49,7 @@ public class SettingsPanel extends JPanel {
         nameLabel.setForeground(Color.white);
         nameLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
 
-        JPanel buttonPanel = new JPanel();
+        buttonPanel = new JPanel();
         buttonPanel.setOpaque(false);
         buttonPanel.setLayout(new GridBagLayout());
         createButton("A und D", buttonPanel, 1);
@@ -63,7 +63,7 @@ public class SettingsPanel extends JPanel {
         zurueck.setContentAreaFilled(false);
         zurueck.setPreferredSize(new Dimension(70, 50));
         zurueck.addActionListener(e -> GamePanel.cl.show(WindowPanel.gp, "Main Menu"));
-        JPanel backPanel = new JPanel();
+        backPanel = new JPanel();
         backPanel.setOpaque(false);
         backPanel.setLayout(new FlowLayout());
         backPanel.setAlignmentX(CENTER_ALIGNMENT);
