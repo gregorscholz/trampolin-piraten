@@ -13,6 +13,8 @@ public class EventFass extends Fass implements IFSpielelement {
 	byte symbol; // als Array 0 =kein Event {1,2,3,4 = Event}
 	Fass betroffen;
 	int breite = 25;
+	Plattform plattform = new Plattform();
+	int plattformmitte = plattform.getxKoordinate() + (plattform.getPlattformBreite() / 2);
 
 	public EventFass(int fassNummer, int eventnummer) {
 		super(eventnummer);
@@ -26,8 +28,14 @@ public class EventFass extends Fass implements IFSpielelement {
 				betroffen = new Fass(fassNummer+ (breite -1),0,0);
 				betroffen = new Fass(fassNummer+ (breite),0,0);
 				betroffen = new Fass(fassNummer+ (breite +1),0,0);
-			case 2: //Munition: for(int i = 0, i<7, i++) Ball.bewegung = position[this];
-			case 3: // Rum: Bewegungssteuerung.links = zwischenspeicher;
+			case 2: //Munition
+					for(int anzahlBaelle = 0; anzahlBaelle<7; anzahlBaelle++){ // anzahl der neuen Bälle Sinnvoll?
+						Kugel ball = new Kugel();
+						ball.setyKoordinate(plattform.getyKoordinate());
+						ball.setxKoordinate(plattformmitte);
+					}
+			case 3: // Rum: 
+					//Bewegungssteuerung.links = zwischenspeicher;
 					//Bewegungssteuerung.links = Bewegungssteuerung.rechts;
 					// Bewegungssteuerung.rechts = zwischenspeicher;
 					//TimeUnit.SECONDS.sleep(5);
