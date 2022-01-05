@@ -45,6 +45,16 @@ public abstract class Controller {
 	}
 	
 	/**
+	 * Aktiviert oder deaktiviert die vertauschte steuerung
+	 * 
+	 * @param aktiv
+	 * @author Ines Rohrbach
+	 */
+	public static void rumAktiviert(boolean aktiv) {
+		getSteuerung().rumAktiviert(aktiv);
+	}
+	
+	/**
 	 * Gibt die Steuerung(Singleton) zureuck.
 	 * 
 	 * @author Ines Rohrbach
