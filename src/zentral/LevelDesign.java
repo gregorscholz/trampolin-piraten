@@ -26,7 +26,7 @@ public class LevelDesign {
 	 * @param schwierigkeit, Fassnummern und Eventfaesser
 	 * @author Ines Rohrbach
 	 */
-	public LevelDesign(byte design, byte schwierigkeit) {	
+	public LevelDesign(int design, int schwierigkeit) {	
 		switch(design) {
 			case 0: if(schwierigkeit == 0) {
 						leseDatei("x");
@@ -64,7 +64,7 @@ public class LevelDesign {
 						leseDatei("x");
 					} break;
 			default: 
-				leseDatei("x"); //man koennte ein extra leveldesign dafuer haben, damit fuer uns direkt klar ist das beim einlesen was nicht funktioniert, aber wir ein bisschen spaß haben koennen.
+				leseDatei("x"); //man koennte ein extra leveldesign dafuer haben, damit fuer uns direkt klar ist das beim einlesen was nicht funktioniert, aber wir ein bisschen spaï¿½ haben koennen.
 				break;
 		}
 	}
@@ -89,7 +89,7 @@ public class LevelDesign {
 	}
 
 	/**
-	 * Gibt alle für das Level verwendeten Spielelemente zurueck
+	 * Gibt alle fï¿½r das Level verwendeten Spielelemente zurueck
 	 * 
 	 * @return alle Spielelmente des Levels in einem Hashset
 	 * @author Ines Rohrbach

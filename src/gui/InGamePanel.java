@@ -19,6 +19,7 @@ import zentral.Controller;
 public class InGamePanel extends JPanel {
 
     static final int tick = 0;
+    static final int UNIT_SIZE = 50;
 
     private Timer timer;
     private boolean running;

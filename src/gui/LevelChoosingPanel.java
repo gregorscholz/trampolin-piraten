@@ -11,6 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import zentral.LevelDesign;
+
 /**
  * Klasse für das Menu zur Levelauswahl
  * 
@@ -106,11 +108,36 @@ public class LevelChoosingPanel extends JPanel {
                 button.setBorderPainted(false);
                 button.setContentAreaFilled(false);
                 button.setPreferredSize(new Dimension(150, 100));
-                // button.addActionListener
+                int getRow = row;
+                int getColumn = column;
+                button.addActionListener(e -> selectLevel(getRow, getColumn));
                 rowspanel.get(row).add(Box.createRigidArea(new Dimension(100, 0)));
                 rowspanel.get(row).add(button);
             }
         }
+    }
+
+    /**
+     * ruft die LevelDesign Klasse auf und erstellt somit das Level
+     * 
+     * @param schwierigkeit die ausgewählte aber noch nicht angepasste schwierigkeit des levels
+     * @param levelnummer die nummer des levels in der schwierigkeit
+     * @author Gregor Scholz
+     */
+    public void selectLevel(int schwierigkeit, int levelnummer) {
+        GamePanel.cl.show(WindowPanel.gp, "In Game");
+        switch (schwierigkeit) {
+            case 2:
+                new LevelDesign(levelnummer - 1, 0);
+                break;
+            case 4:
+                new LevelDesign(levelnummer - 1 , 1);
+                break;
+            case 6:
+                new LevelDesign(levelnummer - 1, 2);
+                break;
+        }
+        
     }
 
 }
