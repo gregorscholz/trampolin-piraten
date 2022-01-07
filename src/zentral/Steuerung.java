@@ -41,7 +41,7 @@ public class Steuerung implements KeyListener {
 	 * @param setting - 0: Pfeiltasten 1: a und d
 	 * @author Ines Rohrbach
 	 */
-	public void setTasten(int setting) {	
+	public void setTasten(int setting) {
 		if(setting == 0) { 
 			bewegungRechts = KeyEvent.VK_RIGHT;
 			bewegungLinks = KeyEvent.VK_LEFT;

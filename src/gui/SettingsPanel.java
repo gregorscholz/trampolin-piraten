@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import zentral.Controller;
+
 /**
  * Klasse für das Einstellungsmenu
  * 
@@ -99,10 +101,10 @@ public class SettingsPanel extends JPanel {
     public void getButton(String setname, int setnr) {
         switch (setnr) {
             case 1:
-                // TODO
+            	Controller.setTasten(1);
                 break;
             case 2:
-                // TODO
+            	Controller.setTasten(0);
                 break;
         }
         JOptionPane.showMessageDialog(this, "Steuerung wurde auf " + setname + " geaendert.");
