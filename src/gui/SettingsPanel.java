@@ -71,10 +71,10 @@ public class SettingsPanel extends JPanel {
     }
 
     /**
-     * Erstellt die Buttons für den Steuerungsänderung
+     * Erstellt die Buttons für den Steuerungsaenderung
      * 
      * @param setname - der Text welcher auf den Button steht
-     * @param panel - das JPanel zu dem der Panel hinzugefügt wird
+     * @param panel - das JPanel zu dem der Panel hinzugefuegt wird
      * @param setnr - die Nummer zu dem Set
      */
     public void createButton(String setname, JPanel panel, int setnr) {
@@ -91,7 +91,7 @@ public class SettingsPanel extends JPanel {
     }
 
     /**
-     * Der ActionListener zu den Buttons, führt die entsprechende Funktion aus, bei Betätigung eines Buttons kommt eine Popup Meldung zur Änderung
+     * Der ActionListener zu den Buttons, fuehrt die entsprechende Funktion aus, bei Betaetigung eines Buttons kommt eine Popup Meldung zur Änderung
      * 
      * @param setname - der Text welcher auf dem Button steht und das Set beschreibt
      * @param setnr - die Nummer zu dem Set
@@ -105,7 +105,7 @@ public class SettingsPanel extends JPanel {
                 // TODO
                 break;
         }
-        JOptionPane.showMessageDialog(this, "Steuerung wurde auf " + setname + " geändert.");
+        JOptionPane.showMessageDialog(this, "Steuerung wurde auf " + setname + " geaendert.");
     }
 
 }
