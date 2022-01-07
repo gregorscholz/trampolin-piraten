@@ -31,8 +31,6 @@ public abstract class LevelFactory {
 		switch(typ) {
 		case "F": e = new Fass(nummer, leben, eNummer);
 				break;
-//		case "E": e = new EventFass(a,b,c,d);	wir soweit ich weiﬂ beim fass selbst erstellt
-//				break;
 		case "P": e = new Plattform();
 				break;
 		case "K": e = new Kugel();
