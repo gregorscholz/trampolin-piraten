@@ -65,17 +65,17 @@ public class CollisionDetection {
     */
     private boolean checkSeiten(){
         //Kugel triff links o. rechts
-        if(gameObjects.getKugel().getPosX <= 0 || gameObjects.getKugel().getPosX() >= (panel.getWidth()- gameObjects.getKugel().getWidth())){
-            gameObjects.getKugel().setVelX(-gameObjects.getKugel().getVelX());
+        if(gameObjects.getKugel().getxKoordinate() <= 0 || gameObjects.getKugel().getxKoordinate() >= (panel.getWidth()- gameObjects.getKugel().getWidth())){
+            gameObjects.getKugel().setxVelocity(-gameObjects.getKugel().getxVelocity());
             return true;
         }
         //Kugel trifft oben
-        if(gameObjects.getKugel().getPosY() >= panel.getWidth()){
-            gameObjects.getKugel().setVelY(-gameObjects.getKugel().getVelY());
+        if(gameObjects.getKugel().getyKoordinate() >= panel.getWidth()){
+            gameObjects.getKugel().setxVelocity(-gameObjects.getKugel().getyVelocity());
             return true;
         }
         //Kugel trifft unten
-        if(gameObjects.getKugel().getPosY() <= 0){
+        if(gameObjects.getKugel().getyKoordinate() <= 0){
             //controller.resetKugel();
             return true;
         }
