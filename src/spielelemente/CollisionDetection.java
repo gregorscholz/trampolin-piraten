@@ -2,6 +2,10 @@ package spielelemente;
 
 import java.awt.Rectangle;
 
+import gui.InGamePanel;
+
+import zentral.Controller;
+
 /**
  * Klasse zum Erkennen und Verarbeiten von Kollisionen zw. Objekten * 
  * @author fseiffer
@@ -10,9 +14,12 @@ import java.awt.Rectangle;
 public class CollisionDetection {    
     
     GameObjects gameObjects;
+    InGamePanel panel;
+    Controller controller;
     
-    public CollisionDetection(GameObjects g){
+    public CollisionDetection(GameObjects g, InGamePanel p){
         gameObjects = g;
+        panel = p;
     }
     
     /**
@@ -57,6 +64,21 @@ public class CollisionDetection {
      *@return Kollision
     */
     private boolean checkSeiten(){
+        //Kugel triff links o. rechts
+        if(gameObjects.getKugel().getPosX <= 0 || gameObjects.getKugel().getPosX() >= (panel.getWidth()- gameObjects.getKugel().getWidth())){
+            gameObjects.getKugel().setVelX(-gameObjects.getKugel().getVelX());
+            return true;
+        }
+        //Kugel trifft oben
+        if(gameObjects.getKugel().getPosY() >= panel.getWidth()){
+            gameObjects.getKugel().setVelY(-gameObjects.getKugel().getVelY());
+            return true;
+        }
+        //Kugel trifft unten
+        if(gameObjects.getKugel().getPosY() <= 0){
+            //controller.resetKugel();
+            return true;
+        }
         return false;
     }
     
