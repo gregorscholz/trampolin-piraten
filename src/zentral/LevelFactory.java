@@ -1,6 +1,5 @@
 package zentral;
 
-import spielelemente.EventFass;
 import spielelemente.Fass;
 import spielelemente.IFSpielelement;
 import spielelemente.Kugel;
@@ -24,16 +23,22 @@ public abstract class LevelFactory {
 		
 		String[] block = s.split(",",4);
 		String typ = block[0];
-		int nummer = Integer.parseInt(block[1]);
-		int leben = Integer.parseInt(block[2]);
-		int eNummer = Integer.parseInt(block[3]);
+		for (String teilblock : block) {
+			if (teilblock == null) {
+				teilblock = "0";
+			}
+		}
+		
+		int wert1 = Integer.parseInt(block[1]);
+		int wert2 = Integer.parseInt(block[2]);
+		int wert3 = Integer.parseInt(block[3]);
 		
 		switch(typ) {
-		case "F": e = new Fass(nummer, leben, eNummer);
+		case "F": e = new Fass(wert1, wert2, wert3);
 				break;
-		case "P": e = new Plattform();
+		case "P": e = new Plattform(wert1);
 				break;
-		case "K": e = new Kugel();
+		case "K": e = new Kugel(wert1);
 				break;
 		default:
 			break;
