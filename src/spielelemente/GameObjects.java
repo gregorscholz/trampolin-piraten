@@ -1,6 +1,7 @@
 package spielelemente;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -50,6 +51,16 @@ public class GameObjects {
 	 * @author Ines Rohrbach
 	 */
 	public GameObjects(Set<IFSpielelement> elemente) {
-		
+		Iterator<IFSpielelement> i = elemente.iterator();
+		while(i.hasNext()) {
+			IFSpielelement e = i.next();
+			if(e.getClass()== Fass.class) {
+				faesser.add(((Fass) e).getPosition(), (Fass) e);
+			} else if(e.getClass()== Plattform.class) {
+				this.plattform = (Plattform) e;
+			} else if(e.getClass()== Kugel.class) {
+				this.kugel = (Kugel) e;
+			}
+		}
 	}
 }

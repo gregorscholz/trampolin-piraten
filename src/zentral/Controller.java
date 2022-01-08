@@ -4,6 +4,7 @@ import java.util.Set;
 
 import spielelemente.GameObjects;
 import spielelemente.IFSpielelement;
+import spielelemente.Plattform;
 
 /**
  * Zentrale Verwaltungsklasse - Controller.
@@ -11,7 +12,7 @@ import spielelemente.IFSpielelement;
  * @author Ines Rohrbach
  */
 public abstract class Controller {
-	private static GameObjects aktuelleElemente;
+	private static GameObjects aktuelleElemente = null;
 	
 	
 	/**
@@ -90,5 +91,42 @@ public abstract class Controller {
 	 */
 	public static GameObjects getObjekte() {
 		return aktuelleElemente;
+	}
+	
+	/**
+	 * Erhoeht oder verringert den Wellenstand.
+	 * Wird ausgeloesst durch ein Eventfass
+	 * 
+	 * @param b, true wenn erhoeht wird - false wenn er verringert wird
+	 * @author Ines Rohrbach
+	 */
+	public void erhoeheWellenstand(Boolean b) {
+		Plattform p = aktuelleElemente.getPlattform();
+		if(b) {
+			if(!(p.getyKoordinate()==1250)) {
+				p.setyKoordinate(p.getyKoordinate() + 50);
+			}
+		} else {
+			if(!(p.getyKoordinate()==1350)) {
+				p.setyKoordinate(p.getyKoordinate() - 50);
+			}
+		}
+	}
+	
+	/**
+	 * Beendet das Level und ermoeglicht das Weiterspielen.
+	 * Sorgt dafuer, dass keine Elemente und Sondereinstellungen von dem vorherigen Spiel uebrig ist.
+	 * 
+	 * @author Ines Rohrbach
+	 */
+	public void spielBeendet() {
+		
+		//freeze spielstand bild
+		aktuelleElemente = null;
+		rumAktiviert(false);
+		
+		//Gewonnen/Verloren
+		//Anzeige Gewonnen Verloren
+		//bei der anzeige auch fragen ob zurueck zur levelauswahl oder hauptmenue
 	}
 }

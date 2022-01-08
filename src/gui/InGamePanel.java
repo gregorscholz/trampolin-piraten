@@ -35,7 +35,7 @@ public class InGamePanel extends JPanel {
         this.setMaximumSize(dim);
         this.addKeyListener(Controller.getSteuerung());
         timer = new Timer(tick, new GameActionListener());
-        cd = new CollisionDetection(Controller.getObjekte());
+        //cd = new CollisionDetection(Controller.getObjekte());
     }
 
     /**

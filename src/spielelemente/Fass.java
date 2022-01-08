@@ -13,9 +13,15 @@ import gui.InGamePanel;
 
 public class Fass implements IFSpielelement {
 
+	private int position;
 	int verbleibend;
 	int KoordinateX;
 	int KoordinateY;
+	
+	//getter position
+	public int getPosition() {
+		return position;
+	}
 	
    /**
      *Konstruktor zu Collisionsbehandlung
@@ -23,12 +29,12 @@ public class Fass implements IFSpielelement {
      * @return Anzahl der verbleibenden "lebens"punke
      */
 	public Fass(int fassNummer, int leben, int eventnummer) {
+		position = fassNummer; //wenn fassnummer das ist was ich denke
 			leben = leben-1;
 			verbleibend = leben;
 			if (eventnummer != 0) {
 				EventFass ausloeser = new EventFass(fassNummer, eventnummer);
 			}
-			
 	}
 	
 	/*kommentar ines: gehoeren die beiden konstruktren nicht zusammen? 
