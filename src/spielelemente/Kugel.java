@@ -17,6 +17,16 @@ public class Kugel extends Rectangle implements IFSpielelement {
         //Grï¿½ï¿½e (Durchmesser)
 	}
 	
+	
+	//für tests
+	private int aktiv; //0 = nicht aktiv 1= aktiv
+	public int getAktiv() {
+		return aktiv;
+	}
+	public Kugel(int i){
+        this.aktiv = i;
+	}
+	
 	//Getter und Setter
 	
 	public void setxVelocity(int newxVelocity){
