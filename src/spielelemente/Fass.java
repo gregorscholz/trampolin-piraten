@@ -14,11 +14,11 @@ import gui.InGamePanel;
 public class Fass implements IFSpielelement {
 
 	private int position;
-	int verbleibend;
-	int xKoordinate;
-	int yKoordinate;
-	int fassbreite;
-	int fasshoehe;
+	private int verbleibend;
+	private int xKoordinate;
+	private int yKoordinate;
+	private int fassbreite;
+	private int fasshoehe;
 	
    /**
      *Konstruktor zu Collisionsbehandlung

@@ -10,11 +10,11 @@ public class EventFass extends Fass implements IFSpielelement {
 	 * @author ischramm
 	 */
 	
-	byte symbol; // als Array 0 =kein Event {1,2,3,4 = Event}
-	Fass betroffen;
-	int breite = 25;
-	Plattform plattform = new Plattform();
-	int plattformmitte = plattform.getxKoordinate() + (plattform.getPlattformBreite() / 2);
+	private byte symbol; // als Array 0 =kein Event {1,2,3,4 = Event}
+	private Fass betroffen;
+	private int breite = 25;
+	private Plattform plattform = new Plattform(); //kommentar ines: geht so nicht, bzw. ich verstehe es nicht
+	private int plattformmitte = plattform.getxKoordinate() + (plattform.getPlattformBreite() / 2);
 	//zentral.Steuerung st = new zentral.Steuerung();
 
 	public EventFass(int fassNummer, int eventnummer) {
@@ -31,7 +31,7 @@ public class EventFass extends Fass implements IFSpielelement {
 				betroffen = new Fass(fassNummer+ (breite +1),0,0);
 			case 2: //Munition
 					for(int anzahlBaelle = 0; anzahlBaelle<7; anzahlBaelle++){ // anzahl der neuen Bälle Sinnvoll?
-						Kugel ball = new Kugel();
+						Kugel ball = new Kugel(); //kommentar ines: nicht so
 						ball.setyKoordinate(plattform.getyKoordinate());
 						ball.setxKoordinate(plattformmitte);
 					}
