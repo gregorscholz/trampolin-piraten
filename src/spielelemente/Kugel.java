@@ -21,6 +21,11 @@ public class Kugel extends Rectangle implements IFSpielelement {
 	
 	//Getter und Setter
 	
+	/**
+	 * 
+	 * 
+	 * @author Johannes Roloff
+	 */
 	public void setxVelocity(double newxVelocity){
         xVelocity = newxVelocity;
     }
