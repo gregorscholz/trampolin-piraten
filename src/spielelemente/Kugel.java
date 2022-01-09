@@ -3,78 +3,61 @@ package spielelemente;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+/**
+ * 
+ * 
+ * @author Johannes Roloff
+ */
 public class Kugel extends Rectangle implements IFSpielelement {
 
-	static final int BALL_DIAMETER = 9; //!!!!!! einfach damit die fehlermeldung weg ist
-	int xVelocity;
-	int yVelocity;
-	int xKoordinate, yKoordinate;
+	private double xVelocity, yVelocity;
 
-
-	public Kugel(){
-        //Initialkoordinaten als Parameter, damit Ballmultiplikatorevent am Block Baelle erstellen kann
-        //Initialgeschwindigkeit
-        //Gre (Durchmesser)
+	public Kugel(int x, int y){
+		super(x, y, 9, 9);
+        xVelocity = 1.0;
+        yVelocity = -1.5;
 	}
 	
-	
-	//fr tests
-	private int aktiv; //0 = nicht aktiv 1= aktiv
-	public int getAktiv() {
-		return aktiv;
-	}
-	public Kugel(int i){
-        this.aktiv = i;
-	}
-	
-	
-	//für tests
-	private int aktiv; //0 = nicht aktiv 1= aktiv
-	public int getAktiv() {
-		return aktiv;
-	}
-	public Kugel(int i){
-        this.aktiv = i;
-	}
 	
 	//Getter und Setter
 	
-	public void setxVelocity(int newxVelocity){
-        xVelocity = x;
+	public void setxVelocity(double newxVelocity){
+        xVelocity = newxVelocity;
     }
 
-    public void setyVelocity(int newyVelocity){
+    public void setyVelocity(double newyVelocity){
         yVelocity = newyVelocity;
     }
 
-	public int getxVelocity() {
+	public double getxVelocity() {
 		return xVelocity;
 	}
 
-	public int getyVelocity() {
+	public double getyVelocity() {
 		return yVelocity;
 	}
 
 	public int getxKoordinate() {
-		return xKoordinate;
+		return x;
 	}
 
 	public void setxKoordinate(int xKoordinate) {
-		this.xKoordinate = xKoordinate;
+		this.x = xKoordinate;
 	}
 
 	public int getyKoordinate() {
-		return yKoordinate;
+		return y;
 	}
 
 	public void setyKoordinate(int yKoordinate) {
-		this.yKoordinate = yKoordinate;
+		this.y = yKoordinate;
 	}
 	
 	//andere Methoden
 	
 	public void move() {
-		
+		y = (int) (y + yVelocity*20.0);
+		x = (int) (x + xVelocity*20.0);
 	}
 	
 	public void draw(Graphics g) {
