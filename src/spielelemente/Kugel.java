@@ -29,7 +29,7 @@ public class Kugel extends Rectangle implements IFSpielelement {
 	//Getter und Setter
 	
 	/**
-	 * 
+	 * Setzt horizontale Geschwindigkeit und Richtung der Kugel
 	 * 
 	 * @author Johannes Roloff
 	 */

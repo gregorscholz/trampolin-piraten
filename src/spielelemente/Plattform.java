@@ -51,7 +51,7 @@ public class Plattform extends Rectangle implements IFSpielelement {
 	}
 
 	/**
-	 * 
+	 * Setzt horizontale Position der Plattform
 	 * 
 	 * @author Johannes Roloff
 	 */
