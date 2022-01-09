@@ -11,7 +11,7 @@ import zentral.Controller;
  * @author fseiffer
  */
 
-public class CollisionDetection {    
+public class CollisionDetection{    
     
     GameObjects gameObjects;
     InGamePanel panel;
@@ -46,16 +46,26 @@ public class CollisionDetection {
      *@return Kollision
     */
     private boolean checkFaesser(){
+        for(Fass i : gameObjects.getFaesser()){
+            if(gameObjects.getKugel().intersects(i){
+                i.triggerEvent();
+                gameObjects.getKugel().setxVelocity(calcVector(gameObjects.getKugel(), i)[0]);
+                gameObjects.getKugel().setyVelocity(calcVector(gameObjects.getKugel(), i)[1]);
+            }
+        }
         return false;
     }
 
     /**
-     * Abfrager der Plattform und Bewegung der Kugel setzen
+     * Abfrage der Plattform und Bewegung der Kugel setzen
      *@author fseiffer
      *@return Kollision
     */
     private boolean checkPlattform(){
-        return false;
+        if(gameObjects.getKugel().intersects(gameObjects.getPlattform())){
+            gameObjects.getKugel().setxVelocity(calcVector(gameObjects.getKugel(), gameObjects.getPlattform())[0]);
+            gameObjects.getKugel().setyVelocity(calcVector(gameObjects.getKugel(), gameObjects.getPlattform())[1]);
+        }
     }
     
     /**
@@ -65,7 +75,7 @@ public class CollisionDetection {
     */
     private boolean checkSeiten(){
         //Kugel triff links o. rechts
-        if(gameObjects.getKugel().getxKoordinate() <= 0 || gameObjects.getKugel().getxKoordinate() >= (panel.getWidth()- gameObjects.getKugel().getWidth())){
+        if(gameObjects.getKugel().getxKoordinate() <= 0 || gameObjects.getKugel().getMaxX() >= panel.getWidth()){
             gameObjects.getKugel().setxVelocity(-gameObjects.getKugel().getxVelocity());
             return true;
         }
@@ -75,8 +85,8 @@ public class CollisionDetection {
             return true;
         }
         //Kugel trifft unten
-        if(gameObjects.getKugel().getyKoordinate() <= 0){
-            //controller.resetKugel();
+        if(gameObjects.getKugel().getyKoordinate() < gameObjects.getPlattform().y){
+            controller.resetKugel();//TODO
             return true;
         }
         return false;
