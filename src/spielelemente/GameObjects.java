@@ -16,12 +16,24 @@ public class GameObjects {
 	
 	/**
 	 * Gibt die aktuellen Faesser zurueck.
+	 * Beachte: Fass[0]=null
 	 * 
 	 * @return aktuellen Faesser in einem Array
 	 * @author Ines Rohrbach
 	 */
 	public ArrayList<Fass> getFaesser() {
 		return faesser;
+	}
+	
+	/**
+	 * Gibt ein einzelnes Fass zurueck.
+	 * Beachte: Fass[0]=null
+	 * 
+	 * @param i, Fass welches man haben moechte.
+	 * @return
+	 */
+	public Fass getFass(int i) {
+		return faesser.get(i);
 	}
 
 	/**
