@@ -4,14 +4,17 @@ import java.awt.event.*;
 import java.awt.*;
 
 /**
- * 
- * 
+ * Klasse zum Erstellen der Plattform und deren Verwaltung der Position und Bewegung
+ * @param xVelocity
+ * @param x
+ * @param y
+ * @param width
+ * @param height
  * @author Johannes Roloff
  */
 public class Plattform extends Rectangle implements IFSpielelement {
 
 	private int xVelocity;
-	private int xKoordinate, yKoordinate;
 	
 	public Plattform(int y, int velocity){
 		super(600, y, 200, 25);
@@ -20,30 +23,67 @@ public class Plattform extends Rectangle implements IFSpielelement {
 	
 	//Getter und Setter
 	
+	/**
+	 * 
+	 * @return Geschwindigkeit und Richtung in x-Richtung
+	 * @author Johannes Roloff
+	 */
 	public int getxVelocity() {
 		return xVelocity;
 	}
 
+	/**
+	 * Setzt horizontale Richtung- und Geschwindigkeit der Plattform
+	 * 
+	 * @author Johannes Roloff
+	 */
 	public void setxVelocity(int xVelocity) {
 		this.xVelocity = xVelocity;
 	}
 
+	/**
+	 * 
+	 * @return x-Koordinate der Plattform
+	 * @author Johannes Roloff
+	 */
 	public int getxKoordinate() {
 		return x;
 	}
 
+	/**
+	 * 
+	 * 
+	 * @author Johannes Roloff
+	 */
 	public void setxKoordinate(int xKoordinate) {
 		this.x = xKoordinate;
 	}
 
+	/**
+	 * 
+	 * @return y-Koordinate der Plattform
+	 * @author Johannes Roloff
+	 */
 	public int getyKoordinate() {
 		return y;
 	}
 
+	/**
+	 * Setzt y-Koordinate der Plattform
+	 * 
+	 * @author Johannes Roloff
+	 */
 	public void setyKoordinate(int yKoordinate) {
 		this.y = yKoordinate;
 	}
 	
+	//andere Methoden
+	
+	/**
+	 * 
+	 * 
+	 * @author Johannes Roloff
+	 */
 	public void setWellenstand(int c) {
 		switch(c) {
 		case 0:
@@ -57,15 +97,13 @@ public class Plattform extends Rectangle implements IFSpielelement {
 			break;
 		}
 	}
-
 	
-	//andere Methoden
-	
+	/**
+	 * 
+	 * 
+	 * @author Johannes Roloff
+	 */
 	public void move() {
-		
-	}
-	
-	public void draw(Graphics g) {
-		//malt die Plattform; wird wahrscheinlich von Gregor in der GUI uebernommen
+		x = x + xVelocity*20;
 	}
 }
