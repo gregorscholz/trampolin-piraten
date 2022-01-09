@@ -14,7 +14,17 @@ public class Kugel extends Rectangle implements IFSpielelement {
 	public Kugel(){
         //Initialkoordinaten als Parameter, damit Ballmultiplikatorevent am Block Baelle erstellen kann
         //Initialgeschwindigkeit
-        //Gr��e (Durchmesser)
+        //Gre (Durchmesser)
+	}
+	
+	
+	//fr tests
+	private int aktiv; //0 = nicht aktiv 1= aktiv
+	public int getAktiv() {
+		return aktiv;
+	}
+	public Kugel(int i){
+        this.aktiv = i;
 	}
 	
 	//Getter und Setter
