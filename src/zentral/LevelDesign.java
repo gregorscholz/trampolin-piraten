@@ -29,42 +29,42 @@ public class LevelDesign {
 	public LevelDesign(int design, int schwierigkeit) {	
 		switch(design) {
 			case 0: if(schwierigkeit == 0) {
-						leseDatei("x");
+						leseDatei("a-1.txt");
 					} else if (schwierigkeit == 1) {
-						leseDatei("x");
+						leseDatei("a-2.txt");
 					} else {
-						leseDatei("x");
+						leseDatei("a-3.txt");
 					} break;
 			case 1: if(schwierigkeit == 0) {
-						leseDatei("x");
+						leseDatei("b-1.txt");
 					} else if (schwierigkeit == 1) {
-						leseDatei("x");
+						leseDatei("b-2.txt");
 					} else {
-						leseDatei("x");
+						leseDatei("b-3.txt");
 					} break;
 			case 2: if(schwierigkeit == 0) {
-						leseDatei("x");
+						leseDatei("c-1.txt");
 					} else if (schwierigkeit == 1) {
-						leseDatei("x");
+						leseDatei("c-2.txt");
 					} else {
-						leseDatei("x");
+						leseDatei("c-3.txt");
 					} break;
 			case 3: if(schwierigkeit == 0) {
-						leseDatei("x");
+						leseDatei("d-1.txt");
 					} else if (schwierigkeit == 1) {
-						leseDatei("x");
+						leseDatei("d-2.txt");
 					} else {
-						leseDatei("x");
+						leseDatei("d-3.txt");
 					} break;
 			case 4: if(schwierigkeit == 0) {
-						leseDatei("x");
+						leseDatei("e-1.txt");
 					} else if (schwierigkeit == 1) {
-						leseDatei("x");
+						leseDatei("e-2.txt");
 					} else {
-						leseDatei("x");
+						leseDatei("e-3.txt");
 					} break;
 			default: 
-				leseDatei("x"); //man koennte ein extra leveldesign dafuer haben, damit fuer uns direkt klar ist das beim einlesen was nicht funktioniert, aber wir ein bisschen spa� haben koennen.
+				leseDatei("errorLevel.txt"); //man koennte ein extra leveldesign dafuer haben, damit fuer uns direkt klar ist das beim einlesen was nicht funktioniert, aber wir ein bisschen spa� haben koennen.
 				break;
 		}
 	}

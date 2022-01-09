@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import zentral.LevelDesign;
+import zentral.Controller;
 
 /**
  * Klasse für das Menu zur Levelauswahl
@@ -128,13 +128,13 @@ public class LevelChoosingPanel extends JPanel {
         GamePanel.cl.show(WindowPanel.gp, "In Game");
         switch (schwierigkeit) {
             case 2:
-                new LevelDesign(levelnummer - 1, 0);
+                Controller.erstelleLevel(levelnummer - 1, 0);
                 break;
             case 4:
-                new LevelDesign(levelnummer - 1 , 1);
+            	Controller.erstelleLevel(levelnummer - 1 , 1);
                 break;
             case 6:
-                new LevelDesign(levelnummer - 1, 2);
+            	Controller.erstelleLevel(levelnummer - 1, 2);
                 break;
         }
         
