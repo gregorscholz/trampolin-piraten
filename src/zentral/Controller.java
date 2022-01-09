@@ -14,19 +14,6 @@ import spielelemente.Plattform;
 public abstract class Controller {
 	private static GameObjects aktuelleElemente = null;
 	
-	
-	/**
-	 * damit bei tastendruck ueberprueft werden kann, ob der spieler noch im panel ist
-	 * 
-	 * wenn bei der plattform überprüft wird, ob die plattform noch im spielfeld ist, dann wird diese methode wegfallen
-	 * 
-	 * @return Spielerposition horizontal als Integer
-	 * @author Ines Rohrbach
-	 */
-	public static int getSpielerPositionX() {
-		return aktuelleElemente.getPlattform().getxKoordinate();
-	}
-	
 	/**
 	 * anweisung die Plattform nach rechts zu schieben.
 	 * 
@@ -46,7 +33,8 @@ public abstract class Controller {
 	}
 	
 	/**
-	 * Aktiviert oder deaktiviert die vertauschte steuerung
+	 * Aktiviert oder deaktiviert die vertauschte Steuerung.
+	 * Rum-Event
 	 * 
 	 * @param aktiv
 	 * @author Ines Rohrbach
@@ -69,8 +57,8 @@ public abstract class Controller {
 	 * 
 	 * @author Ines Rohrbach
 	 */
-	public static void erstelleLevel(byte design, byte schwierigkeit) {
-		LevelDesign l = new LevelDesign(design, schwierigkeit);
+	public static void erstelleLevel(int i, int j) {
+		LevelDesign l = new LevelDesign(i, j);
 		aktuelleElemente = new GameObjects(l.getElemente());
 	}
 	

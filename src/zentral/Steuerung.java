@@ -56,7 +56,8 @@ public class Steuerung implements KeyListener {
 	}
 	
 	/**
-	 * Aktiviert oder deaktiviert die vertauschte steuerung
+	 * Aktiviert oder deaktiviert die vertauschte Steuerung.
+	 * Rum-Event
 	 * 
 	 * @param aktiv
 	 * @author Ines Rohrbach
@@ -73,24 +74,12 @@ public class Steuerung implements KeyListener {
 	@Override
     public void keyPressed(KeyEvent e) {
         if(e.getKeyCode()==bewegungRechts) {
-        	if(Controller.getSpielerPositionX() >=1400) {
-        		//Controller.getSpielerPositionX() = 1400;///ob das die richtigen werte sind noch einmal überprüfn
-        		//muss dann überhaupt etwas gemacht werden?
-        	} else {
-        		if(!rum) Controller.bewegenNachRechts();
-        		else Controller.bewegenNachLinks();
-        	}
-        	//eventuell auch bei der plattform überprfüfen ob die plattform noch drin ist
+        	if(!rum) Controller.bewegenNachRechts();
+    		else Controller.bewegenNachLinks();
         }
         if(e.getKeyCode()==bewegungLinks) {
-        	if(Controller.getSpielerPositionX() <=0) {
-        		//Controller.getSpielerPositionX() = 0; ////ob das die richtigen werte sind noch einmal überprüfne
-        		//muss dann überhaupt etwas gemacht werden?
-        	} else {
-        		if(!rum) Controller.bewegenNachLinks();
-        		else Controller.bewegenNachRechts();
-        	}
-        	//eventuell auch bei der plattform überprfüfen ob die plattform noch drin ist
+        	if(!rum) Controller.bewegenNachLinks();
+    		else Controller.bewegenNachRechts();
         }        
     }
 	
