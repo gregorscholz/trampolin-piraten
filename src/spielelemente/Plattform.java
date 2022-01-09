@@ -43,7 +43,7 @@ public class Plattform extends Rectangle implements IFSpielelement {
 
 	/**
 	 * 
-	 * @return x-Koordinate der Plattform
+	 * @return horizontale Position der Plattform
 	 * @author Johannes Roloff
 	 */
 	public int getxKoordinate() {
@@ -69,7 +69,7 @@ public class Plattform extends Rectangle implements IFSpielelement {
 	}
 
 	/**
-	 * Setzt y-Koordinate der Plattform
+	 * Setzt vertikale Position der Plattform
 	 * 
 	 * @author Johannes Roloff
 	 */
@@ -80,7 +80,8 @@ public class Plattform extends Rectangle implements IFSpielelement {
 	//andere Methoden
 	
 	/**
-	 * 
+	 * Ermöglicht ein intuitivieres Erlebnis fuer die ganze Familie beim festlegen der vordefinierten Wellenstaende
+	 * @param c, Wertebereich [0,2] setzt Wellenstand auf hoch, mittel oder tief
 	 * 
 	 * @author Johannes Roloff
 	 */
@@ -99,8 +100,8 @@ public class Plattform extends Rectangle implements IFSpielelement {
 	}
 	
 	/**
-	 * 
-	 * 
+	 * Bewegt die Plattform um einen festen Wert multipliziert mit der der horizontalen Geschwindigkeit
+	 * @see #setxVelocity(int)
 	 * @author Johannes Roloff
 	 */
 	public void move() {

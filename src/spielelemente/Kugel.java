@@ -30,7 +30,7 @@ public class Kugel extends Rectangle implements IFSpielelement {
 	
 	/**
 	 * Setzt horizontale Geschwindigkeit und Richtung der Kugel
-	 * 
+	 * @see #move()
 	 * @author Johannes Roloff
 	 */
 	public void setxVelocity(double newxVelocity){
@@ -38,8 +38,8 @@ public class Kugel extends Rectangle implements IFSpielelement {
     }
 
 	/**
-	 * 
-	 * 
+	 * Setzt vertikale Geschwindigkeit und Richtung der Kugel
+	 * @see #move()
 	 * @author Johannes Roloff
 	 */
     public void setyVelocity(double newyVelocity){
@@ -48,7 +48,7 @@ public class Kugel extends Rectangle implements IFSpielelement {
 
 	/**
 	 * 
-	 * 
+	 * @return horizontale Geschwindigkeit der Kugel
 	 * @author Johannes Roloff
 	 */
 	public double getxVelocity() {
@@ -57,7 +57,7 @@ public class Kugel extends Rectangle implements IFSpielelement {
 
 	/**
 	 * 
-	 * 
+	 * @return vertikale Geschwindigkeit der Kugel
 	 * @author Johannes Roloff
 	 */
 	public double getyVelocity() {
@@ -66,7 +66,7 @@ public class Kugel extends Rectangle implements IFSpielelement {
 
 	/**
 	 * 
-	 * 
+	 * @return horizontale Position der Kugel
 	 * @author Johannes Roloff
 	 */
 	public int getxKoordinate() {
@@ -74,7 +74,7 @@ public class Kugel extends Rectangle implements IFSpielelement {
 	}
 
 	/**
-	 * 
+	 * Setzt horizontale Position der Kugel
 	 * 
 	 * @author Johannes Roloff
 	 */
@@ -84,7 +84,7 @@ public class Kugel extends Rectangle implements IFSpielelement {
 
 	/**
 	 * 
-	 * 
+	 * @return vertikale Position der Kugel
 	 * @author Johannes Roloff
 	 */
 	public int getyKoordinate() {
@@ -92,7 +92,7 @@ public class Kugel extends Rectangle implements IFSpielelement {
 	}
 
 	/**
-	 * 
+	 * Setzt vertikale Position der Kugel
 	 * 
 	 * @author Johannes Roloff
 	 */
@@ -101,7 +101,7 @@ public class Kugel extends Rectangle implements IFSpielelement {
 	}
 	
 	/**
-	 * 
+	 * Lorem Ipsum
 	 * 
 	 * @author Johannes Roloff
 	 */
@@ -111,7 +111,7 @@ public class Kugel extends Rectangle implements IFSpielelement {
 
 
 	/**
-	 * 
+	 *  dolor sit amet
 	 * 
 	 * @author Johannes Roloff
 	 */
@@ -122,8 +122,9 @@ public class Kugel extends Rectangle implements IFSpielelement {
 	//andere Methoden
 	
 	/**
-	 * 
-	 * 
+	 * Bewegt die Kugel um einen festen Wert multipliziert mit der der derzeitigen horizontalen und vertikalen Geschwindigkeit
+	 * @see #setxVelocity(double)
+	 * @see #setyVelocity(double)
 	 * @author Johannes Roloff
 	 */
 	public void move() {
