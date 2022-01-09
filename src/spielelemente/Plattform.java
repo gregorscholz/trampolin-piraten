@@ -5,16 +5,16 @@ import java.awt.*;
 
 public class Plattform extends Rectangle implements IFSpielelement {
 
-	int PlattformBreite;
-	int PlattformGroesse;
+	//int PlattformBreite;
+	//int PlattformGroesse;
 	int xVelocity;
 	int xKoordinate, yKoordinate;
 	
 	
-	public Plattform(){
-		//Initialkoordinaten
-		//Groesse
-		//Geschwindigkeit in x-richtung (0), aendert sich wenn Plattform bewegt wird
+	public Plattform(int y, int velocity){
+		super(600, y, 200, 25);
+		xVelocity = velocity;
+
 	}
 	
 	
@@ -24,7 +24,8 @@ public class Plattform extends Rectangle implements IFSpielelement {
 	}
 	
 	//Getter und Setter
-		
+	
+	/*
 	public int getPlattformBreite() {
 		return PlattformBreite;
 	}
@@ -40,7 +41,8 @@ public class Plattform extends Rectangle implements IFSpielelement {
 	public void setPlattformGroesse(int plattformGroesse) {
 		PlattformGroesse = plattformGroesse;
 	}
-
+	*/
+	
 	public int getxVelocity() {
 		return xVelocity;
 	}
@@ -63,6 +65,20 @@ public class Plattform extends Rectangle implements IFSpielelement {
 
 	public void setyKoordinate(int yKoordinate) {
 		this.yKoordinate = yKoordinate;
+	}
+	
+	public void setWellenstand(int c) {
+		switch(c) {
+		case 0:
+			yKoordinate = 1350-height;
+			break;
+		case 1:
+			yKoordinate = 1300-height;
+			break;
+		case 2:
+			yKoordinate = 1250-height;
+			break;
+		}
 	}
 
 	
