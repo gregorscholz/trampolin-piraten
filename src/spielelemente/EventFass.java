@@ -15,6 +15,7 @@ public class EventFass extends Fass implements IFSpielelement {
 	int breite = 25;
 	Plattform plattform = new Plattform();
 	int plattformmitte = plattform.getxKoordinate() + (plattform.getPlattformBreite() / 2);
+	//zentral.Steuerung st = new zentral.Steuerung();
 
 	public EventFass(int fassNummer, int eventnummer) {
 		super(eventnummer);
@@ -35,13 +36,7 @@ public class EventFass extends Fass implements IFSpielelement {
 						ball.setxKoordinate(plattformmitte);
 					}
 			case 3: // Rum: 
-					//Bewegungssteuerung.links = zwischenspeicher;
-					//Bewegungssteuerung.links = Bewegungssteuerung.rechts;
-					// Bewegungssteuerung.rechts = zwischenspeicher;
-					//TimeUnit.SECONDS.sleep(5);
-					//Bewegungssteuerung.links = zwischenspeicher;
-					//Bewegungssteuerung.links = Bewegungssteuerung.rechts;
-					// Bewegungssteuerung.rechts = zwischenspeicher;
+					//st.rumAktiviert(true);
 			case 4: //Wind: Unterer Rand = unterer Rand - x Pixel
 			}
 	}

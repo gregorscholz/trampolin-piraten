@@ -15,13 +15,10 @@ public class Fass implements IFSpielelement {
 
 	private int position;
 	int verbleibend;
-	int KoordinateX;
-	int KoordinateY;
-	
-	//getter position
-	public int getPosition() {
-		return position;
-	}
+	int xKoordinate;
+	int yKoordinate;
+	int fassbreite;
+	int fasshoehe;
 	
    /**
      *Konstruktor zu Collisionsbehandlung
@@ -29,12 +26,10 @@ public class Fass implements IFSpielelement {
      * @return Anzahl der verbleibenden "lebens"punke
      */
 	public Fass(int fassNummer, int leben, int eventnummer) {
-		position = fassNummer; //wenn fassnummer das ist was ich denke
-			leben = leben-1;
-			verbleibend = leben;
-			if (eventnummer != 0) {
-				EventFass ausloeser = new EventFass(fassNummer, eventnummer);
-			}
+		position = fassNummer;
+		verbleibend = leben;
+		yKoordinate = (fassNummer % 10)* fasshoehe;
+		xKoordinate = (fassNummer % 20)* fassbreite;
 	}
 	
 	/*kommentar ines: gehoeren die beiden konstruktren nicht zusammen? 
@@ -47,25 +42,43 @@ public class Fass implements IFSpielelement {
      *Konstruktor zum erstellen der Faesser (positionsbehandlung)
      *@author ischramm
      */
-	public Fass(int fassNummer) {
-	//InGamePanel.paintfass (KoordinateX, KoordinateY); oder so
+	
+	int treffer(int fassNummer, int leben, int eventnummer){
+		leben = leben-1;
+		verbleibend = leben;
+		if (eventnummer != 0) {
+			EventFass ausloeser = new EventFass(fassNummer, eventnummer);
+		}
+		return verbleibend;
 	}
 
 	 /**
-     * 3 getter zum aubfragen der:
+     * @getPosition ,position eines Fasses (fassnummer)
+     * @autor ischramm
+     */
+	public int getPosition() {
+		return position;
+	}
+	 /**
      * @getLeben , Anzahl der verbleibenden treffer bis zum verschwinden eines Fasses
-     * @getX , x position eines Fasses (oben links)
-     * @getY , y position eines Fasses (oben links)
      * @autor ischramm
      */
 	public int getLeben(){
 		return verbleibend;
 	}
+	 /**
+     * @getX , x position eines Fasses (oben links)
+     * @autor ischramm
+     */
 	public int getX() {
-		return KoordinateX;
+		return xKoordinate;
 	}
+	 /**
+     * @getY , y position eines Fasses (oben links)
+     * @autor ischramm
+     */
 	public int getY() {
-		return KoordinateY;
+		return yKoordinate;
 	}
 	
 	 /**
@@ -73,7 +86,8 @@ public class Fass implements IFSpielelement {
      * @param fassnummer, position des Fasses im Array
      * @autor ischramm
      */
-	public void berechnePosition(int fassnummer) {
-		//berechnet x und y Koordinaten eines Fasses
+	public void berechnePosition() {
+		getX();
+		getY();
 	}
 }
