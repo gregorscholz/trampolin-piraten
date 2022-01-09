@@ -19,8 +19,7 @@ public class LevelDesign {
 	
 	/**
 	 * Konstruktor fuer ein Leveldesign, welches je nach gewaehltem Level und Schwierigkeit das gewuenschte Level erstellt.
-	 * 
-	 * @implNote Im moment angenommen, dass die level intern benannt sind von 0-4 und schwierigkeit von 0-2
+	 * Die level intern benannt sind von 0-4 und schwierigkeit von 0-2
 	 * 
 	 * @param design, Fassanrichtung
 	 * @param schwierigkeit, Fassnummern und Eventfaesser

@@ -120,7 +120,7 @@ public class LevelChoosingPanel extends JPanel {
     /**
      * ruft die LevelDesign Klasse auf und erstellt somit das Level
      * 
-     * @param schwierigkeit die ausgewählte aber noch nicht angepasste schwierigkeit des levels
+     * @param schwierigkeit die ausgewaehlte aber noch nicht angepasste schwierigkeit des levels
      * @param levelnummer die nummer des levels in der schwierigkeit
      * @author Gregor Scholz
      */

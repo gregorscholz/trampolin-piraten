@@ -33,7 +33,8 @@ public abstract class Controller {
 	}
 	
 	/**
-	 * Aktiviert oder deaktiviert die vertauschte steuerung
+	 * Aktiviert oder deaktiviert die vertauschte Steuerung.
+	 * Rum-Event
 	 * 
 	 * @param aktiv
 	 * @author Ines Rohrbach
