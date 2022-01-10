@@ -15,10 +15,11 @@ public class EventFass extends Fass implements IFSpielelement {
 	//private byte symbol; // als Array 0 =kein Event {1,2,3,4 = Event}
 	private Fass betroffen;
 	private int breite = 20;
-	//zentral.Steuerung st = new zentral.Steuerung();
+	private zentral.Steuerung st;
+	private zentral.Controller con;
 
-	public EventFass(int fassNummer, int eventnummer) {
-		super(eventnummer);
+	public EventFass(int fassNummer, int leben, int eventnummer) {
+		super(fassNummer, leben, eventnummer);
 			switch(eventnummer) {
 			case 1: //Schwarzpulver
 				betroffen = go.getFass(fassNummer- (breite +1));
@@ -42,9 +43,9 @@ public class EventFass extends Fass implements IFSpielelement {
 						Kugel ball = new Kugel(); //kommentar ines: nicht so - änderung folgt
 					}
 			case 3: // Rum: 
-					//st.rumAktiviert(true);
+					st.rumAktiviert(true);
 			case 4: //Wind:
-				zentral.Controller.erhoeheWellenstand(true);
+				con.erhoeheWellenstand(true);
 			}
 	}
 }

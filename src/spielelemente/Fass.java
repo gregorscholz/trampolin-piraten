@@ -47,7 +47,7 @@ public class Fass implements IFSpielelement {
 		leben = leben-1;
 		verbleibend = leben;
 		if (eventnummer != 0) {
-			EventFass ausloeser = new EventFass(fassNummer, eventnummer);
+			EventFass ausloeser = new EventFass(fassNummer, leben, eventnummer);
 		}
 		return verbleibend;
 	}
