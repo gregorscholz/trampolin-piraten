@@ -88,7 +88,7 @@ public abstract class Controller {
 	 * @param b, true wenn erhoeht wird - false wenn er verringert wird
 	 * @author Ines Rohrbach
 	 */
-	public static void erhoeheWellenstand(Boolean b) {
+	public void erhoeheWellenstand(Boolean b) {
 		Plattform p = aktuelleElemente.getPlattform();
 		if(b) {
 			if(!(p.getyKoordinate()==1250)) {
