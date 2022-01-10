@@ -8,6 +8,8 @@ public class EventFass extends Fass implements IFSpielelement {
 	 * @param breite, Anzahl der möglichen Nebeneinanderliegenden Fässer
 	 * @param betroffen, Fass welches von Events mit betroffen ist aber NICHT das aufgerufene Eventfass
 	 * @param symbol, zeichen des Eventes
+	 * @param st, zum zugriff auf andere Objecte
+	 * @param con, zum zugriff auf andere Objecte
 	 * @author ischramm
 	 */
 	

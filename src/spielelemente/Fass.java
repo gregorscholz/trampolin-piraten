@@ -1,5 +1,7 @@
 package spielelemente;
 
+import java.awt.Rectangle;
+
 import gui.InGamePanel;
 
 /**
@@ -14,7 +16,7 @@ import gui.InGamePanel;
  * @author ischramm
  */
 
-public class Fass implements IFSpielelement {
+public class Fass extends Rectangle implements IFSpielelement {
 	
 	private int verbleibend;
 	private int position;
@@ -81,7 +83,7 @@ public class Fass implements IFSpielelement {
      * @return x koordinate eines Fasses (oben links)
      * @autor ischramm
      */
-	public int getX() {
+	public int getxKoordinate() {
 		return xKoordinate;
 	}
 	 /**
@@ -89,7 +91,7 @@ public class Fass implements IFSpielelement {
      * @return y koordinate eines Fasses (oben links)
      * @autor ischramm
      */
-	public int getY() {
+	public int getyKoordinate() {
 		return yKoordinate;
 	}
 	
