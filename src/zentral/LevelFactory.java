@@ -36,9 +36,9 @@ public abstract class LevelFactory {
 		switch(typ) {
 		case "F": e = new Fass(wert1, wert2, wert3);
 				break;
-		case "P": e = new Plattform(wert1);
+		case "P": e = new Plattform(wert1, wert2);
 				break;
-		case "K": e = new Kugel(wert1);
+		case "K": e = new Kugel(wert1, wert2, wert3);
 				break;
 		default:
 			break;
