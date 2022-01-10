@@ -101,7 +101,8 @@ public class Kugel extends Rectangle implements IFSpielelement {
 	}
 	
 	/**
-	 * Lorem Ipsum
+	 * Gibt das dazugehoerige Eventfass oder das sie wirklich aktiv ist zurueck.
+	 * 0 = ist gerade Aktiv, 1-200 = gehoert zu einem Event
 	 * 
 	 * @author Johannes Roloff
 	 */
@@ -111,7 +112,8 @@ public class Kugel extends Rectangle implements IFSpielelement {
 
 
 	/**
-	 *  dolor sit amet
+	 *  Aendert den Status von gehoert zu einem Event zu ist jetzt aktiv.
+	 *  0 = jetzt Aktiv
 	 * 
 	 * @author Johannes Roloff
 	 */

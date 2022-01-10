@@ -10,7 +10,7 @@ import java.util.Set;
  * @author Ines Rohrbach
  */
 public class GameObjects {
-	private Kugel kugel;
+	private ArrayList<Kugel> kugeln = new ArrayList<Kugel>();
 	private Plattform plattform;
 	private ArrayList<Fass> faesser = new ArrayList<Fass>();
 	
@@ -37,13 +37,24 @@ public class GameObjects {
 	}
 
 	/**
-	 * Gibt die aktuelle Kugel zurueck.
+	 * Gibt die Kugel zurueck.
 	 * 
+	 * @param i, welche Kugel
 	 * @return aktuelle Kugel
 	 * @author Ines Rohrbach
 	 */
-	public Kugel getKugel() {
-		return kugel;
+	public Kugel getKugel(int i) {
+		return kugeln.get(i);
+	}
+	
+	/**
+	 * Gibt alle Kugeln zurueck.
+	 * 
+	 * @return alle Kugeln
+	 * @author Ines Rohrbach
+	 */
+	public ArrayList<Kugel> getKugeln() {
+		return kugeln;
 	}
 
 	/**
@@ -71,7 +82,7 @@ public class GameObjects {
 			} else if(e.getClass()== Plattform.class) {
 				this.plattform = (Plattform) e;
 			} else if(e.getClass()== Kugel.class) {
-				this.kugel = (Kugel) e;
+				kugeln.add((Kugel) e);
 			}
 		}
 	}

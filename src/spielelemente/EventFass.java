@@ -41,9 +41,7 @@ public class EventFass extends Fass implements IFSpielelement {
 				betroffen = go.getFass(fassNummer+ (breite +1));
 				betroffen.treffer(betroffen.getPosition(), betroffen.getLeben(), betroffen.getEvent());
 			case 2: //Munition
-					for(int anzahlBaelle = 0; anzahlBaelle<7; anzahlBaelle++){ // anzahl der neuen Bälle Sinnvoll?
-						Kugel ball = new Kugel(); //kommentar ines: nicht so - änderung folgt
-					}
+				Controller.aktiviereKugel(fassNummer);
 			case 3: // Rum: 
 				Controller.rumAktiviert(true);
 			case 4: //Wind: //wellenstand erhöhen

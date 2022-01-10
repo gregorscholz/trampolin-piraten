@@ -1,9 +1,11 @@
 package zentral;
 
+import java.util.Iterator;
 import java.util.Set;
 
 import spielelemente.GameObjects;
 import spielelemente.IFSpielelement;
+import spielelemente.Kugel;
 import spielelemente.Plattform;
 
 /**
@@ -97,6 +99,23 @@ public abstract class Controller {
 		} else {
 			if(!(p.getyKoordinate()==1350)) {
 				p.setyKoordinate(p.getyKoordinate() - 50);
+			}
+		}
+	}
+	
+	/**
+	 * Aktiviert die Kugel des Fasses >>i<<.
+	 * 
+	 * @param i, (Event)Fassnummer
+	 * @author Ines Rohrbach
+	 */
+	public static void aktiviereKugel(int i) {
+		Iterator<Kugel> j = aktuelleElemente.getKugeln().iterator();
+		while(j.hasNext()) {
+			Kugel k = j.next();
+			if(k.getIstAktiv() == i) {
+				k.setIstAktiv(0);
+				break;
 			}
 		}
 	}
