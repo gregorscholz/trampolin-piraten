@@ -77,6 +77,40 @@ public class Plattform extends Rectangle implements IFSpielelement {
 		this.y = yKoordinate;
 	}
 	
+	/**
+	 * Setzt Breite der Plattform
+	 * @param newWidth
+	 * @author Johannes Roloff
+	 */
+	public void setPlattformBreite(int newWidth) {
+		this.width = newWidth;
+	}
+	
+	/**
+	 * @return Hoehe der Plattform
+	 * @author Johannes Roloff
+	 */
+	public int getPlattformBreite( ) {
+		return width;
+	}
+	
+	/**
+	 * Setzt Hoehe der Plattform
+	 * @param newHeight
+	 * @author Johannes Roloff
+	 */
+	public void setPlattformHoehe(int newHeight) {
+		this.height = newHeight;
+	}
+	
+	/**
+	 * @return Breite der Plattform
+	 * @author Johannes Roloff
+	 */
+	public int getPlattformHoehe( ) {
+		return height;
+	}
+	
 	//andere Methoden
 	
 	/**
