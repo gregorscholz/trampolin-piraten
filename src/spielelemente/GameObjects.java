@@ -62,7 +62,7 @@ public class GameObjects {
 	 * @param elemente
 	 * @author Ines Rohrbach
 	 */
-	public GameObjects(Set<IFSpielelement> elemente) {
+	public GameObjects(ArrayList<IFSpielelement> elemente) {
 		Iterator<IFSpielelement> i = elemente.iterator();
 		while(i.hasNext()) {
 			IFSpielelement e = i.next();

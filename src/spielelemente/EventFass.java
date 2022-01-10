@@ -1,5 +1,7 @@
 package spielelemente;
 
+import zentral.Controller;
+
 public class EventFass extends Fass implements IFSpielelement {
 
 	/**
@@ -13,12 +15,10 @@ public class EventFass extends Fass implements IFSpielelement {
 	 * @author ischramm
 	 */
 	
-	private GameObjects go;
+	private GameObjects go = Controller.getObjekte();
 	//private byte symbol; // als Array 0 =kein Event {1,2,3,4 = Event}
 	private Fass betroffen;
 	private int breite = 20;
-	private zentral.Steuerung st;
-	private zentral.Controller con;
 
 	public EventFass(int fassNummer, int leben, int eventnummer) {
 		super(fassNummer, leben, eventnummer);
@@ -45,9 +45,11 @@ public class EventFass extends Fass implements IFSpielelement {
 						Kugel ball = new Kugel(); //kommentar ines: nicht so - änderung folgt
 					}
 			case 3: // Rum: 
-					st.rumAktiviert(true);
-			case 4: //Wind:
-				con.erhoeheWellenstand(true);
+				Controller.rumAktiviert(true);
+			case 4: //Wind: //wellenstand erhöhen
+				Controller.erhoeheWellenstand(true);
+			case 5: //wellenstand verringern
+				Controller.erhoeheWellenstand(false);
 			}
 	}
 }
