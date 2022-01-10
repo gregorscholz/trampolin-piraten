@@ -48,15 +48,15 @@ class TestTest {
 		assertNotNull("Element ist null", e);
 		int p = e.getyKoordinate();
 		assertNotNull("Position ist null", p);
-		assertEquals("Position ist nicht richtig", p, 8);
+		assertEquals("Position ist nicht richtig", p, 0);
 	}
 	
 	@Test
 	void testFabrikKugel() {
 		Kugel e = (Kugel) LevelFactory.erstelleElement(elemente.get(2));
 		assertNotNull("Element ist null", e);
-		int p = e.getAktiv();
+		int p = e.getIstAktiv();
 		assertNotNull("Position ist null", p);
-		assertEquals("Position ist nicht richtig", p, 8);
+		assertEquals("Position ist nicht richtig", p, 7);
 	}
 }
