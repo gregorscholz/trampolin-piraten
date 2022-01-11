@@ -16,7 +16,7 @@ import spielelemente.Fass;
 import spielelemente.Kugel;
 import spielelemente.Plattform;
 
-class TestTest {
+class TestFactory {
 	private ArrayList<String> elemente = new ArrayList<String>();
 	
 	@BeforeEach

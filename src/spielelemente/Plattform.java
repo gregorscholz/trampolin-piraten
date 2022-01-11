@@ -16,8 +16,14 @@ public class Plattform extends Rectangle implements IFSpielelement {
 
 	private int xVelocity;
 	
-	public Plattform(int y, int velocity){
-		super(600, y, 200, 25);
+	/**
+	 * 
+	 * @param c, hoch=0 mittel=1 niedrig=2
+	 * @param velocity, normal=1 etwasSchneller=2 nochSchneller=3 
+	 */
+	public Plattform(int c, int velocity){
+		super(600, 24797, 200, 25);
+		setWellenstand(c);
 		xVelocity = velocity;
 	}
 	
@@ -122,13 +128,13 @@ public class Plattform extends Rectangle implements IFSpielelement {
 	public void setWellenstand(int c) {
 		switch(c) {
 		case 0:
-			y = 1350-height;
+			y = 1350-(height%2);
 			break;
 		case 1:
-			y = 1300-height;
+			y = 1300-(height%2);
 			break;
 		case 2:
-			y = 1250-height;
+			y = 1250-(height%2);
 			break;
 		}
 	}

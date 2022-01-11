@@ -14,7 +14,7 @@ import spielelemente.Fass;
 import spielelemente.IFSpielelement;
 import spielelemente.Kugel;
 
-class TestTestTest {
+class TestLevelDesgin {
 
 	@Test
 	void testLevelMitKonstruktor() {

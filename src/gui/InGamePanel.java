@@ -73,7 +73,7 @@ public class InGamePanel extends JPanel {
      * @author Gregor Scholz
      */
     public void updateObjects() {
-        widthPlatform = Controller.getObjekte().getPlattform().getPlattformBreite();
+        widthPlatform = Controller.getObjekte().getPlattform().getPlattformBreite(); //kommentar ines: ist das nicht standard maeﬂig festgelegt?
         heightPlatform = Controller.getObjekte().getPlattform().getPlattformGroesse();
 
         xKugel = Controller.getObjekte().getKugel().getxKoordinate();
