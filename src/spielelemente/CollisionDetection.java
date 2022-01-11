@@ -29,14 +29,18 @@ public class CollisionDetection{
      *@return Kollision
      */
     public boolean checkCollision(){
-        if(checkSeiten()){
-            return true;
-        }
-        if(checkPlattform()){
-            return true;
-        }
-        if(checkFaesser()){
-            return true;
+        for(Kugel i: gameObjects.getKugeln()){
+            if(i != null){
+                if(checkSeiten(i)){
+                    return true;
+                }
+                if(checkPlattform(i)){
+                    return true;
+                }
+                if(checkFaesser(i)){
+                    return true;
+                }
+            }
         }
         return false;
     }
@@ -44,15 +48,16 @@ public class CollisionDetection{
      * Abfrage aller Faesser und Bewegung der Kugel setzen
      * Beschaedigen der Faesser
      *@author fseiffer
+     *@param kugel aktuelle Kugel
      *@return Kollision
     */
-    private boolean checkFaesser(){
+    private boolean checkFaesser(Kugel kugel){
         for(Fass i : gameObjects.getFaesser()){
             if(i != null){
-                if(gameObjects.getKugel().intersects(i)){
+                if(kugel.intersects(i)){
                     i.treffer();
-                    gameObjects.getKugel().setxVelocity(calcVector(i)[0]);
-                    gameObjects.getKugel().setyVelocity(calcVector(i)[1]);
+                    kugel.setxVelocity(calcVector(i, kugel)[0]);
+                    kugel.setyVelocity(calcVector(i, kugel)[1]);
                 }
             }
         }
@@ -62,12 +67,13 @@ public class CollisionDetection{
     /**
      * Abfrage der Plattform und Bewegung der Kugel setzen
      *@author fseiffer
+     * @param kugel aktuelle Kugel
      *@return Kollision
     */
-    private boolean checkPlattform(){
-        if(gameObjects.getKugel().intersects(gameObjects.getPlattform())){
-            gameObjects.getKugel().setxVelocity(calcVector(gameObjects.getPlattform())[0]);
-            gameObjects.getKugel().setyVelocity(calcVector(gameObjects.getPlattform())[1]);
+    private boolean checkPlattform(Kugel kugel){
+        if(kugel.intersects(gameObjects.getPlattform())){
+            kugel.setxVelocity(calcVector(gameObjects.getPlattform(), kugel)[0]);
+            kugel.setyVelocity(calcVector(gameObjects.getPlattform(), kugel)[1]);
             return true;
         }
         return false;
@@ -76,21 +82,22 @@ public class CollisionDetection{
     /**
      * Abfrage der Seiten und Bewegung der Kugel setzen
      *@author fseiffer
+     * @param kugel aktuelle Kugel
      *@return Kollision
     */
-    private boolean checkSeiten(){
+    private boolean checkSeiten(Kugel kugel){
         //Kugel triff links o. rechts
-        if(gameObjects.getKugel().getxKoordinate() <= 0 || gameObjects.getKugel().getMaxX() >= panel.getWidth()){
-            gameObjects.getKugel().setxVelocity(-gameObjects.getKugel().getxVelocity());
+        if(kugel.getxKoordinate() <= 0 || kugel.getMaxX() >= panel.getWidth()){
+            kugel.setxVelocity(-kugel.getxVelocity());
             return true;
         }
         //Kugel trifft oben
-        if(gameObjects.getKugel().getyKoordinate() >= panel.getWidth()){
-            gameObjects.getKugel().setxVelocity(-gameObjects.getKugel().getyVelocity());
+        if(kugel.getyKoordinate() >= panel.getWidth()){
+            kugel.setxVelocity(-kugel.getyVelocity());
             return true;
         }
         //Kugel trifft unten
-        if(gameObjects.getKugel().getyKoordinate() < gameObjects.getPlattform().getMinY()){
+        if(kugel.getyKoordinate() < gameObjects.getPlattform().getMinY()){
             controller.resetKugel();//TODO
             return true;
         }
@@ -102,20 +109,21 @@ public class CollisionDetection{
      *@author fseiffer
      *@return Richtung bzw. Geschwindigeit nach Kollision
      *@param coll Objekt, mit dem Kugel kollidiert
+     *@param kugel aktuelle Kugel
     */
-    private double[] calcVector(Rectangle coll){
+    private double[] calcVector(Rectangle coll, Kugel kugel){
         boolean xVorz;
         boolean yVorz;
-        if(gameObjects.getKugel().getxVelocity()<0){xVorz = false;}
-        else if(gameObjects.getKugel().getxVelocity()>0){xVorz = true;}
-        else{return new double[]{0.0, -gameObjects.getKugel().getyVelocity()};}
-        if(gameObjects.getKugel().getxVelocity()<0){yVorz = false;}
-        else if(gameObjects.getKugel().getxVelocity()>0){yVorz = true;}
-        else{return new double[]{-gameObjects.getKugel().getxVelocity(), 0.0};}
-        boolean oberhalb = eckUnterscheidung(coll, xVorz, yVorz);
+        if(kugel.getxVelocity()<0){xVorz = false;}
+        else if(kugel.getxVelocity()>0){xVorz = true;}
+        else{return new double[]{0.0, -kugel.getyVelocity()};}
+        if(kugel.getxVelocity()<0){yVorz = false;}
+        else if(kugel.getxVelocity()>0){yVorz = true;}
+        else{return new double[]{-kugel.getxVelocity(), 0.0};}
+        boolean oberhalb = eckUnterscheidung(coll, xVorz, yVorz, kugel);
         boolean flip = yVorz^oberhalb;
-        if(flip){return new double[]{-gameObjects.getKugel().getxVelocity(), gameObjects.getKugel().getxVelocity()};}
-        else{return new double[]{gameObjects.getKugel().getxVelocity(), -gameObjects.getKugel().getxVelocity()};}
+        if(flip){return new double[]{-kugel.getxVelocity(), kugel.getxVelocity()};}
+        else{return new double[]{kugel.getxVelocity(), -kugel.getxVelocity()};}
     }
 
     /**
@@ -125,25 +133,26 @@ public class CollisionDetection{
      *@param coll Objekt, mit dem Kugel kollidiert
      *@param xVorz xRichtung des Bewegungsvectors
      *@param yVorz yRichtung des Bewegungsvectors
+     *@param kugel aktuelle Kugel
     */
-    private boolean eckUnterscheidung(Rectangle coll, boolean xVorz, boolean yVorz){
+    private boolean eckUnterscheidung(Rectangle coll, boolean xVorz, boolean yVorz, Kugel kugel){
         Gerade g;
         Point2D.Double collEcke;
-        Point2D.Double vec = new Point2D.Double(gameObjects.getKugel().getxVelocity(),gameObjects.getKugel().getyVelocity());
+        Point2D.Double vec = new Point2D.Double(kugel.getxVelocity(),kugel.getyVelocity());
         if(xVorz && yVorz){
-            g = new Gerade(new Point2D.Double(gameObjects.getKugel().getMaxX(), gameObjects.getKugel().getMaxY()), vec);
+            g = new Gerade(new Point2D.Double(kugel.getMaxX(), kugel.getMaxY()), vec);
             collEcke = new Point2D.Double(coll.getMinX(), coll.getMinY());
         }
         else if(!xVorz && !yVorz){
-            g = new Gerade(new Point2D.Double(gameObjects.getKugel().getMinX(), gameObjects.getKugel().getMinY()), vec);
+            g = new Gerade(new Point2D.Double(kugel.getMinX(), kugel.getMinY()), vec);
             collEcke = new Point2D.Double(coll.getMaxX(), coll.getMaxY());
         }
         else if(!xVorz && yVorz){
-            g = new Gerade(new Point2D.Double(gameObjects.getKugel().getMinX(), gameObjects.getKugel().getMaxY()), vec);
+            g = new Gerade(new Point2D.Double(kugel.getMinX(), kugel.getMaxY()), vec);
             collEcke = new Point2D.Double(coll.getMaxX(), coll.getMinY());
         }
         else{
-            g = new Gerade(new Point2D.Double(gameObjects.getKugel().getMaxX(), gameObjects.getKugel().getY()), vec);
+            g = new Gerade(new Point2D.Double(kugel.getMaxX(), kugel.getY()), vec);
             collEcke = new Point2D.Double(coll.getMinX(), coll.getMaxY());
         }
         return g.istOberhalb(collEcke);
@@ -168,7 +177,6 @@ public class CollisionDetection{
         *@author fseiffer
         *@return Ob Punkt p oberhalb, der Geraden
         */
-
         public boolean istOberhalb(Point2D.Double p){
             double y = m*p.getX()+t;
             if(y > p.getY()){
