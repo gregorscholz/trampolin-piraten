@@ -113,7 +113,7 @@ public class CollisionDetection{
         else if(gameObjects.getKugel().getxVelocity()>0){yVorz = true;}
         else{return new double[]{-gameObjects.getKugel().getxVelocity(), 0.0};}
         boolean oberhalb = eckUnterscheidung(coll, xVorz, yVorz);
-        boolean flip = false;//TODO flip berechnen
+        boolean flip = yVorz^oberhalb;
         if(flip){return new double[]{-gameObjects.getKugel().getxVelocity(), gameObjects.getKugel().getxVelocity()};}
         else{return new double[]{gameObjects.getKugel().getxVelocity(), -gameObjects.getKugel().getxVelocity()};}
     }
@@ -158,7 +158,7 @@ public class CollisionDetection{
         private double m;
         private double t;
 
-        public Gerade(Point2D.Double p, Point2D.Double vector){//TODO Grenzfaelle beachten
+        public Gerade(Point2D.Double p, Point2D.Double vector){
             m = vector.getX()/vector.getY();
             t = p.getY() + p.getX()*m;
         }
