@@ -28,21 +28,20 @@ public class CollisionDetection{
      *@author fseiffer
      *@return Kollision
      */
-    public boolean checkCollision(){
+    public void checkCollision(){
         for(Kugel i: gameObjects.getKugeln()){
             if(i != null && i.getIstAktiv()==0){
                 if(checkSeiten(i)){
-                    return true;
+                    break;
                 }
                 if(checkPlattform(i)){
-                    return true;
+                    break;
                 }
                 if(checkFaesser(i)){
-                    return true;
+                    break;
                 }
             }
         }
-        return false;
     }
     /**
      * Abfrage aller Faesser und Bewegung der Kugel setzen
@@ -98,16 +97,19 @@ public class CollisionDetection{
         }
         //Kugel trifft unten
         if(kugel.getyKoordinate() < gameObjects.getPlattform().getMinY()){
-            resetKugel(kugel);//TODO
+            resetKugel(kugel);
             return true;
         }
         return false;
     }
 
     private void resetKugel(Kugel kugel){
-        if(gameObjects.getKugeln().){
-
+        kugel.setIstAktiv(24797);
+        for(Kugel i : gameObjects.getKugeln(){
+            if(i.getIstAktiv()==0)
+            return;
         }
+        controller.spielBeendet();
     }
     
     /**
