@@ -30,7 +30,7 @@ public class CollisionDetection{
      */
     public boolean checkCollision(){
         for(Kugel i: gameObjects.getKugeln()){
-            if(i != null){
+            if(i != null && i.getIstAktiv()==0){
                 if(checkSeiten(i)){
                     return true;
                 }
@@ -55,7 +55,7 @@ public class CollisionDetection{
         for(Fass i : gameObjects.getFaesser()){
             if(i != null){
                 if(kugel.intersects(i)){
-                    i.treffer();
+                    i.treffer(0, 0, 0);//TODO 
                     kugel.setxVelocity(calcVector(i, kugel)[0]);
                     kugel.setyVelocity(calcVector(i, kugel)[1]);
                 }
@@ -98,10 +98,16 @@ public class CollisionDetection{
         }
         //Kugel trifft unten
         if(kugel.getyKoordinate() < gameObjects.getPlattform().getMinY()){
-            controller.resetKugel();//TODO
+            resetKugel(kugel);//TODO
             return true;
         }
         return false;
+    }
+
+    private void resetKugel(Kugel kugel){
+        if(gameObjects.getKugeln().){
+
+        }
     }
     
     /**
@@ -114,12 +120,15 @@ public class CollisionDetection{
     private double[] calcVector(Rectangle coll, Kugel kugel){
         boolean xVorz;
         boolean yVorz;
+
         if(kugel.getxVelocity()<0){xVorz = false;}
         else if(kugel.getxVelocity()>0){xVorz = true;}
         else{return new double[]{0.0, -kugel.getyVelocity()};}
+
         if(kugel.getxVelocity()<0){yVorz = false;}
         else if(kugel.getxVelocity()>0){yVorz = true;}
         else{return new double[]{-kugel.getxVelocity(), 0.0};}
+        
         boolean oberhalb = eckUnterscheidung(coll, xVorz, yVorz, kugel);
         boolean flip = yVorz^oberhalb;
         if(flip){return new double[]{-kugel.getxVelocity(), kugel.getxVelocity()};}
