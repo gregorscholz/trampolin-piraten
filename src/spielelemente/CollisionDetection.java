@@ -103,9 +103,14 @@ public class CollisionDetection{
         return false;
     }
 
+    /**
+     * Kugel auf inaktiv setzen, evtl. spiel beenden
+     *@author fseiffer
+     * @param kugel aktuelle Kugel
+    */
     private void resetKugel(Kugel kugel){
         kugel.setIstAktiv(24797);
-        for(Kugel i : gameObjects.getKugeln(){
+        for(Kugel i : gameObjects.getKugeln()){
             if(i.getIstAktiv()==0)
             return;
         }
