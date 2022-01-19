@@ -22,7 +22,7 @@ public abstract class Controller {
 	 * @author Ines Rohrbach
 	 */
 	public static void bewegenNachRechts() {
-		aktuelleElemente.getPlattform().move();//rechts
+		aktuelleElemente.getPlattform().moveRight();//rechts
 	}
 	
 	/**
@@ -31,7 +31,7 @@ public abstract class Controller {
 	 * @author Ines Rohrbach
 	 */
 	public static void bewegenNachLinks() {
-		aktuelleElemente.getPlattform().move();//links
+		aktuelleElemente.getPlattform().moveLeft();//links
 	}
 	
 	/**

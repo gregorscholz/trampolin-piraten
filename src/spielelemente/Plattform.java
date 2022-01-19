@@ -144,7 +144,15 @@ public class Plattform extends Rectangle implements IFSpielelement {
 	 * @see #setxVelocity(int)
 	 * @author Johannes Roloff
 	 */
-	public void move() {
-		x = x + xVelocity*20;
+	public void moveLeft() {
+		while(x > xVelocity*20) {
+			x = x - xVelocity*20;
+		}
+	}
+	
+	public void moveRight() {
+		while(x < xVelocity*20) {
+			x = x + xVelocity*20;
+		}
 	}
 }
