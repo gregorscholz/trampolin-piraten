@@ -145,14 +145,33 @@ public class Plattform extends Rectangle implements IFSpielelement {
 	 * @author Johannes Roloff
 	 */
 	public void moveLeft() {
-		while(x > xVelocity*20) {
+		while(x >= xVelocity*20) {
 			x = x - xVelocity*20;
 		}
 	}
 	
 	public void moveRight() {
-		while(x < xVelocity*20) {
+		while(x <= xVelocity*20) {
 			x = x + xVelocity*20;
 		}
 	}
+	
+
+	
+	/* move() Alternative, falls bei den oberen die until Schleife bis zum Ende ausgefuehrt wird
+	 * 
+	 	public void moveRight() {
+		if(x >= xVelocity*20) {
+			x = x + xVelocity*20;
+		}
+		else x = x+0;
+	}
+
+	public void moveLeft() {
+		if(x >= xVelocity*20) {
+			x = x - xVelocity*20;
+		}
+		else x = x+0;
+	}
+	 */
 }
