@@ -20,7 +20,6 @@ import zentral.Controller;
 public class InGamePanel extends JPanel {
 
     static final int tick = 0;
-
     private Timer timer;
     private boolean running;
 
@@ -32,7 +31,7 @@ public class InGamePanel extends JPanel {
         this.setPreferredSize(dim);
         this.setMaximumSize(dim);
         this.addKeyListener(Controller.getSteuerung());
-        timer = new Timer(tick, new GameActionListener());
+        startGame();
         //cd = new CollisionDetection(Controller.getObjekte());
     }
 
@@ -54,6 +53,7 @@ public class InGamePanel extends JPanel {
                 g.fillOval(k.getxKoordinate(), k.getyKoordinate(), (int) k.getWidth(), (int) k.getHeight());
             }
         } else {
+            g.fillRect(10, 10, 100, 100);
             // zeige Game Over Screen, entweder verloren oder gewonnen
         }
     }
@@ -65,6 +65,7 @@ public class InGamePanel extends JPanel {
      */
     public void startGame() {
         running = true;
+        timer = new Timer(tick, new GameActionListener());
         timer.start();
     }
 
@@ -83,7 +84,7 @@ public class InGamePanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             if(running) {
-                cd.checkCollision();
+                //cd.checkCollision();
             }
             repaint();
         }
