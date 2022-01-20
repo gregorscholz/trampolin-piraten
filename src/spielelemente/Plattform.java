@@ -128,13 +128,13 @@ public class Plattform extends Rectangle implements IFSpielelement {
 	public void setWellenstand(int c) {
 		switch(c) {
 		case 0:
-			y = 1350-(height%2);
+			y = 950-(height%2);
 			break;
 		case 1:
-			y = 1300-(height%2);
+			y = 900-(height%2);
 			break;
 		case 2:
-			y = 1250-(height%2);
+			y = 850-(height%2);
 			break;
 		}
 	}
