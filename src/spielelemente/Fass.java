@@ -8,8 +8,8 @@ import gui.InGamePanel;
  * Klasse zum Verwalten der Faesser
  * @param verbleibend, Anzahl der verbleibenden treffer bis zum verschwinden eines Fasses
  * @param position, Arrayposition zum verwalten der Faesser
- * @param KoordinateX, x position eines Fasses (oben links)
- * @param KoordinateY, y position eines Fasses (oben links)
+ * @param xKoordinate, x position eines Fasses (oben links)
+ * @param yKoordinate, y position eines Fasses (oben links)
  * @param event , nummer des auszulösenden Events, 0 = kein Event
  * @param fassbreite, breite der hitbox eines Fasses
  * @param fasshoehe, hoehe der hitbox eines Fasses
@@ -32,11 +32,14 @@ public class Fass extends Rectangle implements IFSpielelement {
      * @return Anzahl der verbleibenden "lebens"punke
      */
 	public Fass(int fassNummer, int leben, int eventnummer) {
-		position = fassNummer;
-		verbleibend = leben;
-		yKoordinate = (fassNummer % 10)* fasshoehe;
-		xKoordinate = (fassNummer % 20)* fassbreite;
-		event = eventnummer;
+	
+		if ( leben != 0) {
+			position = fassNummer;
+			verbleibend = leben;
+			yKoordinate = (fassNummer % 10)* fasshoehe;
+			xKoordinate = (fassNummer % 20)* fassbreite;
+			event = eventnummer;
+		}
 	}
 	
 	   /**
@@ -45,11 +48,14 @@ public class Fass extends Rectangle implements IFSpielelement {
      *@author ischramm
      */
 	
-	int treffer(int fassNummer, int leben, int eventnummer){
+	Object treffer(int fassNummer, int leben, int eventnummer){
 		leben = leben-1;
 		verbleibend = leben;
 		if (eventnummer != 0) {
 			EventFass ausloeser = new EventFass(fassNummer, leben, eventnummer);
+		}
+		if (verbleibend == 0) {
+			return null;
 		}
 		return verbleibend;
 	}

@@ -10,13 +10,11 @@ public class EventFass extends Fass implements IFSpielelement {
 	 * @param breite, Anzahl der möglichen Nebeneinanderliegenden Fässer
 	 * @param betroffen, Fass welches von Events mit betroffen ist aber NICHT das aufgerufene Eventfass
 	 * @param symbol, zeichen des Eventes
-	 * @param st, zum zugriff auf andere Objecte
-	 * @param con, zum zugriff auf andere Objecte
 	 * @author ischramm
 	 */
 	
 	private GameObjects go = Controller.getObjekte();
-	//private byte symbol; // als Array 0 =kein Event {1,2,3,4 = Event}
+	//private byte symbol; // als Array 0 =kein Event {1,2,3,4,5 = Event}
 	private Fass betroffen;
 	private int breite = 20;
 
@@ -44,7 +42,7 @@ public class EventFass extends Fass implements IFSpielelement {
 				Controller.aktiviereKugel(fassNummer);
 			case 3: // Rum: 
 				Controller.rumAktiviert(true);
-			case 4: //Wind: //wellenstand erhöhen
+			case 4: //wellenstand erhöhen
 				Controller.erhoeheWellenstand(true);
 			case 5: //wellenstand verringern
 				Controller.erhoeheWellenstand(false);
