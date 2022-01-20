@@ -54,7 +54,7 @@ public class CollisionDetection{
         for(Fass i : gameObjects.getFaesser()){
             if(i != null){
                 if(kugel.intersects(i)){
-                    i.treffer(0, 0, 0);//TODO 
+                    i.treffer(0, 0, 0);//TODO //kommentar ines: eine if bedingung wäre sinnvoll, denn wenn ein fass kein leben mehr hat, gibt es null zurück, dann bitte das fass aus faesser in gameobjects entfernen
                     kugel.setxVelocity(calcVector(i, kugel)[0]);
                     kugel.setyVelocity(calcVector(i, kugel)[1]);
                 }
