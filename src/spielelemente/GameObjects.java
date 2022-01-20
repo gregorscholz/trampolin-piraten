@@ -17,7 +17,7 @@ public class GameObjects {
 	
 	/**
 	 * Gibt die aktuellen Faesser zurueck.
-	 * Beachte: Fass[0]=null
+	 * Beachte: Es gilt NICHT mehr faesser.get(i) hat fass mit Position i an der stelle
 	 * 
 	 * @return aktuellen Faesser in einem Array
 	 * @author Ines Rohrbach
