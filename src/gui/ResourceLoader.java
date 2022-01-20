@@ -19,12 +19,14 @@ public class ResourceLoader {
 
     private static Font pirateFont;
     private static Icon bigIcon, backIcon, levelIcon;
-    private static BufferedImage background;
+    private static BufferedImage background, fass_explosion, fass_rum, fass_wellenstand_erhöhen, fass_wellenstand_verringern, fass_munition, fass, kugel;
 
     public ResourceLoader() {
         loadFont();
         loadButtonIcons();
         loadBackground();
+        loadFaesser();
+        loadKugel();
     }
     
     /**
@@ -117,4 +119,54 @@ public class ResourceLoader {
     public static BufferedImage getBackground() {
         return background;
     }
+
+    public void loadFaesser() {
+        try {
+            fass_explosion = ImageIO.read(new File("resources/fass_explosion.png"));
+            fass_rum = ImageIO.read(new File("resources/fass_rum.png"));
+            fass_wellenstand_erhöhen = ImageIO.read(new File("resources/fass_wellenstand_erhöhen.png"));
+            fass_wellenstand_verringern = ImageIO.read(new File("resources/fass_wellenstand_verringern.png"));
+            fass_munition = ImageIO.read(new File("resources/fass_munition.png"));
+            fass = ImageIO.read(new File("resources/fass.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static BufferedImage getFassExplosion() {
+        return fass_explosion;
+    }
+
+    public static BufferedImage getFassRum() {
+        return fass_rum;
+    }
+
+    public static BufferedImage getWellenstandErhöhen() {
+        return fass_wellenstand_erhöhen;
+    }
+
+    public static BufferedImage getWellenstandVerringern() {
+        return fass_wellenstand_verringern;
+    }
+
+    public static BufferedImage getFassMunition() {
+        return fass_munition;
+    }
+
+    public static BufferedImage getFass() {
+        return fass;
+    }
+
+    public void loadKugel() {
+        try {
+            kugel = ImageIO.read(new File("resources/kugel.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static BufferedImage getKugel() {
+        return kugel;
+    }
+    
 }

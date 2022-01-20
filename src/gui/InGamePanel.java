@@ -7,7 +7,7 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import spielelemente.CollisionDetection;
+//import spielelemente.CollisionDetection;
 import spielelemente.Fass;
 import spielelemente.Kugel;
 import zentral.Controller;
@@ -23,7 +23,7 @@ public class InGamePanel extends JPanel {
     private Timer timer;
     private boolean running;
 
-    private CollisionDetection cd;
+    //private CollisionDetection cd;
 
     public InGamePanel() {
         Dimension dim = new Dimension(GamePanel.SCREEN_WIDTH, GamePanel.SCREEN_HEIGHT);
@@ -47,10 +47,30 @@ public class InGamePanel extends JPanel {
             g.fillRect( Controller.getObjekte().getPlattform().getxKoordinate(), Controller.getObjekte().getPlattform().getyKoordinate(), 
                         Controller.getObjekte().getPlattform().getPlattformBreite(), Controller.getObjekte().getPlattform().getPlattformHoehe());
             for(Fass f : Controller.getObjekte().getFaesser()) {
-                g.fillRect( (int) f.getX(), (int) f.getY(), (int) f.getWidth(), (int) f.getHeight());
+                switch (f.getEvent()) {
+                case 0:
+                    g.drawImage(ResourceLoader.getFass(), f.getxKoordinate(), f.getyKoordinate(), null);
+                    break;
+                case 1:
+                    g.drawImage(ResourceLoader.getFassExplosion(), f.getxKoordinate(), f.getyKoordinate(), null);
+                    break;
+                case 2:
+                    g.drawImage(ResourceLoader.getFassMunition(), f.getxKoordinate(), f.getyKoordinate(), null);
+                    break;
+                case 3:
+                    g.drawImage(ResourceLoader.getFassRum(), f.getxKoordinate(), f.getyKoordinate(), null);
+                    break;
+                case 4:
+                    g.drawImage(ResourceLoader.getWellenstandErhöhen(), f.getxKoordinate(), f.getyKoordinate(), null);
+                    break;
+                case 5:
+                    g.drawImage(ResourceLoader.getWellenstandVerringern(), f.getxKoordinate(), f.getyKoordinate(), null);
+                    break;
+                }
             }
             for(Kugel k : Controller.getObjekte().getKugeln()) {
-                g.fillOval(k.getxKoordinate(), k.getyKoordinate(), (int) k.getWidth(), (int) k.getHeight());
+                g.drawImage(ResourceLoader.getKugel(), k.getxKoordinate(), k.getyKoordinate(), null);
+                //g.fillOval(k.getxKoordinate(), k.getyKoordinate(), (int) k.getWidth(), (int) k.getHeight());
             }
         } else {
             g.fillRect(10, 10, 100, 100);
