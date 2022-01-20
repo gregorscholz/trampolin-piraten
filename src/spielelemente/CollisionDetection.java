@@ -54,7 +54,7 @@ public class CollisionDetection{
         for(Fass i : gameObjects.getFaesser()){
             if(i != null){
                 if(kugel.intersects(i)){
-                    i.treffer(0, 0, 0);//TODO 
+                    i.treffer(i.getPosition(), i.getLeben(), i.getEvent());
                     kugel.setxVelocity(calcVector(i, kugel)[0]);
                     kugel.setyVelocity(calcVector(i, kugel)[1]);
                 }
@@ -73,10 +73,13 @@ public class CollisionDetection{
         if(kugel.intersects(gameObjects.getPlattform())){
             kugel.setxVelocity(calcVector(gameObjects.getPlattform(), kugel)[0]);
             kugel.setyVelocity(calcVector(gameObjects.getPlattform(), kugel)[1]);
+
             return true;
         }
         return false;
     }
+
+    
     
     /**
      * Abfrage der Seiten und Bewegung der Kugel setzen
