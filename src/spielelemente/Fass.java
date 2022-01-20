@@ -32,7 +32,7 @@ public class Fass extends Rectangle implements IFSpielelement {
      * @return Anzahl der verbleibenden "lebens"punke
      */
 	public Fass(int fassNummer, int leben, int eventnummer) {
-		super(((fassNummer % 10)* 50), ((fassNummer % 20)* 50), 50, 50);
+		super(FassPosition.fassXPosition(fassNummer), FassPosition.fassYPosition(fassNummer), 50, 50);
 		if ( leben != 0) {
 			position = fassNummer;
 			verbleibend = leben;
