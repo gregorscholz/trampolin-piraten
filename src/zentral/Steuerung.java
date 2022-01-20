@@ -9,7 +9,7 @@ import java.awt.event.KeyListener;
  * @author Ines Rohrbach
  */
 public class Steuerung implements KeyListener {
-	private static Steuerung angelegt = null;
+	private static final Steuerung angelegt = new Steuerung();
 	private boolean rum = false;
 	private char bewegungRechts = KeyEvent.VK_RIGHT; //VK_RIGHT oder VK_D
 	private char bewegungLinks = KeyEvent.VK_LEFT; //VK_LEFT oder VK_A
@@ -28,11 +28,7 @@ public class Steuerung implements KeyListener {
 	 * @author Ines Rohrbach
 	 */
 	public static Steuerung getSteuerung() {
-		if(angelegt == null) {
-			return (angelegt = new Steuerung());
-		} else {
-			return angelegt;
-		}
+		return angelegt;
 	}
 	
 	/**
