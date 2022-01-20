@@ -1,4 +1,4 @@
-package zentral;
+package tests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import spielelemente.Fass;
 import spielelemente.IFSpielelement;
 import spielelemente.Kugel;
+import zentral.LevelDesign;
 
 class TestLevelDesgin {
 
