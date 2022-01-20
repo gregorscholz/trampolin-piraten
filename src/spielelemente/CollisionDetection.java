@@ -187,7 +187,7 @@ public class CollisionDetection{
         private double t;
 
         public Gerade(Point2D.Double p, Point2D.Double vector){
-            m = vector.getX()/vector.getY();
+            m = vector.getY()/vector.getX();
             t = p.getY() + p.getX()*m;
         }
 
