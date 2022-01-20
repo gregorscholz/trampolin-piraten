@@ -9,6 +9,7 @@ import javax.swing.Timer;
 
 import spielelemente.CollisionDetection;
 import spielelemente.Fass;
+import spielelemente.Kugel;
 import zentral.Controller;
 
 /**
@@ -19,12 +20,9 @@ import zentral.Controller;
 public class InGamePanel extends JPanel {
 
     static final int tick = 0;
-    static final int UNIT_SIZE = 50;
 
     private Timer timer;
     private boolean running;
-
-    private int xKugel, yKugel, xPlatform, yPlatform, widthPlatform, heightPlatform;
 
     private CollisionDetection cd;
 
@@ -47,10 +45,13 @@ public class InGamePanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         if(running) {
-            g.fillOval(xKugel, yKugel, 9, 9);  //  größe der kugel muss noch anders bestimmt werden
-            g.fillRect(xPlatform, yPlatform, widthPlatform, heightPlatform);
+            g.fillRect( Controller.getObjekte().getPlattform().getxKoordinate(), Controller.getObjekte().getPlattform().getyKoordinate(), 
+                        Controller.getObjekte().getPlattform().getPlattformBreite(), Controller.getObjekte().getPlattform().getPlattformHoehe());
             for(Fass f : Controller.getObjekte().getFaesser()) {
-                g.fillRect(f.getX(), f.getY(), 1, 1);  // fässerbreite
+                g.fillRect( (int) f.getX(), (int) f.getY(), (int) f.getWidth(), (int) f.getHeight());
+            }
+            for(Kugel k : Controller.getObjekte().getKugeln()) {
+                g.fillOval(k.getxKoordinate(), k.getyKoordinate(), (int) k.getWidth(), (int) k.getHeight());
             }
         } else {
             // zeige Game Over Screen, entweder verloren oder gewonnen
@@ -68,19 +69,6 @@ public class InGamePanel extends JPanel {
     }
 
     /**
-     * aktualisiert die Posiion alle Objekte
-     * 
-     * @author Gregor Scholz
-     */
-    public void updateObjects() {
-        widthPlatform = Controller.getObjekte().getPlattform().getPlattformBreite(); //kommentar ines: ist das nicht standard mae�ig festgelegt?
-        heightPlatform = Controller.getObjekte().getPlattform().getPlattformGroesse();
-
-        xKugel = Controller.getObjekte().getKugel().getxKoordinate();
-        yKugel = Controller.getObjekte().getKugel().getyKoordinate();
-    }
-
-    /**
      * ActionListener Klasse für das Panel
      * 
      * @author Gregor Scholz
@@ -95,7 +83,6 @@ public class InGamePanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             if(running) {
-                updateObjects();
                 cd.checkCollision();
             }
             repaint();
