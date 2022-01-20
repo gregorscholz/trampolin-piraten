@@ -69,8 +69,9 @@ public class InGamePanel extends JPanel {
                 }
             }
             for(Kugel k : Controller.getObjekte().getKugeln()) {
-                g.drawImage(ResourceLoader.getKugel(), k.getxKoordinate(), k.getyKoordinate(), null);
-                //g.fillOval(k.getxKoordinate(), k.getyKoordinate(), (int) k.getWidth(), (int) k.getHeight());
+                if (k.getIstAktiv() == 0) {
+                    g.drawImage(ResourceLoader.getKugel(), k.getxKoordinate(), k.getyKoordinate(), null);
+                }
             }
         } else {
             g.fillRect(10, 10, 100, 100);
