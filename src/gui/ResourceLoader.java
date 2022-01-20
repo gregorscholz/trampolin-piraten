@@ -11,7 +11,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 /**
- * Klasse welche zum Beginn des Programms alle benötigten Bilder etc. lädt
+ * Klasse welche zum Beginn des Programms alle benoetigten Bilder etc. laedt
  * 
  * @author Gregor Scholz
  */
@@ -19,7 +19,7 @@ public class ResourceLoader {
 
     private static Font pirateFont;
     private static Icon bigIcon, backIcon, levelIcon;
-    private static BufferedImage background, fass_explosion, fass_rum, fass_wellenstand_erhöhen, fass_wellenstand_verringern, fass_munition, fass, kugel;
+    private static BufferedImage background, fass_explosion, fass_rum, fass_wellenstand_erhoehen, fass_wellenstand_verringern, fass_munition, fass, kugel;
 
     public ResourceLoader() {
         loadFont();
@@ -30,7 +30,7 @@ public class ResourceLoader {
     }
     
     /**
-     * Methode welche die benötigte Schriftart in das Programm lädt
+     * Methode welche die benoetigte Schriftart in das Programm laedt
      * 
      * @author Gregor Scholz
      */
@@ -47,7 +47,7 @@ public class ResourceLoader {
     }
 
     /**
-     * Gibt die Schriftart in dem entsprechenden Format zurück
+     * Gibt die Schriftart in dem entsprechenden Format zurueck
      * 
      * @author Gregor Scholz
      * @return die geladene Schriftart im entsprechenden Format
@@ -57,18 +57,18 @@ public class ResourceLoader {
     }
 
     /**
-     * Lädt die Icons für die Buttons 
+     * Laedt die Icons fuer die Buttons 
      * 
      * @author Gregor Scholz
      */
     public void loadButtonIcons() {
         bigIcon = new ImageIcon("resources/button_groß.png");
-        backIcon = new ImageIcon("resources/button_zurück.png");
+        backIcon = new ImageIcon("resources/button_zurueck.png");
         levelIcon = new ImageIcon("resources/button_level.png");
     }
 
     /**
-     * Gibt das Icon für die großen Buttons zurück
+     * Gibt das Icon fuer die großen Buttons zurueck
      * 
      * @author Gregor Scholz
      * @return großes Icon der Buttons
@@ -78,27 +78,27 @@ public class ResourceLoader {
     }
 
     /**
-     * Gibt das Icon für die Zurückbuttons zurück
+     * Gibt das Icon fuer die Zurueckbuttons zurueck
      * 
      * @author Gregor Scholz
-     * @return Icon für die Züruckbuttons
+     * @return Icon fuer die Zueruckbuttons
      */
     public static Icon getBackIcon() {
         return backIcon;
     }
 
     /**
-     * Gibt das Icon für die Level zurück
+     * Gibt das Icon fuer die Level zurueck
      * 
      * @author Gregor Scholz
-     * @return Icon für die Level
+     * @return Icon fuer die Level
      */
     public static Icon getLevelIcon() {
         return levelIcon;
     }
 
     /**
-     * Lädt das Hintergrundbild
+     * Laedt das Hintergrundbild
      * 
      * @author Gregor Scholz
      */
@@ -111,7 +111,7 @@ public class ResourceLoader {
     }
 
     /**
-     * Gibt das Hintergrundbild zurück
+     * Gibt das Hintergrundbild zurueck
      * 
      * @author Gregor Scholz
      * @return das Hintergrundbild
@@ -124,7 +124,7 @@ public class ResourceLoader {
         try {
             fass_explosion = ImageIO.read(new File("resources/fass_explosion.png"));
             fass_rum = ImageIO.read(new File("resources/fass_rum.png"));
-            fass_wellenstand_erhöhen = ImageIO.read(new File("resources/fass_wellenstand_erhöhen.png"));
+            fass_wellenstand_erhoehen = ImageIO.read(new File("resources/fass_wellenstand_erhoehen.png"));
             fass_wellenstand_verringern = ImageIO.read(new File("resources/fass_wellenstand_verringern.png"));
             fass_munition = ImageIO.read(new File("resources/fass_munition.png"));
             fass = ImageIO.read(new File("resources/fass.png"));
@@ -141,8 +141,8 @@ public class ResourceLoader {
         return fass_rum;
     }
 
-    public static BufferedImage getWellenstandErhöhen() {
-        return fass_wellenstand_erhöhen;
+    public static BufferedImage getWellenstandErhoehen() {
+        return fass_wellenstand_erhoehen;
     }
 
     public static BufferedImage getWellenstandVerringern() {

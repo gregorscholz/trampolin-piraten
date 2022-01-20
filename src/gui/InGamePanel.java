@@ -13,7 +13,7 @@ import spielelemente.Kugel;
 import zentral.Controller;
 
 /**
- * Klasse für das Anzeigen des eigentlichen Spiels
+ * Klasse fuer das Anzeigen des eigentlichen Spiels
  * 
  * @author Gregor Scholz
  */
@@ -61,7 +61,7 @@ public class InGamePanel extends JPanel {
                     g.drawImage(ResourceLoader.getFassRum(), f.getxKoordinate(), f.getyKoordinate(), null);
                     break;
                 case 4:
-                    g.drawImage(ResourceLoader.getWellenstandErhöhen(), f.getxKoordinate(), f.getyKoordinate(), null);
+                    g.drawImage(ResourceLoader.getWellenstandErhoehen(), f.getxKoordinate(), f.getyKoordinate(), null);
                     break;
                 case 5:
                     g.drawImage(ResourceLoader.getWellenstandVerringern(), f.getxKoordinate(), f.getyKoordinate(), null);
@@ -90,14 +90,14 @@ public class InGamePanel extends JPanel {
     }
 
     /**
-     * ActionListener Klasse für das Panel
+     * ActionListener Klasse fuer das Panel
      * 
      * @author Gregor Scholz
      */
     public class GameActionListener implements ActionListener {
 
         /**
-         * bei jeden Tick aktuallisiert es alle Objekte und überprüft nach Collisions
+         * bei jeden Tick aktuallisiert es alle Objekte und ueberprueft nach Collisions
          * 
          * @author Gregor Scholz
          */
