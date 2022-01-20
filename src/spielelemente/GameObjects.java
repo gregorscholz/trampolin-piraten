@@ -1,6 +1,7 @@
 package spielelemente;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -10,9 +11,9 @@ import java.util.Set;
  * @author Ines Rohrbach
  */
 public class GameObjects {
-	private ArrayList<Kugel> kugeln = new ArrayList<Kugel>();
+	private ArrayList<Kugel> kugeln = new ArrayList<Kugel>(10);
 	private Plattform plattform;
-	private ArrayList<Fass> faesser = new ArrayList<Fass>();
+	private ArrayList<Fass> faesser = new ArrayList<Fass>();;
 	
 	/**
 	 * Gibt die aktuellen Faesser zurueck.
@@ -33,7 +34,12 @@ public class GameObjects {
 	 * @return
 	 */
 	public Fass getFass(int i) {
-		return faesser.get(i);
+		Iterator<Fass> f = faesser.iterator();
+		while(f.hasNext()) {
+			Fass fass = f.next();
+			if(fass.getPosition() == i) return fass; 
+		}
+		return null;
 	}
 
 	/**
@@ -73,17 +79,17 @@ public class GameObjects {
 	 * @param elemente
 	 * @author Ines Rohrbach
 	 */
+	@SuppressWarnings("unchecked")
 	public GameObjects(ArrayList<IFSpielelement> elemente) {
-		Iterator<IFSpielelement> i = elemente.iterator();
-		while(i.hasNext()) {
-			IFSpielelement e = i.next();
-			if(e.getClass()== Fass.class) {
-				faesser.add(((Fass) e).getPosition(), (Fass) e);
-			} else if(e.getClass()== Plattform.class) {
-				this.plattform = (Plattform) e;
-			} else if(e.getClass()== Kugel.class) {
-				kugeln.add((Kugel) e);
+		int end = elemente.size()-1;
+		while(elemente.get(end).getClass()!=Fass.class) {
+			if(elemente.get(end).getClass()==Kugel.class) {
+				kugeln.add((Kugel) elemente.remove(end));
+			} else if(elemente.get(end).getClass()==Plattform.class) {
+				this.plattform = (Plattform) elemente.remove(end);
 			}
+			end--;
 		}
+		faesser.addAll((Collection<? extends Fass>) elemente);
 	}
 }

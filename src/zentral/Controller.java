@@ -23,6 +23,7 @@ public abstract class Controller {
 	 */
 	public static void bewegenNachRechts() {
 		aktuelleElemente.getPlattform().moveRight();//rechts
+		System.out.println("Nach Rechts!");
 	}
 	
 	/**

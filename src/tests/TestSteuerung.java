@@ -11,6 +11,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import javax.swing.JPanel;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -41,13 +43,13 @@ class TestSteuerung {
 		assertEquals("Plattform ist nicht auf der Startposition", p.getxKoordinate(), 600);
 		rob.keyPress(KeyEvent.VK_RIGHT);
 		assertEquals("Plattform hat sich nicht einmal Bewegt", p.getxKoordinate(), 620);
-		assertEquals("Plattform ist nicht am Bildschirmrand", p.getxKoordinate(), 1180);
+		assertEquals("Plattform ist nicht am rechten Bildschirmrand", p.getxKoordinate(), 1180);
 		rob.keyPress(KeyEvent.VK_LEFT);
-		assertEquals("Plattform hat sich nicht einmal Bewegt", p.getxKoordinate(), 600);
-		assertEquals("Plattform ist nicht am Bildschirmrand", p.getxKoordinate(), 0);
+		assertEquals("Plattform hat sich nicht nach links Bewegt", p.getxKoordinate(), 600);
+		assertEquals("Plattform ist nicht am linken Bildschirmrand", p.getxKoordinate(), 0);
 		rob.keyPress(KeyEvent.VK_LEFT);
-		assertEquals("Plattform hat sich nicht einmal Bewegt", p.getxKoordinate(), 580);
-		assertEquals("Plattform ist nicht am Bildschirmrand", p.getxKoordinate(), 0);
+		assertEquals("Plattform hat sich nicht weiter nach links Bewegt", p.getxKoordinate(), 580);
+		assertEquals("Plattform ist nicht am linken Bildschirmrand", p.getxKoordinate(), 0);
 	}
 
 }
