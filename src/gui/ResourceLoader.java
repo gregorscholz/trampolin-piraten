@@ -62,7 +62,7 @@ public class ResourceLoader {
      * @author Gregor Scholz
      */
     public void loadButtonIcons() {
-        bigIcon = new ImageIcon("resources/button_groß.png");
+        bigIcon = new ImageIcon("resources/button_gross.png");
         backIcon = new ImageIcon("resources/button_zurueck.png");
         levelIcon = new ImageIcon("resources/button_level.png");
     }

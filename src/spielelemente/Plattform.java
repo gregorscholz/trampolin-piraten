@@ -15,6 +15,7 @@ import java.awt.*;
 public class Plattform extends Rectangle implements IFSpielelement {
 
 	private int xVelocity;
+	private int wellenstand;
 	
 	/**
 	 * 
@@ -117,6 +118,14 @@ public class Plattform extends Rectangle implements IFSpielelement {
 		return height;
 	}
 	
+	/**
+	 * @return Die Wellenstandhoehe
+	 * @author Ines Rohrbach
+	 */
+	public int getWellenstand() {
+		return wellenstand;
+	}
+	
 	//andere Methoden
 	
 	/**
@@ -128,13 +137,16 @@ public class Plattform extends Rectangle implements IFSpielelement {
 	public void setWellenstand(int c) {
 		switch(c) {
 		case 0:
-			y = 950-(height%2);
+			y = 850-(height/2);
+			wellenstand = 850;
 			break;
 		case 1:
-			y = 900-(height%2);
+			y = 900-(height/2);
+			wellenstand = 900;
 			break;
 		case 2:
-			y = 850-(height%2);
+			y = 950-(height/2);
+			wellenstand = 950;
 			break;
 		}
 	}
@@ -144,7 +156,7 @@ public class Plattform extends Rectangle implements IFSpielelement {
 	 * @see #setxVelocity(int)
 	 * @author Johannes Roloff
 	 */
-	public void moveLeft() {
+	/*public void moveLeft() {
 		while(x >= xVelocity*20) {
 			x = x - xVelocity*20;
 		}
@@ -154,13 +166,10 @@ public class Plattform extends Rectangle implements IFSpielelement {
 		while(x <= xVelocity*20) {
 			x = x + xVelocity*20;
 		}
-	}
+	}*/
 	
-
 	
-	/* move() Alternative, falls bei den oberen die until Schleife bis zum Ende ausgefuehrt wird
-	 * 
-	 	public void moveRight() {
+	public void moveRight() {
 		if(x >= xVelocity*20) {
 			x = x + xVelocity*20;
 		}
@@ -173,5 +182,4 @@ public class Plattform extends Rectangle implements IFSpielelement {
 		}
 		else x = x+0;
 	}
-	 */
 }

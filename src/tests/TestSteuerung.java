@@ -11,11 +11,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import java.awt.event.ActionListener;
+
 import javax.swing.JPanel;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import gui.InGamePanel;
 import spielelemente.Plattform;
 import zentral.Controller;
 import zentral.Steuerung;
@@ -23,6 +26,7 @@ import zentral.Steuerung;
 class TestSteuerung {
 	Robot rob = null;
 	Plattform p = null;
+	JPanel j = null;
 	
 	@BeforeEach
 	void setUp() {
@@ -34,6 +38,7 @@ class TestSteuerung {
 		}
 		Controller.erstelleLevel(4, 0);
 		p = Controller.getObjekte().getPlattform();
+		j = new InGamePanel();
 	}
 
 	@Test

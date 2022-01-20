@@ -193,12 +193,13 @@ public class CollisionDetection{
 
         /**
         * Ueberprüfen, ob Punkt p Oberhalb der Gerde liegt (also kleineres Y, da Ursprung oben, links)
+        * 
         *@author fseiffer
         *@return Ob Punkt p oberhalb, der Geraden
         */
         public boolean istOberhalb(Point2D.Double p){
             double y = m*p.getX()+t;
-            if(y > p.getY()){
+            if(y > (p.getY()-25/2)){ //kommentar ines: so ist es wirklich der wellenstand, fuer den es jetzt auch ein getWellenstand gibt
                 return true;
             } 
             return false;
