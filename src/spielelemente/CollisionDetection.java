@@ -55,8 +55,9 @@ public class CollisionDetection{
             if(i != null){
                 if(kugel.intersects(i)){
                     i.treffer(i.getPosition(), i.getLeben(), i.getEvent());//kommentar ines: eine if bedingung w�re sinnvoll, denn wenn ein fass kein leben mehr hat, gibt es null zur�ck, dann bitte das fass aus faesser in gameobjects entfernen
-                    kugel.setxVelocity(calcVector(i, kugel)[0]);
-                    kugel.setyVelocity(calcVector(i, kugel)[1]);
+                    double[] vec = calcVector(i, kugel);
+                    kugel.setxVelocity(vec[0]);
+                    kugel.setyVelocity(vec[1]);
                 }
             }
         }
@@ -73,7 +74,6 @@ public class CollisionDetection{
         if(kugel.intersects(gameObjects.getPlattform())){
             kugel.setxVelocity(calcVector(gameObjects.getPlattform(), kugel)[0]);
             kugel.setyVelocity(calcVector(gameObjects.getPlattform(), kugel)[1]);
-
             return true;
         }
         return false;
@@ -130,19 +130,19 @@ public class CollisionDetection{
     private double[] calcVector(Rectangle coll, Kugel kugel){
         boolean xVorz;
         boolean yVorz;
-
+        
         if(kugel.getxVelocity()<0){xVorz = false;}
         else if(kugel.getxVelocity()>0){xVorz = true;}
         else{return new double[]{0.0, -kugel.getyVelocity()};}
 
-        if(kugel.getxVelocity()<0){yVorz = false;}
-        else if(kugel.getxVelocity()>0){yVorz = true;}
+        if(kugel.getyVelocity()<0){yVorz = false;}
+        else if(kugel.getyVelocity()>0){yVorz = true;}
         else{return new double[]{-kugel.getxVelocity(), 0.0};}
         
         boolean oberhalb = eckUnterscheidung(coll, xVorz, yVorz, kugel);
         boolean flip = yVorz^oberhalb;
-        if(flip){return new double[]{-kugel.getxVelocity(), kugel.getxVelocity()};}
-        else{return new double[]{kugel.getxVelocity(), -kugel.getxVelocity()};}
+        if(flip){return new double[]{-kugel.getxVelocity(), kugel.getyVelocity()};}
+        else{return new double[]{kugel.getxVelocity(), -kugel.getyVelocity()};}
     }
 
     /**
@@ -188,7 +188,7 @@ public class CollisionDetection{
 
         public Gerade(Point2D.Double p, Point2D.Double vector){
             m = vector.getY()/vector.getX();
-            t = p.getY() + p.getX()*m;
+            t = p.getY() - p.getX()*m;
         }
 
         /**
