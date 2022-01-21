@@ -89,7 +89,7 @@ public class CollisionDetection{
     */
     private boolean checkSeiten(Kugel kugel){
         //Kugel triff links o. rechts
-        if(kugel.getxKoordinate() <= 0 || kugel.getMaxX() >= panel.getWidth()){
+        if(kugel.getxKoordinate() <= 0 || kugel.getMaxX() >= 1400){
             kugel.setxVelocity(-kugel.getxVelocity());
             return true;
         }
