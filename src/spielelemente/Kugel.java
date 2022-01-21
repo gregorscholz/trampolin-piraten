@@ -17,7 +17,7 @@ public class Kugel extends Rectangle implements IFSpielelement {
 	private static final long serialVersionUID = 1L;
 	private double xVelocity, yVelocity;
 	private int istAktiv;
-	private Random random;
+	private Random random = new Random();
 	int[] randomVelocities = {-2, -1, 1, 2};
 
 	/**
@@ -32,12 +32,23 @@ public class Kugel extends Rectangle implements IFSpielelement {
 	 * @param aktivWert
 	 * @author Johannes Roloff
 	 */
-	public Kugel(int x, int y, int aktivWert, boolean istEventKugel){
-		super(x, y, 50, 50);
+	public Kugel(int aktivWert/*, int istEventKugel*/, int wellenstand){
+		super(FassPosition.fassXPosition(aktivWert), FassPosition.fassYPosition(aktivWert), 50, 50);
 		int randomXVelocity = random.nextInt(4);
 		int randomYVelocity = random.nextInt(4);
 		
-		if(istEventKugel) {
+		if(aktivWert == 0) {
+			if(wellenstand == 0) {
+				y = 788;
+			} else if(wellenstand == 1) {
+				y = 838;
+			} else {
+				y = 888;
+			}
+		}
+		
+		//if(istEventKugel == 1) {
+		if(aktivWert!=0) {
 			xVelocity = randomVelocities[randomXVelocity];
 			yVelocity = randomVelocities[randomYVelocity];
 			setIstAktiv(aktivWert);

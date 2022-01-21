@@ -38,7 +38,7 @@ public abstract class LevelFactory {
 				break;
 		case "P": e = new Plattform(wert1, wert2);
 				break;
-		case "K": e = new Kugel(wert1, wert2, wert3);
+		case "K": e = new Kugel(wert1, wert2/*, wert3*/);
 				break;
 		default:
 			break;

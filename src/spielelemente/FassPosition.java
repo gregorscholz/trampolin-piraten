@@ -2,28 +2,32 @@ package spielelemente;
 
 public abstract class FassPosition {
 	public static int fassXPosition(int i) {
-		switch(i%20) {
-		case 1: return 48;
-		case 2: return 114;
-		case 3: return 180;
-		case 4: return 246;
-		case 5: return 312;
-		case 6: return 378;
-		case 7: return 444;
-		case 8: return 510;
-		case 9: return 576;
-		case 10: return 642;
-		case 11: return 708;
-		case 12: return 774;
-		case 13: return 840;
-		case 14: return 906;
-		case 15: return 972;
-		case 16: return 1038;
-		case 17: return 1104;
-		case 18: return 1170;
-		case 19: return 1236;
-		case 0: return 1302;
-		}
+		if(i == 0) {
+			return 675;
+		} else {
+			switch(i%20) {
+			case 1: return 48;
+			case 2: return 114;
+			case 3: return 180;
+			case 4: return 246;
+			case 5: return 312;
+			case 6: return 378;
+			case 7: return 444;
+			case 8: return 510;
+			case 9: return 576;
+			case 10: return 642;
+			case 11: return 708;
+			case 12: return 774;
+			case 13: return 840;
+			case 14: return 906;
+			case 15: return 972;
+			case 16: return 1038;
+			case 17: return 1104;
+			case 18: return 1170;
+			case 19: return 1236;
+			case 0: return 1302;
+			}
+		}	
 		return 0;
 	}
 	
