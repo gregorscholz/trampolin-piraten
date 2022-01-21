@@ -49,7 +49,6 @@ public class Kugel extends Rectangle implements IFSpielelement {
 		}
 	}
 	
-	
 	//Getter und Setter
 	
 	/**
