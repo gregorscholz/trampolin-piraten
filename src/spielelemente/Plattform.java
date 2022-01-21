@@ -170,13 +170,13 @@ public class Plattform extends Rectangle implements IFSpielelement {
 	
 	
 	public void moveRight() {
-		if(x >= xVelocity*20) {
+		if(!((x+xVelocity*20)>1200)) {
 			x = x + xVelocity*20;
 		}
-		else x = x+0;
+		else x = 1200;
 	}
 
-	public void moveLeft() {
+	public void moveLeft() { //funktioniert nur weil x nicht negativ werden kann
 		if(x >= xVelocity*20) {
 			x = x - xVelocity*20;
 		}
