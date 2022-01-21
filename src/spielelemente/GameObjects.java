@@ -28,7 +28,7 @@ public class GameObjects {
 	
 	/**
 	 * Gibt ein einzelnes Fass zurueck.
-	 * Beachte: Fass[0]=null
+	 * Beachte: Fass 0 =null
 	 * 
 	 * @param i, Fass welches man haben moechte.
 	 * @return
@@ -40,6 +40,22 @@ public class GameObjects {
 			if(fass.getPosition() == i) return fass; 
 		}
 		return null;
+	}
+	
+	/**
+	 * Entfernt ein zerstoertes Fass.
+	 * 
+	 * @param i, FassPosition des Fasses, welches entfernt werden soll
+	 * @author Ines Rohrbach
+	 */
+	public void entferneFass(int i) {
+		int j = 0;
+		while(j<faesser.size()) {
+			if(faesser.get(j).getPosition() == i) {
+				faesser.remove(j);
+				break;
+			}
+		}
 	}
 
 	/**
