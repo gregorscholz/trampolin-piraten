@@ -19,7 +19,8 @@ public class Steuerung implements KeyListener {
 	 * 
 	 * @author Ines Rohrbach
 	 */
-	private Steuerung() {}
+	private Steuerung() {
+	}
 	
 	/**
 	 * Gibt die Steuerungsklasse zurueck.
@@ -69,11 +70,9 @@ public class Steuerung implements KeyListener {
 	 */
 	@Override
     public void keyPressed(KeyEvent e) {
-		System.out.println("tastendruck erkannt");
         if(e.getKeyCode()==bewegungRechts) {
         	if(!rum) Controller.bewegenNachRechts();
     		else Controller.bewegenNachLinks();
-    		System.out.println("bewegung angefordert");
         }
         if(e.getKeyCode()==bewegungLinks) {
         	if(!rum) Controller.bewegenNachLinks();
@@ -83,7 +82,7 @@ public class Steuerung implements KeyListener {
 	
 	@Override
     public void keyTyped(KeyEvent e) {}
-
+	
     @Override
     public void keyReleased(KeyEvent e) {}
 

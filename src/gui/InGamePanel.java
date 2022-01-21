@@ -2,6 +2,7 @@ package gui;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 import java.awt.Dimension;
 
 import javax.swing.JPanel;
@@ -30,8 +31,6 @@ public class InGamePanel extends JPanel {
         this.setMinimumSize(dim);
         this.setPreferredSize(dim);
         this.setMaximumSize(dim);
-        this.addKeyListener(Controller.getSteuerung());
-        startGame();
         //cd = new CollisionDetection(Controller.getObjekte());
     }
 
@@ -49,22 +48,22 @@ public class InGamePanel extends JPanel {
             for(Fass f : Controller.getObjekte().getFaesser()) {
                 switch (f.getEvent()) {
                 case 0:
-                    g.drawImage(ResourceLoader.getFass(), f.getxKoordinate(), f.getyKoordinate(), null);
+                    g.drawImage(ResourceLoader.getFass(), (int) f.getX(),(int) f.getY(), null);
                     break;
                 case 1:
-                    g.drawImage(ResourceLoader.getFassExplosion(), f.getxKoordinate(), f.getyKoordinate(), null);
+                    g.drawImage(ResourceLoader.getFassExplosion(), (int) f.getX(),(int) f.getY(), null);
                     break;
                 case 2:
-                    g.drawImage(ResourceLoader.getFassMunition(), f.getxKoordinate(), f.getyKoordinate(), null);
+                    g.drawImage(ResourceLoader.getFassMunition(), (int) f.getX(),(int) f.getY(), null);
                     break;
                 case 3:
-                    g.drawImage(ResourceLoader.getFassRum(), f.getxKoordinate(), f.getyKoordinate(), null);
+                    g.drawImage(ResourceLoader.getFassRum(), (int) f.getX(),(int) f.getY(), null);
                     break;
                 case 4:
-                    g.drawImage(ResourceLoader.getWellenstandErhoehen(), f.getxKoordinate(), f.getyKoordinate(), null);
+                    g.drawImage(ResourceLoader.getWellenstandErhoehen(), (int) f.getX(),(int) f.getY(), null);
                     break;
                 case 5:
-                    g.drawImage(ResourceLoader.getWellenstandVerringern(), f.getxKoordinate(), f.getyKoordinate(), null);
+                    g.drawImage(ResourceLoader.getWellenstandVerringern(), (int) f.getX(),(int) f.getY(), null);
                     break;
                 }
             }
@@ -85,9 +84,18 @@ public class InGamePanel extends JPanel {
      * @author Gregor Scholz
      */
     public void startGame() {
+    	KeyListener listener = Controller.getSteuerung();
+        this.setFocusable(true);
+        this.requestFocus();
+        this.addKeyListener(listener);
         running = true;
         timer = new Timer(tick, new GameActionListener());
-        timer.start();
+        timer.restart();									
+    }
+    
+    public void beendet() {
+    	running = false;
+    	timer.stop();
     }
 
     /**

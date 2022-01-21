@@ -18,6 +18,10 @@ public class GamePanel extends JPanel {
     static SettingsPanel settingspanel;
     static InGamePanel ingamepanel;
     static LevelChoosingPanel levelpanel;
+    
+    public static InGamePanel getInGameP() {
+    	return ingamepanel;
+    }
 
     static CardLayout cl;
 

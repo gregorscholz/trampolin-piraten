@@ -22,7 +22,7 @@ public abstract class FassPosition {
 		case 17: return 1104;
 		case 18: return 1170;
 		case 19: return 1236;
-		case 20: return 1302;
+		case 0: return 1302;
 		}
 		return 0;
 	}
