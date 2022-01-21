@@ -1,14 +1,10 @@
 package tests;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runners.Parameterized.BeforeParam;
 
 import gui.InGamePanel;
 import spielelemente.*;
@@ -32,13 +28,38 @@ public class CollisionDetectionTest {
     void testCheckCollision0() {      
         setup1Kugel1Fass(22, -2, -1, 1, 1);
         collisionDetection.checkCollision();
-        assertTrue("Kollision mit Vector 1, 1 unterhalb",-1.0 == gameObjects.getKugel(0).getxVelocity());
+        assertEquals(-1.0, gameObjects.getKugel(0).getxVelocity(), 0.1);
+        assertEquals(1.0, gameObjects.getKugel(0).getyVelocity(), 0.1);
     }
 
     @Test
     void testCheckCollision1(){
-        setup1Kugel1Fass(22, -1, -5, 1, 1);
+        setup1Kugel1Fass(22, -2, -5, 1, 1);
         collisionDetection.checkCollision();
-        assertTrue("Kollision mit Vector 1, 1 oberhalb",-1.0 == gameObjects.getKugel(0).getyVelocity());
+        assertEquals(1.0, gameObjects.getKugel(0).getxVelocity(), 0.1);
+        assertEquals(-1.0, gameObjects.getKugel(0).getyVelocity(), 0.1);
+    }
+
+    @Test
+    void testCheckCollision2(){
+        setup1Kugel1Fass(22, -1, -1, 1, 0);
+        collisionDetection.checkCollision();
+        assertEquals(-1.0, gameObjects.getKugel(0).getxVelocity(), 0.1);
+        assertEquals(0.0, gameObjects.getKugel(0).getyVelocity(), 0.1);
+
+        setup1Kugel1Fass(22, -1, -1, -1, 0);
+        collisionDetection.checkCollision();
+        assertEquals(1.0, gameObjects.getKugel(0).getxVelocity(), 0.1);
+        assertEquals(0.0, gameObjects.getKugel(0).getyVelocity(), 0.1);
+
+        setup1Kugel1Fass(22, 1, 1, 0, 1);
+        collisionDetection.checkCollision();
+        assertEquals(0.0, gameObjects.getKugel(0).getxVelocity(), 0.1);
+        assertEquals(-1.0, gameObjects.getKugel(0).getyVelocity(), 0.1);
+
+        setup1Kugel1Fass(22, 1, 1, 0, -1);
+        collisionDetection.checkCollision();
+        assertEquals(0.0, gameObjects.getKugel(0).getxVelocity(), 0.1);
+        assertEquals(1.0, gameObjects.getKugel(0).getyVelocity(), 0.1);
     }
 }
