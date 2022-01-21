@@ -2,27 +2,51 @@ package spielelemente;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.util.Random;
 
 /**
  * Klasse zum Erstellen der Kugel und dessen Verwaltung der Position und Bewegung
  * @param xVelocity
  * @param yVelocity
- * @param x
- * @param y
- * @param width
- * @param height
+ * @param random 
+ * @param randomVelocities Ersatz fuer random, weil random direkt kein exkludieren von Zahlen (0) erlaubt
  * @author Johannes Roloff
  */
 public class Kugel extends Rectangle implements IFSpielelement {
 
+	private static final long serialVersionUID = 1L;
 	private double xVelocity, yVelocity;
 	private int istAktiv;
+	private Random random;
+	int[] randomVelocities = {-2, -1, 1, 2};
 
-	public Kugel(int x, int y, int aktivWert){
+	/**
+	 * Konstruktor, der die Kugel erstellt
+	 * Die erste Kugel des Spiels wird immer mit festen Werten initialisiert.
+	 * Kugeln, die durch Events entstehen, werden am Ort des Eventfasses und mit zufaelligen Geschwindigkeiten initialisiert
+	 * @param x
+	 * @param y
+	 * @param width
+	 * @param height
+	 * @param istEventKugel true, wenn Kugel durch Event entstanden ist
+	 * @param aktivWert
+	 * @author Johannes Roloff
+	 */
+	public Kugel(int x, int y, int aktivWert, boolean istEventKugel){
 		super(x, y, 50, 50);
-        xVelocity = 1.0;
-        yVelocity = -1.5;
-        setIstAktiv(aktivWert);
+		int randomXVelocity = random.nextInt(4);
+		int randomYVelocity = random.nextInt(4);
+		
+		if(istEventKugel) {
+			xVelocity = randomVelocities[randomXVelocity];
+			yVelocity = randomVelocities[randomYVelocity];
+			setIstAktiv(aktivWert);
+		}
+		else {
+			xVelocity = 1.0;
+	        yVelocity = -1.5;
+	        setIstAktiv(aktivWert);
+		}
 	}
 	
 	
