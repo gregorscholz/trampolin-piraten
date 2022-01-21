@@ -93,6 +93,11 @@ public class InGamePanel extends JPanel {
         timer.restart();									
     }
     
+    /**
+     * Beendet das aktive Spiel
+     * 
+     * @author Ines Rohrbach
+     */
     public void beendet() {
     	running = false;
     	timer.stop();

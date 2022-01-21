@@ -1,6 +1,18 @@
 package spielelemente;
 
+/**
+ * Unterstuetzende Klasse, welche die statischen Methoden zur Fasspositionsbestimmung enthaelt
+ * 
+ * @author Ines Rohrbach
+ */
 public abstract class FassPosition {
+	/**
+	 * Gibt die gewuenschte X-Position zurueck.
+	 * Sonderfall bei der aktiven Kugel: i = 0
+	 * 
+	 * @param i, Gitterposition
+	 * @return
+	 */
 	public static int fassXPosition(int i) {
 		if(i == 0) {
 			return 675;
@@ -31,6 +43,12 @@ public abstract class FassPosition {
 		return 0;
 	}
 	
+	/**
+	 * Gibt die gewuenschte Y-Position zurueck.
+	 * 
+	 * @param i, Gitterposition
+	 * @return
+	 */
 	public static int fassYPosition(int i) {
 		if(i<=20) return 0;
 		else if(i<=40) return 58;
