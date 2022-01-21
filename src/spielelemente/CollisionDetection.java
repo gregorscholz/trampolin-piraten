@@ -99,7 +99,7 @@ public class CollisionDetection{
             return true;
         }
         //Kugel trifft unten
-        if(kugel.getyKoordinate() < gameObjects.getPlattform().getMinY()){
+        if(kugel.getyKoordinate() < gameObjects.getPlattform().getWellenstand()){
             resetKugel(kugel);
             return true;
         }
@@ -159,11 +159,11 @@ public class CollisionDetection{
         Point2D.Double collEcke;
         Point2D.Double vec = new Point2D.Double(kugel.getxVelocity(),kugel.getyVelocity());
         if(xVorz && yVorz){
-            g = new Gerade(new Point2D.Double(kugel.getMaxX(), kugel.getMaxY()), vec);
+            g = new Gerade(new Point2D.Double(kugel.getMinX(), kugel.getMinY()), vec);
             collEcke = new Point2D.Double(coll.getMinX(), coll.getMinY());
         }
         else if(!xVorz && !yVorz){
-            g = new Gerade(new Point2D.Double(kugel.getMinX(), kugel.getMinY()), vec);
+            g = new Gerade(new Point2D.Double(kugel.getMaxX(), kugel.getMaxY()), vec);
             collEcke = new Point2D.Double(coll.getMaxX(), coll.getMaxY());
         }
         else if(!xVorz && yVorz){
@@ -171,7 +171,7 @@ public class CollisionDetection{
             collEcke = new Point2D.Double(coll.getMaxX(), coll.getMinY());
         }
         else{
-            g = new Gerade(new Point2D.Double(kugel.getMaxX(), kugel.getY()), vec);
+            g = new Gerade(new Point2D.Double(kugel.getMaxX(), kugel.getMinY()), vec);
             collEcke = new Point2D.Double(coll.getMinX(), coll.getMaxY());
         }
         return g.istOberhalb(collEcke);
@@ -199,7 +199,7 @@ public class CollisionDetection{
         */
         public boolean istOberhalb(Point2D.Double p){
             double y = m*p.getX()+t;
-            if(y > (p.getY()-25/2)){ //kommentar ines: so ist es wirklich der wellenstand, fuer den es jetzt auch ein getWellenstand gibt
+            if(y > p.getY()){ //das hier hat nix mit wellenstand zu tun, da gehts um die ecken von faessern u plattform
                 return true;
             } 
             return false;
