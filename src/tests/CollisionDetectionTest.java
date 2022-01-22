@@ -16,10 +16,13 @@ public class CollisionDetectionTest {
     void setup1Kugel1Fass(int fassnummer, int kXOffset, int kYOffset, double vX, double vY){
         ArrayList<IFSpielelement> elemente = new ArrayList<IFSpielelement>();
         Fass f = new Fass(22, 1, 0);
-        Kugel k = new Kugel(f.getxKoordinate()+kXOffset, f.getyKoordinate()+kYOffset, 0);
+        Kugel k = new Kugel(0, 1);
+        k.setxKoordinate(f.getxKoordinate()+kXOffset); k.setyKoordinate(f.getyKoordinate()+kYOffset);
         k.setxVelocity(vX); k.setyVelocity(vY);
+        k.setIstAktiv(0);
         elemente.add(f); 
         elemente.add(k);
+        elemente.add(new Plattform(1, 3));
         gameObjects = new GameObjects(elemente);
         collisionDetection = new CollisionDetection(gameObjects, new InGamePanel());
     }

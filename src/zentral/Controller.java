@@ -2,7 +2,6 @@ package zentral;
 
 import java.util.Iterator;
 import java.util.Set;
-
 import gui.GamePanel;
 import spielelemente.GameObjects;
 import spielelemente.IFSpielelement;
@@ -23,7 +22,7 @@ public abstract class Controller {
 	 * @author Ines Rohrbach
 	 */
 	public static void bewegenNachRechts() {
-		aktuelleElemente.getPlattform().moveRight();
+		aktuelleElemente.getPlattform().moveRight();//rechts
 	}
 	
 	/**
@@ -32,7 +31,7 @@ public abstract class Controller {
 	 * @author Ines Rohrbach
 	 */
 	public static void bewegenNachLinks() {
-		aktuelleElemente.getPlattform().moveLeft();
+		aktuelleElemente.getPlattform().moveLeft();//links
 	}
 	
 	/**

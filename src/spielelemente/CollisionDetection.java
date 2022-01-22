@@ -146,8 +146,9 @@ public class CollisionDetection{
         else{return new double[]{-kugel.getxVelocity(), 0.0};}
         
         boolean oberhalb = eckUnterscheidung(coll, xVorz, yVorz, kugel);
-        boolean flip = yVorz^oberhalb;
-        if(flip){return new double[]{-kugel.getxVelocity(), kugel.getyVelocity()};}
+        boolean flip = (!xVorz && !yVorz && oberhalb)||(!xVorz && yVorz && !oberhalb)
+            ||(xVorz && !yVorz && oberhalb)||(xVorz && yVorz && !oberhalb);//yVorz^oberhalb;
+        if(!flip){return new double[]{-kugel.getxVelocity(), kugel.getyVelocity()};}
         else{return new double[]{kugel.getxVelocity(), -kugel.getyVelocity()};}
     }
 
@@ -165,11 +166,11 @@ public class CollisionDetection{
         Point2D.Double collEcke;
         Point2D.Double vec = new Point2D.Double(kugel.getxVelocity(),kugel.getyVelocity());
         if(xVorz && yVorz){
-            g = new Gerade(new Point2D.Double(kugel.getMinX(), kugel.getMinY()), vec);
+            g = new Gerade(new Point2D.Double(kugel.getMaxX(), kugel.getMaxY()), vec);
             collEcke = new Point2D.Double(coll.getMinX(), coll.getMinY());
         }
         else if(!xVorz && !yVorz){
-            g = new Gerade(new Point2D.Double(kugel.getMaxX(), kugel.getMaxY()), vec);
+            g = new Gerade(new Point2D.Double(kugel.getMinX(), kugel.getMinY()), vec);
             collEcke = new Point2D.Double(coll.getMaxX(), coll.getMaxY());
         }
         else if(!xVorz && yVorz){
@@ -205,7 +206,7 @@ public class CollisionDetection{
         */
         public boolean istOberhalb(Point2D.Double p){
             double y = m*p.getX()+t;
-            if(y > p.getY()){ //das hier hat nix mit wellenstand zu tun, da gehts um die ecken von faessern u plattform
+            if(y > p.getY()){
                 return true;
             } 
             return false;
