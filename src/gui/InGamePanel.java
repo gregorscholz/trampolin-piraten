@@ -19,6 +19,7 @@ import zentral.Controller;
  * @author Gregor Scholz
  */
 public class InGamePanel extends JPanel {
+	private KeyListener listener = Controller.getSteuerung();
 
     static final int tick = 0;
     private Timer timer;
@@ -86,7 +87,6 @@ public class InGamePanel extends JPanel {
      * @author Gregor Scholz
      */
     public void startGame() {
-    	KeyListener listener = Controller.getSteuerung();
         this.setFocusable(true);
         this.requestFocus();
         this.addKeyListener(listener);
@@ -104,6 +104,7 @@ public class InGamePanel extends JPanel {
     public void beendet() {
     	running = false;
     	kugelStart = false;
+    	this.removeKeyListener(listener);
     	timer.stop();
     }
     
