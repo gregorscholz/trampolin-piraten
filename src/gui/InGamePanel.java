@@ -108,6 +108,12 @@ public class InGamePanel extends JPanel {
     	timer.stop();
     }
     
+    /**
+     * Startet nach dem Space-Taste druecken die Bewegung der Kugel.
+     * 
+     * @param b, true = kugel bewegt sich
+     * @author Ines Rohrbach
+     */
     public void setKugelStart(boolean b) {
     	kugelStart = b;
     }
