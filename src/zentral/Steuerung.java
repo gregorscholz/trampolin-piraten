@@ -3,6 +3,8 @@ package zentral;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import gui.GamePanel;
+
 /**
  * Klasse zur Einstellung der Steuerung per Tastatur und Implementation des KeyListeners.
  * 
@@ -84,6 +86,10 @@ public class Steuerung implements KeyListener {
     public void keyTyped(KeyEvent e) {}
 	
     @Override
-    public void keyReleased(KeyEvent e) {}
+    public void keyReleased(KeyEvent e) {
+    	if(e.getKeyCode()==KeyEvent.VK_SPACE) {
+    		GamePanel.getInGameP().setKugelStart(true);
+    	}
+    }
 
 }

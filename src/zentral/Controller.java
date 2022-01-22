@@ -2,7 +2,7 @@ package zentral;
 
 import java.util.Iterator;
 import java.util.Set;
-
+import gui.GamePanel;
 import spielelemente.GameObjects;
 import spielelemente.IFSpielelement;
 import spielelemente.Kugel;
@@ -126,9 +126,8 @@ public abstract class Controller {
 	 * 
 	 * @author Ines Rohrbach
 	 */
-	public void spielBeendet() {
-		
-		//freeze spielstand bild
+	public static void spielBeendet()  {
+		GamePanel.getInGameP().beendet();
 		aktuelleElemente = null;
 		rumAktiviert(false);
 		

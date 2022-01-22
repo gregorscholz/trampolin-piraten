@@ -2,6 +2,7 @@ package spielelemente;
 
 import java.awt.Rectangle;
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
 
 import gui.InGamePanel;
 
@@ -51,11 +52,16 @@ public class CollisionDetection{
      *@return Kollision
     */
     private boolean checkFaesser(Kugel kugel){
-        for(Fass i : gameObjects.getFaesser()){
+    	ArrayList<Fass> faesser = new ArrayList<Fass>(gameObjects.getFaesser()); //weil ich nicht weiss ob dich die for schleife bewert oder nicht, wenn das so ist wie vorher
+        for(Fass i : faesser/*gameObjects.getFaesser()*/){
             if(i != null){
                 if(kugel.intersects(i)){
-                    i.treffer(i.getPosition(), i.getLeben(), i.getEvent());//kommentar ines: eine if bedingung w�re sinnvoll, denn wenn ein fass kein leben mehr hat, gibt es null zur�ck, dann bitte das fass aus faesser in gameobjects entfernen
-                    double[] vec = calcVector(i, kugel);
+                    //i.treffer(i.getPosition(), i.getLeben(), i.getEvent());//kommentar ines: eine if bedingung w�re sinnvoll, denn wenn ein fass kein leben mehr hat, gibt es null zur�ck, dann bitte das fass aus faesser in gameobjects entfernen
+                	
+                	if(i.treffer(i.getPosition(), i.getLeben(), i.getEvent())==null) { //soweit ich weiss, wird triffer dann ja auch ausgefuehrt, was ja ausreicht
+                		gameObjects.entferneFass(i.getPosition());
+                	}	
+                	double[] vec = calcVector(i, kugel);
                     kugel.setxVelocity(vec[0]);
                     kugel.setyVelocity(vec[1]);
                 }
@@ -89,17 +95,17 @@ public class CollisionDetection{
     */
     private boolean checkSeiten(Kugel kugel){
         //Kugel triff links o. rechts
-        if(kugel.getxKoordinate() <= 0 || kugel.getMaxX() >= panel.getWidth()){
+        if(kugel.getX() <= 0 || kugel.getMaxX() >= 1400){
             kugel.setxVelocity(-kugel.getxVelocity());
             return true;
         }
         //Kugel trifft oben
-        if(kugel.getyKoordinate() >= panel.getWidth()){
+        if(kugel.getY() <= 0){
             kugel.setxVelocity(-kugel.getyVelocity());
             return true;
         }
         //Kugel trifft unten
-        if(kugel.getyKoordinate() < gameObjects.getPlattform().getWellenstand()){
+        if(kugel.getY() > gameObjects.getPlattform().getWellenstand()){
             resetKugel(kugel);
             return true;
         }
@@ -117,7 +123,7 @@ public class CollisionDetection{
             if(i.getIstAktiv()==0)
             return;
         }
-        controller.spielBeendet();
+        Controller.spielBeendet();
     }
     
     /**
