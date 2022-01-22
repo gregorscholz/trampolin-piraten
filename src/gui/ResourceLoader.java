@@ -19,7 +19,7 @@ public class ResourceLoader {
 
     private static Font pirateFont;
     private static Icon bigIcon, backIcon, levelIcon;
-    private static BufferedImage background, fass_explosion, fass_rum, fass_wellenstand_erhoehen, fass_wellenstand_verringern, fass_munition, fass, kugel;
+    private static BufferedImage background, fass_explosion, fass_rum, fass_wellenstand_erhoehen, fass_wellenstand_verringern, fass_munition, fass, kugel, wellen;
 
     public ResourceLoader() {
         loadFont();
@@ -27,6 +27,7 @@ public class ResourceLoader {
         loadBackground();
         loadFaesser();
         loadKugel();
+        loadWellen();
     }
     
     /**
@@ -167,6 +168,18 @@ public class ResourceLoader {
 
     public static BufferedImage getKugel() {
         return kugel;
+    }
+    
+    public void loadWellen() {
+        try {
+            wellen = ImageIO.read(new File("resources/wellen.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static BufferedImage getWellen() {
+        return wellen;
     }
     
 }

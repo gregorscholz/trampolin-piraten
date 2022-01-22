@@ -43,6 +43,8 @@ public class InGamePanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         if(running) {
+            // draw Background
+            g.drawImage(ResourceLoader.getWellen(), 0, Controller.getObjekte().getPlattform().getWellenstand(), null);
             g.fillRect( Controller.getObjekte().getPlattform().getxKoordinate(), Controller.getObjekte().getPlattform().getyKoordinate(), 
                         Controller.getObjekte().getPlattform().getPlattformBreite(), Controller.getObjekte().getPlattform().getPlattformHoehe());
             for(Fass f : Controller.getObjekte().getFaesser()) {
