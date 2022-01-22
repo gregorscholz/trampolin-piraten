@@ -55,6 +55,7 @@ public class GameObjects {
 				faesser.remove(j);
 				break;
 			}
+			j++;
 		}
 	}
 

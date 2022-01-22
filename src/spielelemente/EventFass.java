@@ -20,24 +20,25 @@ public class EventFass extends Fass implements IFSpielelement {
 
 	public EventFass(int fassNummer, int leben, int eventnummer) {
 		super(fassNummer, leben, eventnummer);
+		System.out.println("EVENTFASS");
 			switch(eventnummer) {
 			case 1: //Schwarzpulver
 				betroffen = go.getFass(fassNummer- (breite +1));
-				betroffen.treffer(betroffen.getPosition(), betroffen.getLeben(), betroffen.getEvent());
+				if(betroffen!=null) betroffen.treffer();
 				betroffen = go.getFass(fassNummer- (breite));
-				betroffen.treffer(betroffen.getPosition(), betroffen.getLeben(), betroffen.getEvent());
+				if(betroffen!=null) betroffen.treffer();
 				betroffen = go.getFass(fassNummer- (breite-1));
-				betroffen.treffer(betroffen.getPosition(), betroffen.getLeben(), betroffen.getEvent());
+				if(betroffen!=null) betroffen.treffer();
 				betroffen = go.getFass(fassNummer- (1));
-				betroffen.treffer(betroffen.getPosition(), betroffen.getLeben(), betroffen.getEvent());
+				if(betroffen!=null) betroffen.treffer();
 				betroffen = go.getFass(fassNummer+ (1));
-				betroffen.treffer(betroffen.getPosition(), betroffen.getLeben(), betroffen.getEvent());
+				if(betroffen!=null) betroffen.treffer();
 				betroffen = go.getFass(fassNummer+ (breite -1));
-				betroffen.treffer(betroffen.getPosition(), betroffen.getLeben(), betroffen.getEvent());
+				if(betroffen!=null) betroffen.treffer();
 				betroffen = go.getFass(fassNummer+ (breite));
-				betroffen.treffer(betroffen.getPosition(), betroffen.getLeben(), betroffen.getEvent());
+				if(betroffen!=null) betroffen.treffer();
 				betroffen = go.getFass(fassNummer+ (breite +1));
-				betroffen.treffer(betroffen.getPosition(), betroffen.getLeben(), betroffen.getEvent());
+				if(betroffen!=null) betroffen.treffer();
 			case 2: //Munition
 				Controller.aktiviereKugel(fassNummer);
 			case 3: // Rum: 

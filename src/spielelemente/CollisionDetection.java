@@ -56,8 +56,8 @@ public class CollisionDetection{
         for(Fass i : faesser/*gameObjects.getFaesser()*/){
             if(i != null){
                 if(kugel.intersects(i)){
-
-                	if(i.treffer(i.getPosition(), i.getLeben(), i.getEvent())==null) { //soweit ich weiss, wird triffer dann ja auch ausgefuehrt, was ja ausreicht
+                	int j = i.treffer();
+                	if(j==0) {
                 		gameObjects.entferneFass(i.getPosition());
                         if(gameObjects.getFaesser().size()<=0){
                             Controller.spielBeendet(true);

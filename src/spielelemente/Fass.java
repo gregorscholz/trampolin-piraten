@@ -17,8 +17,7 @@ import gui.InGamePanel;
  */
 
 public class Fass extends Rectangle implements IFSpielelement {
-	
-	private int verbleibend;
+	private int leben;
 	private int position;
 	private int xKoordinate;
 	private int yKoordinate;
@@ -35,7 +34,7 @@ public class Fass extends Rectangle implements IFSpielelement {
 		super(FassPosition.fassXPosition(fassNummer), FassPosition.fassYPosition(fassNummer), 50, 50);
 		if ( leben != 0) {
 			position = fassNummer;
-			verbleibend = leben;
+			this.leben = leben;
 			yKoordinate = (fassNummer % 10)* fasshoehe;
 			xKoordinate = (fassNummer % 20)* fassbreite;
 			event = eventnummer;
@@ -48,16 +47,13 @@ public class Fass extends Rectangle implements IFSpielelement {
      *@author ischramm
      */
 	
-	Object treffer(int fassNummer, int leben, int eventnummer){
+	public int treffer(){
 		leben = leben-1;
-		verbleibend = leben;
-		if (eventnummer != 0) {
-			EventFass ausloeser = new EventFass(fassNummer, leben, eventnummer);
+		System.out.println(position + " " + (leben+1) + " -> " + leben);
+		if (event != 0) {
+			EventFass ausloeser = new EventFass(position, leben, event);
 		}
-		if (verbleibend == 0) {
-			return null;
-		}
-		return verbleibend;
+		return leben;
 	}
 
 	/**
@@ -82,7 +78,7 @@ public class Fass extends Rectangle implements IFSpielelement {
      * @autor ischramm
      */
 	public int getLeben(){
-		return verbleibend;
+		return leben;
 	}
 	 /**
      * @getX ,gibt die x position eines Fasses (oben links)
