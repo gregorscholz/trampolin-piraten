@@ -3,7 +3,6 @@ package zentral;
 import java.util.Iterator;
 import java.util.Set;
 
-import gui.GamePanel;
 import spielelemente.GameObjects;
 import spielelemente.IFSpielelement;
 import spielelemente.Kugel;
@@ -23,7 +22,7 @@ public abstract class Controller {
 	 * @author Ines Rohrbach
 	 */
 	public static void bewegenNachRechts() {
-		aktuelleElemente.getPlattform().moveRight();
+		aktuelleElemente.getPlattform().moveRight();//rechts
 	}
 	
 	/**
@@ -32,7 +31,7 @@ public abstract class Controller {
 	 * @author Ines Rohrbach
 	 */
 	public static void bewegenNachLinks() {
-		aktuelleElemente.getPlattform().moveLeft();
+		aktuelleElemente.getPlattform().moveLeft();//links
 	}
 	
 	/**
@@ -63,7 +62,6 @@ public abstract class Controller {
 	public static void erstelleLevel(int i, int j) {
 		LevelDesign l = new LevelDesign(i, j);
 		aktuelleElemente = new GameObjects(l.getElemente());
-		GamePanel.getInGameP().startGame();
 	}
 	
 	/**
@@ -128,8 +126,9 @@ public abstract class Controller {
 	 * 
 	 * @author Ines Rohrbach
 	 */
-	public void spielBeendet()  {
-		GamePanel.getInGameP().beendet();
+	public void spielBeendet() {
+		
+		//freeze spielstand bild
 		aktuelleElemente = null;
 		rumAktiviert(false);
 		
