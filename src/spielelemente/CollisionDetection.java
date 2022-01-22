@@ -56,11 +56,13 @@ public class CollisionDetection{
         for(Fass i : faesser/*gameObjects.getFaesser()*/){
             if(i != null){
                 if(kugel.intersects(i)){
-                    //i.treffer(i.getPosition(), i.getLeben(), i.getEvent());//kommentar ines: eine if bedingung w�re sinnvoll, denn wenn ein fass kein leben mehr hat, gibt es null zur�ck, dann bitte das fass aus faesser in gameobjects entfernen
-                	
+
                 	if(i.treffer(i.getPosition(), i.getLeben(), i.getEvent())==null) { //soweit ich weiss, wird triffer dann ja auch ausgefuehrt, was ja ausreicht
                 		gameObjects.entferneFass(i.getPosition());
-                	}	
+                        if(gameObjects.getFaesser().size()<=0){
+                            Controller.spielBeendet(true);
+                        }
+                	}
                 	double[] vec = calcVector(i, kugel);
                     kugel.setxVelocity(vec[0]);
                     kugel.setyVelocity(vec[1]);
@@ -123,7 +125,7 @@ public class CollisionDetection{
             if(i.getIstAktiv()==0)
             return;
         }
-        Controller.spielBeendet();
+        Controller.spielBeendet(false);
     }
     
     /**
