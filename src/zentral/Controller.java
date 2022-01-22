@@ -62,6 +62,7 @@ public abstract class Controller {
 	public static void erstelleLevel(int i, int j) {
 		LevelDesign l = new LevelDesign(i, j);
 		aktuelleElemente = new GameObjects(l.getElemente());
+		GamePanel.getInGameP().startGame();
 	}
 	
 	/**
