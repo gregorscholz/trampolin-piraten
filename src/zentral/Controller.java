@@ -127,7 +127,7 @@ public abstract class Controller {
 	 * 
 	 * @author Ines Rohrbach
 	 */
-	public static void spielBeendet()  {
+	public static void spielBeendet(boolean b)  {
 		GamePanel.getInGameP().beendet();
 		aktuelleElemente = null;
 		rumAktiviert(false);

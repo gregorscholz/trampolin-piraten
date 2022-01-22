@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import spielelemente.CollisionDetection;
-//import spielelemente.CollisionDetection;
 import spielelemente.Fass;
 import spielelemente.Kugel;
 import zentral.Controller;
