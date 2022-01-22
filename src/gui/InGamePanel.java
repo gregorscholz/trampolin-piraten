@@ -1,9 +1,11 @@
 package gui;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
-import java.awt.Dimension;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -43,9 +45,11 @@ public class InGamePanel extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(ResourceLoader.getHimmel(), 0, 0, null);
+        g.setColor(Color.decode("#b1f1ff"));
+        g.fillRect(0, 0, 1400, 1000);
         if(running) {
             g.drawImage(ResourceLoader.getWellen(), 0, Controller.getObjekte().getPlattform().getWellenstand(), null);
+            g.setColor(Color.BLACK);
             g.fillRect( Controller.getObjekte().getPlattform().getxKoordinate(), Controller.getObjekte().getPlattform().getyKoordinate(), 
                         Controller.getObjekte().getPlattform().getPlattformBreite(), Controller.getObjekte().getPlattform().getPlattformHoehe());
             for(Fass f : Controller.getObjekte().getFaesser()) {
@@ -76,7 +80,10 @@ public class InGamePanel extends JPanel {
                 }
             }
         } else {
-            g.fillRect(10, 10, 100, 100);
+            g.setColor(Color.black);
+            g.setFont(ResourceLoader.getFont(48f));
+            FontMetrics metrics = getFontMetrics(g.getFont());
+            g.drawString("Game Over!", (GamePanel.SCREEN_WIDTH - metrics.stringWidth("Game Over!")) / 2, (GamePanel.SCREEN_HEIGHT - g.getFont().getSize()) / 2);
             // zeige Game Over Screen, entweder verloren oder gewonnen
         }
     }
