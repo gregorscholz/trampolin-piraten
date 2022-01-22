@@ -95,17 +95,17 @@ public class CollisionDetection{
     */
     private boolean checkSeiten(Kugel kugel){
         //Kugel triff links o. rechts
-        if(kugel.getxKoordinate() <= 0 || kugel.getMaxX() >= 1400){
+        if(kugel.getX() <= 0 || kugel.getMaxX() >= 1400){
             kugel.setxVelocity(-kugel.getxVelocity());
             return true;
         }
         //Kugel trifft oben
-        if(kugel.getyKoordinate() >= panel.getWidth()){
+        if(kugel.getY() <= 0){
             kugel.setxVelocity(-kugel.getyVelocity());
             return true;
         }
         //Kugel trifft unten
-        if(kugel.getyKoordinate() < gameObjects.getPlattform().getWellenstand()){
+        if(kugel.getY() > gameObjects.getPlattform().getWellenstand()){
             resetKugel(kugel);
             return true;
         }
@@ -123,7 +123,7 @@ public class CollisionDetection{
             if(i.getIstAktiv()==0)
             return;
         }
-        controller.spielBeendet();
+        Controller.spielBeendet();
     }
     
     /**

@@ -8,6 +8,7 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import spielelemente.CollisionDetection;
 //import spielelemente.CollisionDetection;
 import spielelemente.Fass;
 import spielelemente.Kugel;
@@ -23,15 +24,15 @@ public class InGamePanel extends JPanel {
     static final int tick = 0;
     private Timer timer;
     private boolean running;
+    private boolean kugelStart = false;
 
-    //private CollisionDetection cd;
+    private CollisionDetection cd;
 
     public InGamePanel() {
         Dimension dim = new Dimension(GamePanel.SCREEN_WIDTH, GamePanel.SCREEN_HEIGHT);
         this.setMinimumSize(dim);
         this.setPreferredSize(dim);
         this.setMaximumSize(dim);
-        //cd = new CollisionDetection(Controller.getObjekte());
     }
 
     /**
@@ -88,6 +89,7 @@ public class InGamePanel extends JPanel {
         this.setFocusable(true);
         this.requestFocus();
         this.addKeyListener(listener);
+        cd = new CollisionDetection(Controller.getObjekte(), this);
         running = true;
         timer = new Timer(tick, new GameActionListener());
         timer.restart();									
@@ -100,7 +102,12 @@ public class InGamePanel extends JPanel {
      */
     public void beendet() {
     	running = false;
+    	kugelStart = false;
     	timer.stop();
+    }
+    
+    public void setKugelStart(boolean b) {
+    	kugelStart = b;
     }
 
     /**
@@ -117,8 +124,15 @@ public class InGamePanel extends JPanel {
          */
         @Override
         public void actionPerformed(ActionEvent e) {
+        	if(kugelStart) {
+        		for(Kugel k: Controller.getObjekte().getKugeln()) {
+        			if(k.getIstAktiv()==0) {
+        				k.move();
+        			}
+        		}
+        	}
             if(running) {
-                //cd.checkCollision();
+                cd.checkCollision();
             }
             repaint();
         }
