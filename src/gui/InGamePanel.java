@@ -46,13 +46,10 @@ public class InGamePanel extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(Color.decode("#b1f1ff"));
-        g.fillRect(0, 0, 1400, 1000);
+        g.drawImage(ResourceLoader.getHimmel(), 0, 0, null);
         if(running) {
             g.drawImage(ResourceLoader.getWellen(), 0, Controller.getObjekte().getPlattform().getWellenstand(), null);
-            g.setColor(Color.BLACK);
-            g.fillRect((int) Controller.getObjekte().getPlattform().getX(), (int) Controller.getObjekte().getPlattform().getY(), 
-                        Controller.getObjekte().getPlattform().getPlattformBreite(), Controller.getObjekte().getPlattform().getPlattformHoehe());
+            g.drawImage(ResourceLoader.getSchiff(), (int) Controller.getObjekte().getPlattform().getX(), (int) Controller.getObjekte().getPlattform().getY(), null);
             for(Fass f : Controller.getObjekte().getFaesser()) {
                 switch (f.getEvent()) {
                 case 0:
