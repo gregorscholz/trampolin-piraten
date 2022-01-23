@@ -19,7 +19,7 @@ public class ResourceLoader {
 
     private static Font pirateFont;
     private static Icon bigIcon, backIcon, levelIcon;
-    private static BufferedImage background, fass_explosion, fass_rum, fass_wellenstand_erhoehen, fass_wellenstand_verringern, fass_munition, fass, kugel, wellen;
+    private static BufferedImage background, fass_explosion, fass_rum, fass_wellenstand_erhoehen, fass_wellenstand_verringern, fass_munition, fass, kugel, wellen, himmel, schiff;
 
     public ResourceLoader() {
         loadFont();
@@ -28,6 +28,8 @@ public class ResourceLoader {
         loadFaesser();
         loadKugel();
         loadWellen();
+        loadHimmel();
+        loadSchiff();
     }
     
     /**
@@ -180,6 +182,30 @@ public class ResourceLoader {
 
     public static BufferedImage getWellen() {
         return wellen;
+    }
+
+    public void loadHimmel() {
+        try {
+            himmel = ImageIO.read(new File("resources/himmel.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static BufferedImage getHimmel() {
+        return himmel;
+    }
+
+    public void loadSchiff() {
+        try {
+            schiff = ImageIO.read(new File("resources/schiff.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static BufferedImage getSchiff() {
+        return schiff;
     }
 
 }
