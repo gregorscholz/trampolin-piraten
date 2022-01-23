@@ -23,7 +23,7 @@ public class GamePanel extends JPanel {
     	return ingamepanel;
     }
 
-    static CardLayout cl;
+    public static CardLayout cl;
 
     public GamePanel() {
         setup();

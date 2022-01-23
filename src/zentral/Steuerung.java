@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import gui.GamePanel;
+import gui.WindowPanel;
 
 /**
  * Klasse zur Einstellung der Steuerung per Tastatur und Implementation des KeyListeners.
@@ -90,6 +91,9 @@ public class Steuerung implements KeyListener {
     	if(e.getKeyCode()==KeyEvent.VK_SPACE) {
     		GamePanel.getInGameP().setKugelStart(true);
     	}
+    	/*if((e.getKeyCode()==KeyEvent.VK_SPACE)) {
+    		GamePanel.cl.show(WindowPanel.gp, "Main Menu");
+    	}*/
     }
 
 }

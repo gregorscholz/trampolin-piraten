@@ -10,7 +10,7 @@ import javax.swing.JPanel;
  */
 public class WindowPanel extends JPanel {
 
-    static GamePanel gp;
+    public static GamePanel gp;
 
     public WindowPanel() {
         gp = new GamePanel();
