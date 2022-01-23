@@ -20,32 +20,38 @@ public class EventFass extends Fass implements IFSpielelement {
 
 	public EventFass(int fassNummer, int leben, int eventnummer) {
 		super(fassNummer, leben, eventnummer);
+		go.entferneFass(fassNummer);
 			switch(eventnummer) {
 			case 1: //Schwarzpulver
 				betroffen = go.getFass(fassNummer- (breite +1));
-				betroffen.treffer(betroffen.getPosition(), betroffen.getLeben(), betroffen.getEvent());
+				if(betroffen!=null) if(betroffen.treffer()==0) go.entferneFass(betroffen.getPosition());
 				betroffen = go.getFass(fassNummer- (breite));
-				betroffen.treffer(betroffen.getPosition(), betroffen.getLeben(), betroffen.getEvent());
+				if(betroffen!=null) if(betroffen.treffer()==0) go.entferneFass(betroffen.getPosition());
 				betroffen = go.getFass(fassNummer- (breite-1));
-				betroffen.treffer(betroffen.getPosition(), betroffen.getLeben(), betroffen.getEvent());
+				if(betroffen!=null) if(betroffen.treffer()==0) go.entferneFass(betroffen.getPosition());
 				betroffen = go.getFass(fassNummer- (1));
-				betroffen.treffer(betroffen.getPosition(), betroffen.getLeben(), betroffen.getEvent());
+				if(betroffen!=null) if(betroffen.treffer()==0) go.entferneFass(betroffen.getPosition());
 				betroffen = go.getFass(fassNummer+ (1));
-				betroffen.treffer(betroffen.getPosition(), betroffen.getLeben(), betroffen.getEvent());
+				if(betroffen!=null) if(betroffen.treffer()==0) go.entferneFass(betroffen.getPosition());
 				betroffen = go.getFass(fassNummer+ (breite -1));
-				betroffen.treffer(betroffen.getPosition(), betroffen.getLeben(), betroffen.getEvent());
+				if(betroffen!=null) if(betroffen.treffer()==0) go.entferneFass(betroffen.getPosition());
 				betroffen = go.getFass(fassNummer+ (breite));
-				betroffen.treffer(betroffen.getPosition(), betroffen.getLeben(), betroffen.getEvent());
+				if(betroffen!=null) if(betroffen.treffer()==0) go.entferneFass(betroffen.getPosition());
 				betroffen = go.getFass(fassNummer+ (breite +1));
-				betroffen.treffer(betroffen.getPosition(), betroffen.getLeben(), betroffen.getEvent());
+				if(betroffen!=null) if(betroffen.treffer()==0) go.entferneFass(betroffen.getPosition());
+				break;
 			case 2: //Munition
 				Controller.aktiviereKugel(fassNummer);
+				break;
 			case 3: // Rum: 
 				Controller.rumAktiviert(true);
+				break;
 			case 4: //wellenstand erhöhen
 				Controller.erhoeheWellenstand(true);
+				break;
 			case 5: //wellenstand verringern
 				Controller.erhoeheWellenstand(false);
+				break;
 			}
 	}
 }
