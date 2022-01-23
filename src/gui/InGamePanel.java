@@ -1,5 +1,4 @@
 package gui;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
@@ -52,25 +51,28 @@ public class InGamePanel extends JPanel {
             g.drawImage(ResourceLoader.getSchiff(), (int) Controller.getObjekte().getPlattform().getX(), (int) Controller.getObjekte().getPlattform().getY(), null);
             for(Fass f : Controller.getObjekte().getFaesser()) {
                 switch (f.getEvent()) {
-                case 0:
+                    case 0:
                     g.drawImage(ResourceLoader.getFass(), (int) f.getX(),(int) f.getY(), null);
                     break;
-                case 1:
+                    case 1:
                     g.drawImage(ResourceLoader.getFassExplosion(), (int) f.getX(),(int) f.getY(), null);
                     break;
-                case 2:
+                    case 2:
                     g.drawImage(ResourceLoader.getFassMunition(), (int) f.getX(),(int) f.getY(), null);
                     break;
-                case 3:
+                    case 3:
                     g.drawImage(ResourceLoader.getFassRum(), (int) f.getX(),(int) f.getY(), null);
                     break;
-                case 4:
+                    case 4:
                     g.drawImage(ResourceLoader.getWellenstandErhoehen(), (int) f.getX(),(int) f.getY(), null);
                     break;
-                case 5:
+                    case 5:
                     g.drawImage(ResourceLoader.getWellenstandVerringern(), (int) f.getX(),(int) f.getY(), null);
                     break;
                 }
+                g.setFont(ResourceLoader.getFont(24f));
+                FontMetrics metrics = getFontMetrics(g.getFont());
+                g.drawString(String.valueOf(f.getLeben()), (int) ((f.getX() + (f.getWidth() / 2)) - (metrics.stringWidth(String.valueOf(f.getLeben())) / 2)), (int) ((f.getY() + (f.getHeight() / 2)) + (g.getFont().getSize() / 2)));
             }
             for(Kugel k : Controller.getObjekte().getKugeln()) {
                 if (k.getIstAktiv() == 0) {
@@ -78,7 +80,6 @@ public class InGamePanel extends JPanel {
                 }
             }
         } else {
-            g.setColor(Color.black);
             g.setFont(ResourceLoader.getFont(48f));
             FontMetrics metrics = getFontMetrics(g.getFont());
             if(!ausgang) {
