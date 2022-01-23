@@ -102,7 +102,7 @@ public class InGamePanel extends JPanel {
         this.setFocusable(true);
         this.requestFocus();
         this.addKeyListener(listener);
-        cd = new CollisionDetection(Controller.getObjekte(), this);
+        cd = new CollisionDetection();
         running = true;
         timer = new Timer(tick, new GameActionListener());
         timer.restart();									
