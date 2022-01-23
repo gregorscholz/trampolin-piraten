@@ -48,14 +48,6 @@ public class Plattform extends Rectangle implements IFSpielelement {
 		this.xVelocity = xVelocity;
 	}
 
-	/**
-	 * 
-	 * @return horizontale Position der Plattform
-	 * @author Johannes Roloff
-	 */
-	public int getxKoordinate() {
-		return x;
-	}
 
 	/**
 	 * Setzt horizontale Position der Plattform
@@ -64,15 +56,6 @@ public class Plattform extends Rectangle implements IFSpielelement {
 	 */
 	public void setxKoordinate(int xKoordinate) {
 		this.x = xKoordinate;
-	}
-
-	/**
-	 * 
-	 * @return y-Koordinate der Plattform
-	 * @author Johannes Roloff
-	 */
-	public int getyKoordinate() {
-		return y;
 	}
 
 	/**
@@ -170,15 +153,15 @@ public class Plattform extends Rectangle implements IFSpielelement {
 	
 	
 	public void moveRight() {
-		if(!((x+xVelocity*20)>1200)) {
-			x = x + xVelocity*20;
+		if(!((x+xVelocity*30)>1200)) {
+			x = x + xVelocity*30;
 		}
 		else x = 1200;
 	}
 
 	public void moveLeft() { //funktioniert nur weil x nicht negativ werden kann
-		if(x >= xVelocity*20) {
-			x = x - xVelocity*20;
+		if(x >= xVelocity*30) {
+			x = x - xVelocity*30;
 		}
 		else x = x+0;
 	}

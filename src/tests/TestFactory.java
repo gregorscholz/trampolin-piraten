@@ -47,9 +47,9 @@ class TestFactory {
 	void testFabrikPlattform() {
 		Plattform e = (Plattform) LevelFactory.erstelleElement(elemente.get(1));
 		assertNotNull("Element ist null", e);
-		int p = e.getyKoordinate();
+		double p = e.getY();
 		assertNotNull("Position ist null", p);
-		assertEquals("Position ist nicht richtig", p, 1349);
+		assertEquals("Position ist nicht richtig", (int) p, 838);
 	}
 	
 	@Test
@@ -58,6 +58,6 @@ class TestFactory {
 		assertNotNull("Element ist null", e);
 		int p = e.getIstAktiv();
 		assertNotNull("Position ist null", p);
-		assertEquals("Position ist nicht richtig", p, 7);
+		assertEquals("Position ist nicht richtig", p, 8);
 	}
 }

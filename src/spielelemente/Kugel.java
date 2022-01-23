@@ -48,17 +48,17 @@ public class Kugel extends Rectangle implements IFSpielelement {
 		}
 		
 		//if(istEventKugel == 1) {
-		if(aktivWert!=0) {
+		//if(aktivWert!=0) {
 			xVelocity = randomVelocities[randomXVelocity];
 			yVelocity = randomVelocities[randomYVelocity];
 			setIstAktiv(aktivWert);
-		}
-		else {
-			xVelocity = 1.0;
-	        yVelocity = randomVelocities[randomYVelocity];;
-	        System.out.println(yVelocity);
-	        setIstAktiv(aktivWert);
-		}
+		//}
+		//else {
+		//	xVelocity = randomVelocities[randomXVelocity];
+	    //    yVelocity = randomVelocities[randomYVelocity];;
+	     //   System.out.println(yVelocity);
+	    //    setIstAktiv(aktivWert);
+		//}
 	}
 	
 	//Getter und Setter
@@ -100,30 +100,12 @@ public class Kugel extends Rectangle implements IFSpielelement {
 	}
 
 	/**
-	 * 
-	 * @return horizontale Position der Kugel
-	 * @author Johannes Roloff
-	 */
-	public int getxKoordinate() {
-		return x;
-	}
-
-	/**
 	 * Setzt horizontale Position der Kugel
 	 * 
 	 * @author Johannes Roloff
 	 */
 	public void setxKoordinate(int xKoordinate) {
 		this.x = xKoordinate;
-	}
-
-	/**
-	 * 
-	 * @return vertikale Position der Kugel
-	 * @author Johannes Roloff
-	 */
-	public int getyKoordinate() {
-		return y;
 	}
 
 	/**

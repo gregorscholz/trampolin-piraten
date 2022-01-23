@@ -1,9 +1,11 @@
 package gui;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
-import java.awt.Dimension;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -25,6 +27,7 @@ public class InGamePanel extends JPanel {
     private Timer timer;
     private boolean running;
     private boolean kugelStart = false;
+    private boolean ausgang = false; //default verloren
 
     private CollisionDetection cd;
 
@@ -43,10 +46,12 @@ public class InGamePanel extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(ResourceLoader.getHimmel(), 0, 0, null);
+        g.setColor(Color.decode("#b1f1ff"));
+        g.fillRect(0, 0, 1400, 1000);
         if(running) {
             g.drawImage(ResourceLoader.getWellen(), 0, Controller.getObjekte().getPlattform().getWellenstand(), null);
-            g.fillRect( Controller.getObjekte().getPlattform().getxKoordinate(), Controller.getObjekte().getPlattform().getyKoordinate(), 
+            g.setColor(Color.BLACK);
+            g.fillRect((int) Controller.getObjekte().getPlattform().getX(), (int) Controller.getObjekte().getPlattform().getY(), 
                         Controller.getObjekte().getPlattform().getPlattformBreite(), Controller.getObjekte().getPlattform().getPlattformHoehe());
             for(Fass f : Controller.getObjekte().getFaesser()) {
                 switch (f.getEvent()) {
@@ -72,12 +77,19 @@ public class InGamePanel extends JPanel {
             }
             for(Kugel k : Controller.getObjekte().getKugeln()) {
                 if (k.getIstAktiv() == 0) {
-                    g.drawImage(ResourceLoader.getKugel(), k.getxKoordinate(), k.getyKoordinate(), null);
+                    g.drawImage(ResourceLoader.getKugel(), (int) k.getX(), (int) k.getY(), null);
                 }
             }
         } else {
-            g.fillRect(10, 10, 100, 100);
-            // zeige Game Over Screen, entweder verloren oder gewonnen
+            g.setColor(Color.black);
+            g.setFont(ResourceLoader.getFont(48f));
+            FontMetrics metrics = getFontMetrics(g.getFont());
+            if(!ausgang) {
+            	g.drawString("Game Over!", (GamePanel.SCREEN_WIDTH - metrics.stringWidth("Game Over!")) / 2, (GamePanel.SCREEN_HEIGHT - g.getFont().getSize()) / 2);
+            } else {
+            	g.drawString("Gewonnen!", (GamePanel.SCREEN_WIDTH - metrics.stringWidth("Gewonnen!")) / 2, (GamePanel.SCREEN_HEIGHT - g.getFont().getSize()) / 2);
+
+            }
         }
     }
 
@@ -90,7 +102,7 @@ public class InGamePanel extends JPanel {
         this.setFocusable(true);
         this.requestFocus();
         this.addKeyListener(listener);
-        cd = new CollisionDetection(Controller.getObjekte(), this);
+        cd = new CollisionDetection();
         running = true;
         timer = new Timer(tick, new GameActionListener());
         timer.restart();									
@@ -101,7 +113,8 @@ public class InGamePanel extends JPanel {
      * 
      * @author Ines Rohrbach
      */
-    public void beendet() {
+    public void beendet(boolean b) {
+    	ausgang = b;
     	running = false;
     	kugelStart = false;
     	this.removeKeyListener(listener);
