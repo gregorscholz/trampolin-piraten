@@ -55,7 +55,8 @@ public class Kugel extends Rectangle implements IFSpielelement {
 		}
 		else {
 			xVelocity = 1.0;
-	        yVelocity = -1.5;
+	        yVelocity = randomVelocities[randomYVelocity];;
+	        System.out.println(yVelocity);
 	        setIstAktiv(aktivWert);
 		}
 	}
@@ -164,8 +165,8 @@ public class Kugel extends Rectangle implements IFSpielelement {
 	 * @author Johannes Roloff
 	 */
 	public void move() {
-		y = (int) (y + yVelocity*13.0);
-		x = (int) (x + xVelocity*13.0);
+		y = (int) (y + yVelocity*3.0);
+		x = (int) (x + xVelocity*3.0);
 	}
 	
 }
