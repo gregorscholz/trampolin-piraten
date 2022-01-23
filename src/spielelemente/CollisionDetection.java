@@ -103,7 +103,7 @@ public class CollisionDetection{
         }
         //Kugel trifft oben
         if(kugel.getY() <= 0){
-            kugel.setxVelocity(-kugel.getyVelocity());
+            kugel.setyVelocity(-kugel.getyVelocity());
             return true;
         }
         //Kugel trifft unten
