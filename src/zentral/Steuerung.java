@@ -73,11 +73,11 @@ public class Steuerung implements KeyListener {
 	 */
 	@Override
     public void keyPressed(KeyEvent e) {
-        if(e.getKeyCode()==bewegungRechts) {
+        if((e.getKeyCode()==bewegungRechts)&&(GamePanel.getInGameP().getRunning())) {
         	if(!rum) Controller.bewegenNachRechts();
     		else Controller.bewegenNachLinks();
         }
-        if(e.getKeyCode()==bewegungLinks) {
+        if((e.getKeyCode()==bewegungLinks)&&(GamePanel.getInGameP().getRunning())) {
         	if(!rum) Controller.bewegenNachLinks();
     		else Controller.bewegenNachRechts();
         }        
@@ -86,14 +86,20 @@ public class Steuerung implements KeyListener {
 	@Override
     public void keyTyped(KeyEvent e) {}
 	
+	/**
+	 * Startet die Kugel durch loslassen von Space und fuehrt nach dem Beenden zum Hauptmenue.
+	 * 
+	 * @author Ines Rohrbach
+	 */
     @Override
     public void keyReleased(KeyEvent e) {
-    	if(e.getKeyCode()==KeyEvent.VK_SPACE) {
+    	if((e.getKeyCode()==KeyEvent.VK_SPACE)&&(GamePanel.getInGameP().getRunning())) {
     		GamePanel.getInGameP().setKugelStart(true);
     	}
-    	/*if((e.getKeyCode()==KeyEvent.VK_SPACE)) {
+    	if((e.getKeyCode()==KeyEvent.VK_SPACE)&&(!GamePanel.getInGameP().getRunning())) {
+    		GamePanel.getInGameP().entferneKL();
     		GamePanel.cl.show(WindowPanel.gp, "Main Menu");
-    	}*/
+    	}
     }
 
 }

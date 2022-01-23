@@ -115,7 +115,6 @@ public class InGamePanel extends JPanel {
     	ausgang = b;
     	running = false;
     	kugelStart = false;
-    	this.removeKeyListener(listener);
     	timer.stop();
     }
     
@@ -127,6 +126,25 @@ public class InGamePanel extends JPanel {
      */
     public void setKugelStart(boolean b) {
     	kugelStart = b;
+    }
+    
+    /**
+     * Gibt den laufenden Zustand zurueck.
+     * 
+     * @return Laufend-Status
+     * @author Ines Rohrbach
+     */
+    public boolean getRunning() {
+    	return running;
+    }
+    
+    /**
+     * Entfernt den aktuellen KeyListener des beendeten Spiels.
+     * 
+     * @author Ines Rohrbach
+     */
+    public void entferneKL() {
+    	this.removeKeyListener(listener);
     }
 
     /**
@@ -143,6 +161,9 @@ public class InGamePanel extends JPanel {
          */
         @Override
         public void actionPerformed(ActionEvent e) {
+        	if(running) {
+                cd.checkCollision();
+            }
         	if(kugelStart) {
         		for(Kugel k: Controller.getObjekte().getKugeln()) {
         			if(k.getIstAktiv()==0) {
@@ -150,9 +171,6 @@ public class InGamePanel extends JPanel {
         			}
         		}
         	}
-            if(running) {
-                cd.checkCollision();
-            }
             repaint();
         }
         
