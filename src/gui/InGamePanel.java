@@ -27,6 +27,7 @@ public class InGamePanel extends JPanel {
     private Timer timer;
     private boolean running;
     private boolean kugelStart = false;
+    private boolean ausgang = false; //default verloren
 
     private CollisionDetection cd;
 
@@ -83,8 +84,12 @@ public class InGamePanel extends JPanel {
             g.setColor(Color.black);
             g.setFont(ResourceLoader.getFont(48f));
             FontMetrics metrics = getFontMetrics(g.getFont());
-            g.drawString("Game Over!", (GamePanel.SCREEN_WIDTH - metrics.stringWidth("Game Over!")) / 2, (GamePanel.SCREEN_HEIGHT - g.getFont().getSize()) / 2);
-            // zeige Game Over Screen, entweder verloren oder gewonnen
+            if(!ausgang) {
+            	g.drawString("Game Over!", (GamePanel.SCREEN_WIDTH - metrics.stringWidth("Game Over!")) / 2, (GamePanel.SCREEN_HEIGHT - g.getFont().getSize()) / 2);
+            } else {
+            	g.drawString("Gewonnen!", (GamePanel.SCREEN_WIDTH - metrics.stringWidth("Gewonnen!")) / 2, (GamePanel.SCREEN_HEIGHT - g.getFont().getSize()) / 2);
+
+            }
         }
     }
 
@@ -108,7 +113,8 @@ public class InGamePanel extends JPanel {
      * 
      * @author Ines Rohrbach
      */
-    public void beendet() {
+    public void beendet(boolean b) {
+    	ausgang = b;
     	running = false;
     	kugelStart = false;
     	this.removeKeyListener(listener);
