@@ -86,8 +86,10 @@ public class InGamePanel extends JPanel {
             	g.drawString("Game Over!", (GamePanel.SCREEN_WIDTH - metrics.stringWidth("Game Over!")) / 2, (GamePanel.SCREEN_HEIGHT - g.getFont().getSize()) / 2);
             } else {
             	g.drawString("Gewonnen!", (GamePanel.SCREEN_WIDTH - metrics.stringWidth("Gewonnen!")) / 2, (GamePanel.SCREEN_HEIGHT - g.getFont().getSize()) / 2);
-
             }
+            g.setFont(ResourceLoader.getFont(24f));
+            metrics = getFontMetrics(g.getFont());
+            g.drawString("Leertaste um in das Hauptmenue zurueck zu kehren.", (GamePanel.SCREEN_WIDTH - metrics.stringWidth("Leertaste um in das Hauptmenue zurueck zu kehren.")) / 2, (GamePanel.SCREEN_HEIGHT - g.getFont().getSize()) * 2/3);
         }
     }
 
