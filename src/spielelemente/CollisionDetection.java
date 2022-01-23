@@ -15,13 +15,12 @@ import zentral.Controller;
 
 public class CollisionDetection{    
     
-    GameObjects gameObjects;
-    InGamePanel panel;
-    Controller controller;
-    
+    public CollisionDetection(){
+
+    }
+
     public CollisionDetection(GameObjects g, InGamePanel p){
-        gameObjects = g;
-        panel = p;
+
     }
     
     /**
@@ -30,7 +29,7 @@ public class CollisionDetection{
      *@return Kollision
      */
     public void checkCollision(){
-        for(Kugel i: gameObjects.getKugeln()){
+        for(Kugel i: Controller.getObjekte().getKugeln()){
             if(i != null && i.getIstAktiv()==0){
                 if(checkSeiten(i)){
                     break;
@@ -52,14 +51,14 @@ public class CollisionDetection{
      *@return Kollision
     */
     private boolean checkFaesser(Kugel kugel){
-    	ArrayList<Fass> faesser = new ArrayList<Fass>(gameObjects.getFaesser()); //weil ich nicht weiss ob dich die for schleife bewert oder nicht, wenn das so ist wie vorher
-        for(Fass i : faesser/*gameObjects.getFaesser()*/){
+    	ArrayList<Fass> faesser = new ArrayList<Fass>(Controller.getObjekte().getFaesser()); //weil ich nicht weiss ob dich die for schleife bewert oder nicht, wenn das so ist wie vorher
+        for(Fass i : faesser/*Controller.getObjekte().getFaesser()*/){
             if(i != null){
                 if(kugel.intersects(i)){
                 	int j = i.treffer();
                 	if(j==0) {
-                		gameObjects.entferneFass(i.getPosition());
-                        if(gameObjects.getFaesser().size()<=0){
+                		Controller.getObjekte().entferneFass(i.getPosition());
+                        if(Controller.getObjekte().getFaesser().size()<=0){
                             Controller.spielBeendet(true);
                         }
                 	}
@@ -79,9 +78,9 @@ public class CollisionDetection{
      *@return Kollision
     */
     private boolean checkPlattform(Kugel kugel){
-        if(kugel.intersects(gameObjects.getPlattform())){
-            kugel.setxVelocity(calcVector(gameObjects.getPlattform(), kugel)[0]);
-            kugel.setyVelocity(calcVector(gameObjects.getPlattform(), kugel)[1]);
+        if(kugel.intersects(Controller.getObjekte().getPlattform())){
+            kugel.setxVelocity(calcVector(Controller.getObjekte().getPlattform(), kugel)[0]);
+            kugel.setyVelocity(calcVector(Controller.getObjekte().getPlattform(), kugel)[1]);
             return true;
         }
         return false;
@@ -107,7 +106,7 @@ public class CollisionDetection{
             return true;
         }
         //Kugel trifft unten
-        if(kugel.getY() > gameObjects.getPlattform().getWellenstand()){
+        if(kugel.getY() > Controller.getObjekte().getPlattform().getWellenstand()){
             resetKugel(kugel);
             return true;
         }
@@ -121,7 +120,7 @@ public class CollisionDetection{
     */
     private void resetKugel(Kugel kugel){
         kugel.setIstAktiv(24797);
-        for(Kugel i : gameObjects.getKugeln()){
+        for(Kugel i : Controller.getObjekte().getKugeln()){
             if(i.getIstAktiv()==0)
             return;
         }
