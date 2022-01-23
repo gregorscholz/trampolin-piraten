@@ -94,12 +94,16 @@ public abstract class Controller {
 	public static void erhoeheWellenstand(Boolean b) {
 		Plattform p = aktuelleElemente.getPlattform();
 		if(b) {
-			if(!(p.getyKoordinate()==1250)) {
-				p.setyKoordinate(p.getyKoordinate() + 50);
+			if(p.getWellenstand()==950) {
+				p.setWellenstand(1);
+			} else  if(p.getWellenstand()==900) {
+				p.setWellenstand(0);
 			}
 		} else {
-			if(!(p.getyKoordinate()==1350)) {
-				p.setyKoordinate(p.getyKoordinate() - 50);
+			if(p.getWellenstand()==850) {
+				p.setWellenstand(1);
+			} else  if(p.getWellenstand()==900) {
+				p.setWellenstand(2);
 			}
 		}
 	}
@@ -128,7 +132,7 @@ public abstract class Controller {
 	 * @author Ines Rohrbach
 	 */
 	public static void spielBeendet(boolean b)  {
-		GamePanel.getInGameP().beendet();
+		GamePanel.getInGameP().beendet(b);
 		aktuelleElemente = null;
 		rumAktiviert(false);
 		
