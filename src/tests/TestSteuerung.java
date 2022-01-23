@@ -40,7 +40,7 @@ class TestSteuerung {
 		for(long i = 0; i<1000; i++) { rob.keyPress(KeyEvent.VK_LEFT);}
 		assertEquals("Plattform ist nicht am linken Bildschirmrand", (int) Controller.getObjekte().getPlattform().getX(), 0);
 		for(long i = 0; i<1000; i++) { rob.keyPress(KeyEvent.VK_RIGHT);}
-		assertEquals("Plattform hat sich nicht nach rechts Bewegt", Controller.getObjekte().getPlattform().getxKoordinate(), 1200);
+		assertEquals("Plattform hat sich nicht nach rechts Bewegt", (int) Controller.getObjekte().getPlattform().getX(), 1200);
 		}
 
 }

@@ -79,22 +79,6 @@ public class Fass extends Rectangle implements IFSpielelement {
 	public int getLeben(){
 		return leben;
 	}
-	 /**
-     * @getX ,gibt die x position eines Fasses (oben links)
-     * @return x koordinate eines Fasses (oben links)
-     * @autor ischramm
-     */
-	public int getxKoordinate() {
-		return xKoordinate;
-	}
-	 /**
-     * @getY ,gibt die y position eines Fasses (oben links)
-     * @return y koordinate eines Fasses (oben links)
-     * @autor ischramm
-     */
-	public int getyKoordinate() {
-		return yKoordinate;
-	}
 	
 	 /**
      * Berechnen der Position 

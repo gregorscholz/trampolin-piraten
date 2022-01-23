@@ -48,14 +48,6 @@ public class Plattform extends Rectangle implements IFSpielelement {
 		this.xVelocity = xVelocity;
 	}
 
-	/**
-	 * 
-	 * @return horizontale Position der Plattform
-	 * @author Johannes Roloff
-	 */
-	public int getxKoordinate() {
-		return x;
-	}
 
 	/**
 	 * Setzt horizontale Position der Plattform
@@ -64,15 +56,6 @@ public class Plattform extends Rectangle implements IFSpielelement {
 	 */
 	public void setxKoordinate(int xKoordinate) {
 		this.x = xKoordinate;
-	}
-
-	/**
-	 * 
-	 * @return y-Koordinate der Plattform
-	 * @author Johannes Roloff
-	 */
-	public int getyKoordinate() {
-		return y;
 	}
 
 	/**

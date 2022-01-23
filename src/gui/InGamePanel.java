@@ -51,7 +51,7 @@ public class InGamePanel extends JPanel {
         if(running) {
             g.drawImage(ResourceLoader.getWellen(), 0, Controller.getObjekte().getPlattform().getWellenstand(), null);
             g.setColor(Color.BLACK);
-            g.fillRect( Controller.getObjekte().getPlattform().getxKoordinate(), Controller.getObjekte().getPlattform().getyKoordinate(), 
+            g.fillRect((int) Controller.getObjekte().getPlattform().getX(), (int) Controller.getObjekte().getPlattform().getY(), 
                         Controller.getObjekte().getPlattform().getPlattformBreite(), Controller.getObjekte().getPlattform().getPlattformHoehe());
             for(Fass f : Controller.getObjekte().getFaesser()) {
                 switch (f.getEvent()) {
@@ -77,7 +77,7 @@ public class InGamePanel extends JPanel {
             }
             for(Kugel k : Controller.getObjekte().getKugeln()) {
                 if (k.getIstAktiv() == 0) {
-                    g.drawImage(ResourceLoader.getKugel(), k.getxKoordinate(), k.getyKoordinate(), null);
+                    g.drawImage(ResourceLoader.getKugel(), (int) k.getX(), (int) k.getY(), null);
                 }
             }
         } else {
@@ -102,7 +102,7 @@ public class InGamePanel extends JPanel {
         this.setFocusable(true);
         this.requestFocus();
         this.addKeyListener(listener);
-        cd = new CollisionDetection(Controller.getObjekte(), this);
+        cd = new CollisionDetection();
         running = true;
         timer = new Timer(tick, new GameActionListener());
         timer.restart();									

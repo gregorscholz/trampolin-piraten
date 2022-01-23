@@ -99,30 +99,12 @@ public class Kugel extends Rectangle implements IFSpielelement {
 	}
 
 	/**
-	 * 
-	 * @return horizontale Position der Kugel
-	 * @author Johannes Roloff
-	 */
-	public int getxKoordinate() {
-		return x;
-	}
-
-	/**
 	 * Setzt horizontale Position der Kugel
 	 * 
 	 * @author Johannes Roloff
 	 */
 	public void setxKoordinate(int xKoordinate) {
 		this.x = xKoordinate;
-	}
-
-	/**
-	 * 
-	 * @return vertikale Position der Kugel
-	 * @author Johannes Roloff
-	 */
-	public int getyKoordinate() {
-		return y;
 	}
 
 	/**
