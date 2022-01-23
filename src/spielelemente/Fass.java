@@ -49,7 +49,6 @@ public class Fass extends Rectangle implements IFSpielelement {
 	
 	public int treffer(){
 		leben = leben-1;
-		//System.out.println(position + " " + (leben+1) + " -> " + leben);
 		if (event != 0) {
 			EventFass ausloeser = new EventFass(position, leben, event);
 		}

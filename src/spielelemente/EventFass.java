@@ -20,6 +20,7 @@ public class EventFass extends Fass implements IFSpielelement {
 
 	public EventFass(int fassNummer, int leben, int eventnummer) {
 		super(fassNummer, leben, eventnummer);
+		go.entferneFass(fassNummer);
 			switch(eventnummer) {
 			case 1: //Schwarzpulver
 				betroffen = go.getFass(fassNummer- (breite +1));
