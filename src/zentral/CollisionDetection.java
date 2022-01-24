@@ -1,12 +1,13 @@
-package spielelemente;
+package zentral;
 
 import java.awt.Rectangle;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 import gui.InGamePanel;
-
-import zentral.Controller;
+import spielelemente.Fass;
+import spielelemente.GameObjects;
+import spielelemente.Kugel;
 
 /**
  * Klasse zum Erkennen und Verarbeiten von Kollisionen zw. Objekten * 
