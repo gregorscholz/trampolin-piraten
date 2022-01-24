@@ -147,6 +147,7 @@ public class InGamePanel extends JPanel {
      */
     public void entferneKL() {
     	this.removeKeyListener(listener);
+    	ausgang = false;
     }
 
     /**
@@ -163,9 +164,6 @@ public class InGamePanel extends JPanel {
          */
         @Override
         public void actionPerformed(ActionEvent e) {
-        	if(running) {
-                cd.checkCollision();
-            }
         	if(kugelStart) {
         		for(Kugel k: Controller.getObjekte().getKugeln()) {
         			if(k.getIstAktiv()==0) {
@@ -173,6 +171,13 @@ public class InGamePanel extends JPanel {
         			}
         		}
         	}
+        	if(running) {
+        		try {
+                cd.checkCollision();
+        		} catch(NullPointerException n) {
+        			n.printStackTrace();
+        		}
+            }
             repaint();
         }
         
