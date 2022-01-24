@@ -9,9 +9,9 @@ import java.awt.event.KeyListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import spielelemente.CollisionDetection;
 import spielelemente.Fass;
 import spielelemente.Kugel;
+import zentral.CollisionDetection;
 import zentral.Controller;
 
 /**

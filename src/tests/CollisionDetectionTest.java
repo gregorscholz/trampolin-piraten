@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import gui.InGamePanel;
 import spielelemente.*;
+import zentral.CollisionDetection;
 
 public class CollisionDetectionTest {
     CollisionDetection collisionDetection;

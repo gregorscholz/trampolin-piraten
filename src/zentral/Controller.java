@@ -135,9 +135,5 @@ public abstract class Controller {
 		GamePanel.getInGameP().beendet(b);
 		aktuelleElemente = null;
 		rumAktiviert(false);
-		
-		//Gewonnen/Verloren
-		//Anzeige Gewonnen Verloren
-		//bei der anzeige auch fragen ob zurueck zur levelauswahl oder hauptmenue
 	}
 }
