@@ -147,8 +147,8 @@ public class Kugel extends Rectangle implements IFSpielelement {
 	 * @author Johannes Roloff
 	 */
 	public void move() {
-		y = (int) (y + yVelocity*3.0);
-		x = (int) (x + xVelocity*3.0);
+		y = (int) (y + yVelocity*2.0);
+		x = (int) (x + xVelocity*2.0);
 	}
 	
 }
