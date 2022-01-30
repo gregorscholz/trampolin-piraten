@@ -82,7 +82,7 @@ public class CollisionDetection{
         if(kugel.intersects(Controller.getObjekte().getPlattform())){
             kugel.setxVelocity(calcVector(Controller.getObjekte().getPlattform(), kugel)[0]);
             kugel.setyVelocity(calcVector(Controller.getObjekte().getPlattform(), kugel)[1]);
-            return true;
+            return false;//----------------------------------------------------------------------------
         }
         return false;
     }
@@ -99,12 +99,12 @@ public class CollisionDetection{
         //Kugel triff links o. rechts
         if(kugel.getX() <= 0 || kugel.getMaxX() >= 1400){
             kugel.setxVelocity(-kugel.getxVelocity());
-            return true;
+            return false;//-----------------------------------------------------------------------------
         }
         //Kugel trifft oben
         if(kugel.getY() <= 0){
             kugel.setyVelocity(-kugel.getyVelocity());
-            return true;
+            return false;//-----------------------------------------------------------------------------
         }
         //Kugel trifft unten
         if(kugel.getY() > Controller.getObjekte().getPlattform().getWellenstand()){

@@ -63,7 +63,11 @@ public class Steuerung implements KeyListener {
 	 * @author Ines Rohrbach
 	 */
 	public void rumAktiviert(boolean aktiv) {
-		rum = aktiv;
+		if(aktiv == false) {
+			rum = aktiv;
+		} else {
+			rum = !rum;
+		}
 	}
 	
 	/**
